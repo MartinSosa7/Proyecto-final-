@@ -1,1 +1,9 @@
-<p>creacion-noticia works!</p>
+<div class="container">
+    <h1>TIPO NOTICIA</h1>
+    <editor [(ngModel)]="Contenido" name="descripcion"
+        [init]="{ plugins: 'lists link image table code help wordcount' }"></editor>
+    <button class="btn btn-danger" (click)="contenido()">contenido</button>
+</div>
+<br>
+<h1>LO QUE SE MOSTRARIA EN PANTALLA SERIA:</h1>
+<div [innerHTML]="sanitizeHtml(Contenido)" ></div>
