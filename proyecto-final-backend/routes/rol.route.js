@@ -9,7 +9,7 @@ const router = express.Router();
 router.get('/:id', rolCtrl.getRol);
 router.get('/', rolCtrl.getRoles);
 router.post('/', rolCtrl.createRol);
-router.put('/:id', rolCtrl.editRol);
+router.put('/update/:id', rolCtrl.editRol);
 router.delete('/eliminar/:id', rolCtrl.deleteRol);
 
 

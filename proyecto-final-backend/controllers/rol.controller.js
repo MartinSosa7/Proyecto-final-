@@ -18,19 +18,19 @@ rolCtrl.createRol = async (req, res) => {
           try {
             await rol.save();
             res.json({
-              status: "1",
-              msg: "Rol agregado exitosamente",
+              'status': "1",
+              'msg': "Rol agregado exitosamente",
             });
           } catch (error) {
             res.status(400).json({
-              status: "0",
-              msg: "Error al agregar Rol",
+              'status': "0",
+              'msg': "Error al agregar Rol",
             });
           }
     }else{
       res.json({
-          status:"2",
-          msg:"Ya se encuentra un rol registrado con ese nombre"
+          'status':"2",
+          'msg':"Ya se encuentra un rol registrado con ese nombre"
       })
   }
 }
@@ -42,34 +42,34 @@ rolCtrl.editRol = async (req, res) => {
         try {
           await Rol.updateOne({ _id: req.body._id }, bodyRol);
           res.json({
-            status: "1",
-            msg: "Rol Actualizado",
+            'status': "1",
+            'msg': "Rol Actualizado",
           });
         } catch (error) {
           res.status(400).json({
-            status: "0",
-            msg: "Error procesando la operacion",
+            'status': "0",
+            'msg': "Error procesando la operacion"
           });
         }
     }else{
         res.json({
-            status:"2",
-            msg:"Ya se encuentra un rol registrado con ese nombre"
+            'status':"2",
+            'msg':"Ya se encuentra un rol registrado con ese nombre"
         })
     }
 }
 
 rolCtrl.deleteRol = async (req, res) => {
   try {
-    await Rol.deleteOne({ _id: req.params.idRol });
+    await Rol.deleteOne({ _id: req.params.id});
     res.json({
-      status: "1",
-      msg: "Rol Eliminado",
+      'status': "1",
+      'msg': "Rol Eliminado",
     });
   }catch (error) {
     res.status(400).json({
-      status: "0",
-      msg: "Error procesando la operacion",
+      'status': "0",
+      'msg': "Error procesando la operacion",
     });
   }
 };

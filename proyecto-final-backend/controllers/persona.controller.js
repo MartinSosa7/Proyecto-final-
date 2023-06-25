@@ -6,9 +6,9 @@ const personaCtrl = {}
 
 
 personaCtrl.getPersona = async (req, res) => {
-    console.log(req.query.id);
-    const apersona = await Persona.findById(req.query.id)
-    .populate('rol')
+    console.log(req.params.id);
+    const apersona = await Persona.findById(req.params.id)
+    .populate('roles')
     .populate('area');
     res.json(apersona);
     console.log(apersona);
@@ -16,41 +16,41 @@ personaCtrl.getPersona = async (req, res) => {
 
 personaCtrl.getPersonas = async (req, res) => {
     var apersonas = await Persona.find()
-    .populate('rol')
+    .populate('roles')
     .populate('area');
     res.json(apersonas);
 }
 
 personaCtrl.createPersona = async (req, res) => {
     var apersona = new Persona(req.body);
-    console.log("dni: "+ req.body.dni);
+   // console.log("dni: "+ req.body.dni);
     const personaEncontradaPorDni = await Persona.findOne({dni:{$eq:req.body.dni}});
-    console.log(personaEncontradaPorDni);
-    if (personaEncontradaPorDni==null || personaEncontradaPorDni=="" || personaEncontradaPorDni==undefined) {
+   // console.log(personaEncontradaPorDni);
+   if (personaEncontradaPorDni==null || personaEncontradaPorDni=="" || personaEncontradaPorDni==undefined) {
         try {
             await apersona.save();
             res.json({
                 'status': '1',
-                'msg': 'Persona guardada.'
+                'msg': 'Persona guardada'
             })
         } catch (error) {
             res.status(400).json({
             'status': '0',
-            'msg': 'Error procesando operacion'
+            'msg': 'Error procesando operacion persona'
             })
         }    
     }else{
-        res.json({
-            status:"2",
-            msg:"Ya se encuentra una persona registrada con ese numero de dni"
-        })
+       res.json({
+           'status':"2",
+           'msg':"Ya se encuentra una persona registrada con ese numero de dni"
+         })
     }
 }
 
 personaCtrl.editPersona = async (req, res) => {
     const persona = new Persona(req.body);
-    console.log("Dni:"+req.body.dni);
-    console.log("ID"+req.body._id);
+    //console.log("Dni:"+req.body.dni);
+    //console.log("ID"+req.body._id);
     const pSinCambioDni = await Persona.findOne({$and:[
                                                 {_id:{$eq:req.body._id}},
                                                 {dni:{$eq:req.body.dni}}
@@ -102,10 +102,10 @@ personaCtrl.editPersona = async (req, res) => {
 
 personaCtrl.deletePersona = async (req, res)=>{
     try {
-        await Persona.deleteOne({_id: req.query.id});
+        await Persona.deleteOne({_id: req.params.id});
         res.json({
-            status: '1',
-            msg: 'Persona removed'
+            'status': '1',
+            'msg': 'Persona removed'
         }) 
     } catch (error) {
         res.status(400).json({

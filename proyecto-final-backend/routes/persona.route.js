@@ -9,8 +9,8 @@ const router = express.Router();
 router.get('/:id', personaCtrl.getPersona);
 router.get('/', personaCtrl.getPersonas);
 router.post('/', personaCtrl.createPersona);
-router.put('/:id', personaCtrl.editPersona);
-router.delete('/:id', personaCtrl.deletePersona);
+router.put('/update/:id', personaCtrl.editPersona);
+router.delete('/eliminar/:id', personaCtrl.deletePersona);
 router.get('/filtro/:dni', personaCtrl.getPersonaByDni);
 
 //exportamos el modulo de rutas

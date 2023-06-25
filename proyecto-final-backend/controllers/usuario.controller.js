@@ -31,13 +31,13 @@ usuarioCtrl.loginUsuario = async (req, res)=>{
         const user = await Usuario.findOne(criteria);
         if (!user) {
             res.json({
-                status: 0,
-                msg: "not found" 
+                'status': 0,
+                'msg': "not found" 
             })
         }else{
             res.json({
-                status: 1,
-                msg: "success",
+                'status': 1,
+                'msg': "success",
                 username: user.username, 
                 perfil: user.perfil,
                 userid: user._id
@@ -46,8 +46,8 @@ usuarioCtrl.loginUsuario = async (req, res)=>{
 
     }catch(error){
         res.json({
-            status: 0,
-            msg: 'error'
+            'status': 0,
+            'msg': 'error'
         })
     }
 
