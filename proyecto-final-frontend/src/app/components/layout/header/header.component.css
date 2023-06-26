@@ -10,3 +10,9 @@
     color: #ffffff;
     border-radius: 4px;
 }
+
+svg{
+    margin: 0 auto;
+    width: 22px;
+   height: 22px;
+}

@@ -10,6 +10,8 @@ import { CreacionNoticiaComponent } from './components/creacion-noticia/creacion
 import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { HomeComponent } from './components/layout/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { LoginService } from './services/login.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { HomeComponent } from './components/layout/home/home.component';
     CreacionNoticiaComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,7 @@ import { HomeComponent } from './components/layout/home/home.component';
     HttpClientModule,
     EditorModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
