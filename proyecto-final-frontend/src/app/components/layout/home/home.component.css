@@ -1,0 +1,49 @@
+main {
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+
+.box1 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: 500px;
+    border-radius: 6px;
+    background: #e0e0e0;
+    box-shadow: 7px 7px 14px #d5d5d5,
+        -7px -7px 14px #ebebeb;
+}
+
+.box2 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: 500px;
+    border-radius: 6px;
+    background: #e0e0e0;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+
+    box-shadow: 7px 7px 14px #d5d5d5,
+        -7px -7px 14px #ebebeb;
+}
+
+.box3 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: 500px;
+    border-radius: 6px;
+    background: #e0e0e0;
+    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+    box-shadow: 7px 7px 14px #d5d5d5,
+        -7px -7px 14px #ebebeb;
+}
+
+img {
+    filter: blur(5px); /* Ajusta el valor de desenfoque según tus preferencias */
+  }

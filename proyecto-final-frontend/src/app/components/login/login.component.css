@@ -1,14 +1,28 @@
 /* efectos por defecto */
 
+@media screen and (max-width:600px) {
+    .contenedorcentrado {
+        position: absolute;
+    }
+}
+
 main {
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
     font-size: 100%;
     /*background-image: url("/assets/fondo_difuminado_login.jpg");*/
 
-    background: rgb(176,151,102);
-    background: linear-gradient(90deg, rgba(176,151,102,1) 0%, rgba(111,171,234,1) 100%);
+    background: rgb(176, 151, 102);
+    background: linear-gradient(90deg, rgba(176, 151, 102, 1) 0%, rgba(111, 171, 234, 1) 100%);
 }
+
+@media screen and (max-width:200px) {
+    #contenedor {
+        min-height: calc(100% - (100vh + 215.98px));
+    }
+}
+
+
 
 /* efectos para el contenedor de pantalla completa */
 #contenedor {
@@ -36,11 +50,11 @@ main {
     gap: 10px;
 
     /* From https://css.glass/ */
-    background: rgba( 255, 255, 255, 0.35 );
+    background: rgba(255, 255, 255, 0.35);
     border-radius: 30px;
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-    backdrop-filter: blur( 10px );
-    -webkit-backdrop-filter: blur( 10px );
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 /* formulario de login */
@@ -163,20 +177,26 @@ hr {
 
 /* ajustar a pantallas con ancho menor o igual a 775px; */
 @media all and (max-width: 775px) {
+    main{
+        position: relative;
+  min-height: 100vh;
+  padding-bottom: 1000px;
+    }
     #contenedorcentrado {
+        position: relative;
+        
         flex-direction: column-reverse;
-
         min-width: 380px;
         max-width: 900px;
         width: 90%;
-
         background: rgba(255, 255, 255, 0.26);
-    border-radius: 30px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4.8px);
-    -webkit-backdrop-filter: blur(4.8px);
+        border-radius: 30px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(4.8px);
+        -webkit-backdrop-filter: blur(4.8px);
         padding: 30px;
         box-sizing: border-box;
+
     }
 
     #login {

@@ -1,6 +1,19 @@
 footer{
+    position: absolute;
     text-align: center;
+    align-items: center;
     background-color: rgb(63, 73, 71);
+
+}
+
+@media screen and (max-width:775px){
+    footer{
+        position: static;
+        justify-content: center;
+        bottom: 0px;
+        width: 100%;
+        display: flex;
+    }
 }
 
 h6{
