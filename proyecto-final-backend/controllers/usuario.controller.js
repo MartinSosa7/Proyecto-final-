@@ -1,4 +1,7 @@
 const Usuario = require('../models/usuario');
+//importamos el manejador de token
+const jwt = require('jsonwebtoken');
+
 const usuarioCtrl = {}
 
 
@@ -35,12 +38,15 @@ usuarioCtrl.loginUsuario = async (req, res)=>{
                 'msg': "not found" 
             })
         }else{
+            //preparo un token para ser enviado en caso de loguin correcto
+            const unToken = jwt.sign({id: user._id}, "secretkey");
             res.json({
                 'status': 1,
                 'msg': "success",
                 username: user.username, 
                 perfil: user.perfil,
-                userid: user._id
+                userid: user._id,
+                token: unToken  //retorno del tokens
             })
         }
 
