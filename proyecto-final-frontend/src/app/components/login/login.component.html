@@ -12,7 +12,7 @@
                             [(ngModel)]="userform.username" required #username="ngModel" placeholder="Ingrese el nombre de usuario" />
 
                         <div *ngIf="username.invalid && (username.dirty || username.touched)"
-                            class="alert alert-danger">
+                            class="alert-danger">
                             <div *ngIf="username.errors?.['required']">
                                  Nombre de usuario requerido.
                             </div>
@@ -25,7 +25,7 @@
                             [(ngModel)]="userform.password" required #password="ngModel" placeholder="Ingrese su contraseña" />
 
                         <div *ngIf="password.invalid && (password.dirty || password.touched)"
-                            class="alert alert-danger">   
+                            class="alert-danger">   
                             <div *ngIf="password.errors?.['required']">
                                 Contraseña requerida
                             </div>
