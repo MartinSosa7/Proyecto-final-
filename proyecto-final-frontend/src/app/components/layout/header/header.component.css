@@ -1,0 +1,20 @@
+
+.container-fluid{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    text-align: center;
+}
+
+.nav-link:hover {
+    background-color: #00eeffe5;
+    width: auto;
+    height: 100%;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+svg{
+    margin: 0 auto;
+    width: 22px;
+   height: 22px;
+}
