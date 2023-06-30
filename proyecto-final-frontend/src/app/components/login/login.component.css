@@ -1,0 +1,217 @@
+@media screen and (max-width:600px) {
+    .contenedorcentrado {
+        position: absolute;
+    }
+}
+
+main {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-size: 100%;
+    background: rgb(176, 151, 102);
+    background: linear-gradient(90deg, rgba(176, 151, 102, 1) 0%, rgba(111, 171, 234, 1) 100%);
+}
+
+@media screen and (max-width:200px) {
+    #contenedor {
+        min-height: calc(100% - (100vh + 215.98px));
+    }
+}
+
+
+/* efectos para el contenedor de pantalla completa */
+#contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+    background-position: center;
+    background-size: cover;
+}
+
+/* contenedor del login a la izquierda */
+#contenedorcentrado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    min-width: 380px;
+    max-width: 750px;
+
+
+    padding: 30px;
+    box-sizing: border-box;
+    gap: 10px;
+
+    /* From https://css.glass/ */
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 30px;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* formulario de login */
+#login {
+    width: 100%;
+    max-width: 320px;
+    min-width: 320px;
+    padding: 30px 30px 50px 30px;
+    border-radius: 30px;
+
+    background-color: #171c5f54;
+    box-sizing: border-box;
+
+    opacity: 1;
+    filter: alpha(opacity=1);
+}
+
+#login label {
+    display: block;
+    font-family: 'Overpass', sans-serif;
+    font-size: 120%;
+    color: #ffffff;
+    text-align: left;
+    margin-top: 15px;
+}
+
+#login input {
+    font-family: 'Overpass', sans-serif;
+    font-size: 110%;
+    color: #fff;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    box-shadow: none;
+    margin-bottom: 10px;
+    padding: 5px 5px 5px 10px;
+
+    box-sizing: border-box;
+
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    border-radius: 3px 3px 3px 3px;
+}
+
+
+#login input::placeholder {
+    font-family: 'Overpass', sans-serif;
+    color: #ddd;
+}
+
+#login button {
+    font-family: 'Overpass', sans-serif;
+    font-size: 110%;
+    color: #ffffff;
+    width: 95%;
+    height: 40px;
+    border: none;
+    display: block;
+    border-radius: 3px 3px 3px 3px;
+
+    background-color: rgb(127, 184, 245);
+
+    margin-top: 10px;
+}
+
+#login button:hover {
+    background-color: #248af7;
+    color: #ffffff;
+}
+
+/* seccion de la derecha */
+/* por defecto */
+#derecho {
+
+    text-align: center;
+    width: 100%;
+
+    opacity: 0.70;
+    filter: alpha(opacity=70);
+
+    padding: 20px 20px 20px 50px;
+    box-sizing: border-box;
+}
+
+.titulo {
+    font-size: 300%;
+    color: #ffffff;
+}
+
+hr {
+    border-top: 1px solid #8c8b8b;
+    border-bottom: 1px solid #dfcdc3;
+
+}
+
+.pie-form {
+    font-size: 90%;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.pie-form a {
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    margin-bottom: 3px;
+}
+
+.pie-form a:hover {
+    color: #719192;
+}
+
+/* seccion de la derecha */
+
+/* ajustar a pantallas con ancho menor o igual a 775px; */
+@media all and (max-width: 775px) {
+    main{
+        position: relative;
+        min-height: 100vh;
+        padding-bottom: 1000px;
+    }
+    #contenedorcentrado {
+        position: relative;
+        
+        flex-direction: column-reverse;
+        min-width: 380px;
+        max-width: 900px;
+        width: 90%;
+        background-color: rgba(47, 120, 129, 0.274);
+        border-radius: 30px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(4.8px);
+        -webkit-backdrop-filter: blur(4.8px);
+        padding: 30px;
+        box-sizing: border-box;
+
+    }
+
+    #login {
+        margin: 0 auto;
+    }
+
+    #derecho {
+        padding: 20px 20px 20px 20px;
+    }
+
+    #login label {
+        text-align: left;
+    }
+}
+
+/* ajustar a pantallas con ancho menor o igual a 775px; */
+
+.bi {
+    height: 50px;
+    width: 50px;
+}
+
+.alert-danger {
+    color: #000000;
+    margin: 10px;
+    text-align: center;
+}

@@ -1,12 +1,24 @@
 footer{
+    position: absolute;
     text-align: center;
+    align-items: center;
     background-color: rgb(63, 73, 71);
 }
 
+@media screen and (max-width:775px){
+    footer{
+        position: static;
+        justify-content: center;
+        bottom: 0px;
+        width: 100%;
+        display: flex;
+    }
+}
+
 h6{
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 19px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Roboto, sans-serif;
     color: #ffffff;
 }
 
@@ -17,9 +29,13 @@ h6{
     padding: 10px;
     fill: rgb(255, 255, 255);
     background: linear-gradient(to bottom, #ffffff, #d67b3013  70% );
-    margin: 20px;
+    margin: 3px 10px;
+    cursor: pointer;
+    transition: 0.5s;
+    transform: scale(1);
 }
 
 .icono-footer svg:hover{
+    transform: scale(1.09);
     fill:#00eeff;
 }
