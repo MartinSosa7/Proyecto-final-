@@ -1,62 +1,4 @@
-<<<<<<< HEAD
-<div class="container-fluid p-0 m-0">
-  
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0 m-0">
-      <div class="container-fluid p-0">
-          <a class="navbar-brand" style="margin: 10px;">
-              <img src="./assets/escudo.png" style="width: 110px; height:100px" />
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-uppercase">
-              <li class="nav-item">
-                <a class="nav-link">Inicio</a>
-              </li>
-            </ul>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-uppercase">
-              <li class="nav-item">
-                <a class="nav-link ">Principal</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link"> Anuncios</a>
-              </li>
-            </ul>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-uppercase">
-                <li class="nav-item">
-                  <a class="nav-link ">Gestion Personas</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link">Gestion Rol</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link">Gestion Area</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" routerLink="/creacion-noticias">Gestion Anuncios</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-uppercase">
-                <li class="nav-item">
-                  <a class="nav-link " >Otros</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ms-auto ">
-                <li class="nav-item dropdown" style="margin: 20px;">
-                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                       <img src="./assets/logo.png" alt="Logo" style="width:40px;" class="rounded-pill">
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" >Crear Anuncio</a></li>
-                      <li><a class="dropdown-item" >Login</a></li>
-                    </ul>
-                </li>
-            </ul>
-         </div>
-     </div>
-  </nav>
-=======
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid p-0">
       <a class="navbar-brand" style="margin-left: 10px;" href="home">
@@ -71,7 +13,6 @@
           <li class="nav-item">
             <a class="nav-link" href="home">Inicio</a>
           </li>
->>>>>>> origin/develop
 
           <li class="nav-item">
             <a class="nav-link">Principal</a>
@@ -109,7 +50,7 @@
               <img src="./assets/logo.png" alt="Logo" style="width:30px;" class="rounded-pill">
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item">Crear Anuncio</a></li>
+              <li><a class="dropdown-item" [routerLink]="['creacion-noticias']">Crear Anuncio</a></li>
 
               <li><a class="dropdown-item" *ngIf="!loginService.userLoggedIn()" [routerLink]="['login']">Login</a></li>
               <li>
