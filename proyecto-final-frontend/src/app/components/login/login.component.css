@@ -1,5 +1,3 @@
-/* efectos por defecto */
-
 @media screen and (max-width:600px) {
     .contenedorcentrado {
         position: absolute;
@@ -10,8 +8,6 @@ main {
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
     font-size: 100%;
-    /*background-image: url("/assets/fondo_difuminado_login.jpg");*/
-
     background: rgb(176, 151, 102);
     background: linear-gradient(90deg, rgba(176, 151, 102, 1) 0%, rgba(111, 171, 234, 1) 100%);
 }
@@ -21,7 +17,6 @@ main {
         min-height: calc(100% - (100vh + 215.98px));
     }
 }
-
 
 
 /* efectos para el contenedor de pantalla completa */
@@ -65,7 +60,7 @@ main {
     padding: 30px 30px 50px 30px;
     border-radius: 30px;
 
-
+    background-color: #171c5f54;
     box-sizing: border-box;
 
     opacity: 1;
@@ -99,11 +94,7 @@ main {
     border: none;
     border-bottom: 1px solid #ffffff;
     border-radius: 3px 3px 3px 3px;
-
-
-
 }
-
 
 
 #login input::placeholder {
@@ -127,7 +118,7 @@ main {
 }
 
 #login button:hover {
-    background-color: #6fabea;
+    background-color: #248af7;
     color: #ffffff;
 }
 
@@ -179,8 +170,8 @@ hr {
 @media all and (max-width: 775px) {
     main{
         position: relative;
-  min-height: 100vh;
-  padding-bottom: 1000px;
+        min-height: 100vh;
+        padding-bottom: 1000px;
     }
     #contenedorcentrado {
         position: relative;
@@ -189,7 +180,7 @@ hr {
         min-width: 380px;
         max-width: 900px;
         width: 90%;
-        background: rgba(255, 255, 255, 0.26);
+        background-color: rgba(47, 120, 129, 0.274);
         border-radius: 30px;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(4.8px);
@@ -220,7 +211,7 @@ hr {
 }
 
 .alert-danger {
-    color: #ffffff;
+    color: #000000;
     margin: 10px;
     text-align: center;
 }
