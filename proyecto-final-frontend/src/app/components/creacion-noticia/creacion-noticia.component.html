@@ -1,1 +1,43 @@
-<p>creacion-noticia works!</p>
+<div class="container">
+    <h1>TIPO NOTICIA</h1>
+    <editor [init]="editorConfig" [(ngModel)]="Contenido"></editor>
+    <button class="btn btn-danger" (click)="contenido()">contenido</button>
+  </div>
+  <br>
+  <h1>LO QUE SE MOSTRARIA EN PANTALLA SERIA:</h1>
+  <div [innerHTML]="sanitizeHtml(Contenido)"></div>
+  <br>
+  <div class="form-group">
+    <label for="fileInput" class="mr-2">Choose file(s):</label>
+    <input type="file" id="fileInput" accept=".pdf,.doc,.docx,image/*,video/*" multiple class="form-control-file"
+      (change)="onFileSelected($event)" />
+  </div>
+  <table class="table mt-3">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>URL</th>
+        <th>Download</th>
+        <th>id</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let file of files">
+        <td>
+          <img *ngIf="file.type.startsWith('image')" [src]="file.base64" class="img-thumbnail" style="max-width: 300px" />
+        </td>
+        <td>
+          <textarea [value]="file.base64" class="form-control" rows="3"></textarea>
+        </td>
+        <td>
+          <button *ngIf="file.type != 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'" class="btn btn-primary" (click)="downloadFile(file.base64, 'file.' + file.type.split('/')[1])">Download</button>
+             <a *ngIf="file.type =='application/vnd.openxmlformats-officedocument.wordprocessingml.document'" [href]="file.base64" class="btn btn-primary">Download</a>
+        </td>
+        <td>
+          {{file.id}}, {{file.type}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
