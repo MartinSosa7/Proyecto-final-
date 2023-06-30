@@ -167,7 +167,7 @@ hr {
 /* seccion de la derecha */
 
 /* ajustar a pantallas con ancho menor o igual a 775px; */
-@media all and (max-width: 775px) {
+@media all and (max-width: 870px) {
     main{
         position: relative;
         min-height: 100vh;
