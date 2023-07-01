@@ -1,0 +1,28 @@
+<div class="tit">
+    <h3 data-text="Awesome" class="h3">
+        <span class="actual-text">&nbsp;Formularios&nbsp;</span>
+        <span class="hover-text" aria-hidden="true">&nbsp;Formularios&nbsp;</span>
+    </h3>
+</div>
+<div class="row">
+    <div class="cards">
+        <div class="card red" *ngFor="let f of forms" (click)="verForm(f)">
+            <div>
+                <p class="tip">{{f.tipo}}</p>
+                <p class="second-text">{{f.descripcion}}</p>
+            </div>
+            <div class="card-body">
+                <button class="button">
+                    <a href="{{f.archivo}}" download="{{f.tipo}}">
+                        <span class="button_lg">
+                            <span class="button_sl"></span>
+                            <span class="button_text">Descargar Archivo</span>
+                        </span>
+                    </a>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="btn"> Nuevo
+</button>

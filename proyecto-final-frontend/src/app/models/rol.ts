@@ -7,6 +7,7 @@ export class Rol {
     creaAnuncio!: boolean;
     gestiona!:boolean;
     personas:Array<Persona> = new Array <Persona>();
+    checked:boolean = false;
 
     constructor(){
         

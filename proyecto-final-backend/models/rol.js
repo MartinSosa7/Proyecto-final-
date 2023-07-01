@@ -6,7 +6,8 @@ const RolSchema = new Schema({
  verAnuncio: {type:Boolean, required: true},
  creaAnuncio: {type:Boolean, required:true},
  gestiona: {type: Boolean, required: true},
- personas: [{type: mongoose.Types.ObjectId, ref: 'Persona'}]
+ personas: [{type: mongoose.Types.ObjectId, ref: 'Persona'}],
+ checked:{type: Boolean},
 })
 
 module.exports = mongoose.models.Rol || mongoose.model('Rol', RolSchema);

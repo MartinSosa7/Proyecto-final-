@@ -5,6 +5,8 @@ import { CreacionNoticiaComponent } from './components/creacion-noticia/creacion
 import { LoginComponent } from './components/login/login.component';
 import { ProfesorComponent } from './components/Persona/profesor/profesor.component';
 import { AlumnoComponent } from './components/Persona/alumno/alumno.component';
+import { FormularioComponent } from './components/Recursos/formulario/formulario.component';
+import { NewFormularioComponent } from './components/Recursos/new-formulario/new-formulario.component';
 
 
 const routes: Routes = [
@@ -14,7 +16,8 @@ const routes: Routes = [
   { path:"login", component:LoginComponent},
   { path:"profesor", component:ProfesorComponent},
   { path:"alumno", component:AlumnoComponent},
-
+  { path:"recurso", component:FormularioComponent},
+  { path:"newrecurso", component:NewFormularioComponent},
 
   { path:"**", pathMatch:'full', redirectTo:'home'},
 
