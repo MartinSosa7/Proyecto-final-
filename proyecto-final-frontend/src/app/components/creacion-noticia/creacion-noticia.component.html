@@ -31,7 +31,7 @@
         </td>
         <td>
           <button *ngIf="file.type != 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'" class="btn btn-primary" (click)="downloadFile(file.base64, 'file.' + file.type.split('/')[1])">Download</button>
-             <a *ngIf="file.type =='application/vnd.openxmlformats-officedocument.wordprocessingml.document'" [href]="file.base64" class="btn btn-primary">Download</a>
+             <a *ngIf="file.type =='application/vnd.openxmlformats-officedocument.wordprocessingml.document'" [href]="file.base64" class="btn btn-success">Download</a>
         </td>
         <td>
           {{file.id}}, {{file.type}}

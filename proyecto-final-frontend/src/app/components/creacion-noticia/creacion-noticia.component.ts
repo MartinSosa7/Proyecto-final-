@@ -76,17 +76,37 @@ export class CreacionNoticiaComponent implements OnInit {
   }
 
   downloadFile(base64: string, filename: string) {
-    const element = document.createElement('a');
-    element.href = base64;
+    const blob = this.base64ToBlob(base64);
+    const url = URL.createObjectURL(blob);
+    
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    
+    link.click();
+    
+    // Clean up the URL object after the download is initiated
+    URL.revokeObjectURL(url);
+  }
   
-    // Set the correct file extension based on the file type
-    const fileType = filename.split('.').pop();
-    if (fileType === 'vnd.openxmlformats-officedocument.wordprocessingml.document') {
-      filename += '.docx';
+  base64ToBlob(base64: string): Blob {
+    const byteCharacters = atob(base64.split(',')[1]);
+    const byteArrays = [];
+    
+    for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+      const slice = byteCharacters.slice(offset, offset + 512);
+      
+      const byteNumbers = new Array(slice.length);
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+      
+      const byteArray = new Uint8Array(byteNumbers);
+      byteArrays.push(byteArray);
     }
-  
-    element.download = filename;
-    element.click();
+    
+    const blob = new Blob(byteArrays, { type: 'application/octet-stream' });
+    return blob;
   }
   
 }

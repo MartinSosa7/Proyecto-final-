@@ -16,6 +16,9 @@ import { LoginComponent } from './components/login/login.component';
 import { LoginService } from './services/login.service';
 import { ProfesorComponent } from './components/Persona/profesor/profesor.component';
 import { AlumnoComponent } from './components/Persona/alumno/alumno.component';
+import { NoticiasComponent } from './components/noticias/noticias.component';
+import { CreacionRolesComponent } from './components/gestion/creacion-roles/creacion-roles.component';
+import { CreacionAreasComponent } from './components/gestion/creacion-areas/creacion-areas.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { AlumnoComponent } from './components/Persona/alumno/alumno.component';
     HomeComponent,
     LoginComponent,
     ProfesorComponent,
-    AlumnoComponent
+    AlumnoComponent,
+    NoticiasComponent,
+    CreacionRolesComponent,
+    CreacionAreasComponent
 
   ],
   imports: [
