@@ -1,6 +1,6 @@
 const Usuario = require('../models/usuario');
 //importamos el manejador de token
-const jwt = require('jsonwebtoken');
+//const jwt = require('jsonwebtoken');
 
 const usuarioCtrl = {}
 
