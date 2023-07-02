@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml, SafeUrl } from '@angular/platform-browser';
+import { Anuncio } from 'src/app/models/anuncio';
+import { ServiciosAnuncioService } from 'src/app/services/servicios-anuncio.service';
 
 @Component({
   selector: 'creacion-noticia',
@@ -14,11 +16,14 @@ export class CreacionNoticiaComponent implements OnInit {
     plugins: 'lists link image table wordcount'
   }
 
-  files: { base64: string, safeurl: SafeUrl, id: number, type: string }[] = [];
+  Anuncio: Anuncio;
+  files: { base64: string,  id: number, type: string }[] = [];
   Contenido = '';
 
-  constructor(private sanitizer: DomSanitizer) {
+
+  constructor(private sanitizer: DomSanitizer, private servicios: ServiciosAnuncioService) {
     this.Contenido = '';
+    this.Anuncio = new Anuncio();
   }
 
   ngOnInit(): void {
@@ -55,8 +60,7 @@ export class CreacionNoticiaComponent implements OnInit {
       const reader = new FileReader();
       reader.onload = () => {
         let base64 = reader.result as string;
-        const fileType = file.type;
-        this.files.push({ 'base64': base64, 'id': this.files.length + 1, 'type': file.type, 'safeurl': this.sanitizeUrl(base64) });
+        this.files.push({ 'base64': base64, 'id': this.files.length + 1, 'type': file.type });
       };
       reader.readAsDataURL(file);
     }
@@ -107,6 +111,20 @@ export class CreacionNoticiaComponent implements OnInit {
     
     const blob = new Blob(byteArrays, { type: 'application/octet-stream' });
     return blob;
+  }
+
+  crearAnuncio(anuncio: Anuncio){
+    this.Anuncio.descripcion = this.Contenido;
+    this.Anuncio.recursos = this.files.map(file=>{return {base64:file.base64, type:file.type}});
+    this.servicios.postAnuncio(anuncio).subscribe(
+      result=>{
+        alert(result);
+      },
+      error=>{
+        console.log(error);
+      }
+    )
+
   }
   
 }

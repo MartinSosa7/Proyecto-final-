@@ -32,6 +32,7 @@
         <td>
           <button *ngIf="file.type != 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'" class="btn btn-primary" (click)="downloadFile(file.base64, 'file.' + file.type.split('/')[1])">Download</button>
              <a *ngIf="file.type =='application/vnd.openxmlformats-officedocument.wordprocessingml.document'" [href]="file.base64" class="btn btn-success">Download</a>
+             <button class="btn btn-danger" (click)="eliminarArchivo(file.id)">Borrar</button>
         </td>
         <td>
           {{file.id}}, {{file.type}}
@@ -39,5 +40,6 @@
       </tr>
     </tbody>
   </table>
-  
-  
+  <button class="btn btn-warning" (click)="crearAnuncio(Anuncio)">
+    CREAR ANUNCIO
+  </button>

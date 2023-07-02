@@ -1,5 +1,5 @@
 //importamos el manejador de token
-const jwt = require('jsonwebtoken');
+//const jwt = require('jsonwebtoken');
 const authCtrl = {}
 
 authCtrl.verifyToken = async (req, res, next)=>{

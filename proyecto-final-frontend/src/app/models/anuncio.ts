@@ -6,8 +6,7 @@ export class Anuncio {
     descripcion!: string;
     fechaDesde!: string;
     fechaHasta!: string;
-    recursos: Array<String>=new Array <string>();
-    area:Area=new Area();
+    recursos: {base64:string, type:string}[]=[];
     tipo!:string;
 
     constructor(){

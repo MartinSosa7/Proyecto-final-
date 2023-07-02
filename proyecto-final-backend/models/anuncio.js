@@ -4,13 +4,15 @@ const {Schema} = mongoose;
 const Area = require ('./area'); 
 
 const AnuncioSchema = new Schema({
- titulo: {type: String, required: true},
+ titulo: {type: String},
  descripcion: {type: String, required: true},
- fechaDesde: {type: String, required: true},
- fechaHasta: {type:String, required: true},
- rescursos: [{type: String}],
- area:{type: Schema.Types.ObjectId, ref: 'Area', required: true},
- tipo: {type:String, required:true}
+ fechaDesde: {type: String},
+ fechaHasta: {type:String},
+ recursos: [{
+    base64:{type:String},
+    type:{type: String},
+}],
+ tipo: {type:String}
 })
 
 module.exports = mongoose.models.Anuncio || mongoose.model('Anuncio', AnuncioSchema);
