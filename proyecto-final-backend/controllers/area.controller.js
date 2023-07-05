@@ -1,5 +1,5 @@
 const Area =  require('../models/area');
-
+const Anuncio = require('../models/anuncio');
 const areaCtrl = {}
 
 areaCtrl.getArea = async (req, res) => {
@@ -72,5 +72,79 @@ areaCtrl.getAreaByName = async (req, res) => {
     var area =  await Area.find(criteria).populate('responsables');
     res.json(area);
 }
+
+
+//FUNCIONES DE ANUNCIOS
+
+areaCtrl.addAnuncio = async (req, res) =>{
+    var area = await Area.findById(req.params.idArea);
+    var anuncio = new Anuncio(req.body);
+    try{
+        area.anuncios.push(anuncio);
+        await area.save();
+        res.status(200).json({
+            'status':'1',
+            'msg':'anuncio guardado'
+        })
+
+    }
+    catch{
+        res.status(400).json({
+            'status': '0',
+            'msg':'error al crear anuncio'
+        })
+
+    }
+
+}
+
+
+areaCtrl.getAnuncio = async (req, res) => {
+    var area = await Area.findById(req.params.idArea);
+    var anuncio = area.anuncios.id(req.params.idAnuncio);
+    res.json(anuncio);
+}
+
+areaCtrl.deleteAnuncio = async (req, res) =>{
+    var area = await Area.findById(req.params.idArea);
+    try{
+        area.anuncios.pull(req.params.idAnuncio);
+        await area.save();
+        res.status(200).json({
+            'status':'1',
+            'msg':'Anuncio borrado con exito'
+        })
+    }
+    catch{
+        res.status(400).json({
+            'status':'0',
+            'msg':'error al borrar Anuncio'
+        })
+
+    }
+
+}
+
+areaCtrl.editAnuncio = async (req, res) =>{
+    var nuevoAnuncio = new Anuncio(req.body);
+    var area = await Area.findById(req.params.idArea);
+    try{
+        var anuncio = area.anuncios.id(req.params.idAnuncio);
+        Object.assign(anuncio, nuevoAnuncio);
+        await area.save();
+        res.status(200).json({
+            'status': '1',
+            'msg': 'Anuncio editado'
+        })
+
+    }
+    catch{
+        res.status(400).json({
+            'status':'0',
+            'msg':'error al editar Anuncio'
+        })
+    }
+}
+
 
 module.exports = areaCtrl;

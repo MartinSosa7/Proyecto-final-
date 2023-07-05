@@ -1,16 +1,17 @@
 <div class="container">
-    <h1>TIPO NOTICIA</h1>
-    <editor [init]="editorConfig" [(ngModel)]="Contenido"></editor>
+  <label for="titulo">TITULO DEL ANUNCIO</label>
+    <input type="text" class="form-control" name="titulo" [ngModel]="Anuncio.titulo" placeholder="INGRESE EL TITULO DEL ANUNCIO">
+    <editor [init]="editorConfig" [(ngModel)]="Anuncio.descripcion"></editor>
     <button class="btn btn-danger" (click)="contenido()">contenido</button>
   </div>
   <br>
   <h1>LO QUE SE MOSTRARIA EN PANTALLA SERIA:</h1>
-  <div [innerHTML]="sanitizeHtml(Contenido)"></div>
+  <div [innerHTML]="sanitizeHtml(Anuncio.descripcion)"></div>
   <br>
   <div class="form-group">
     <label for="fileInput" class="mr-2">Choose file(s):</label>
     <input type="file" id="fileInput" accept=".pdf,.doc,.docx,image/*,video/*" multiple class="form-control-file"
-      (change)="onFileSelected($event)" />
+      (change)="onFileSelected($event)" name="file"/>
   </div>
   <table class="table mt-3">
     <thead>
@@ -40,6 +41,12 @@
       </tr>
     </tbody>
   </table>
-  <button class="btn btn-warning" (click)="crearAnuncio(Anuncio)">
-    CREAR ANUNCIO
+  <button  class="btn btn-warning" (click)="crearAnuncio(Anuncio)">
+    CREAR ANUNCIO/NOTICIA
+  </button>
+  <button class="btn btn-info text-white" (click)="modificarAnuncio(idArea, Anuncio._id, Anuncio)">
+    MODIFICAR ANUNCIO/NOTICIA
+  </button>
+  <button class="btn btn-danger text-white" (click)="eliminarAnuncio(idArea, Anuncio._id)">
+    ELIMINAR ANUNCIO/NOTICIA
   </button>

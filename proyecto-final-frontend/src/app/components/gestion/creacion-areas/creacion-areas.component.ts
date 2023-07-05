@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-creacion-areas',
+  selector: 'creacion-areas',
   templateUrl: './creacion-areas.component.html',
   styleUrls: ['./creacion-areas.component.css']
 })

@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
-const Area = require ('./area'); 
 
 const AnuncioSchema = new Schema({
  titulo: {type: String},

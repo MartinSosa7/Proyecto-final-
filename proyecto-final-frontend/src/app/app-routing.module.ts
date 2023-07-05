@@ -13,7 +13,7 @@ import { CreacionAreasComponent } from './components/gestion/creacion-areas/crea
 const routes: Routes = [
   { path:"", component:HomeComponent},
   { path:"home", component:HomeComponent},
-  { path:"creacion-noticias", component:CreacionNoticiaComponent},
+  { path:"creacion-noticias/:idArea/:idAnuncio", component:CreacionNoticiaComponent},
   { path:"login", component:LoginComponent},
   { path:"profesor", component:ProfesorComponent},
   { path:"alumno", component:AlumnoComponent},
