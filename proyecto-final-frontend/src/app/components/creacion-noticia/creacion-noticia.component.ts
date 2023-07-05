@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml, SafeUrl } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 import { Anuncio } from 'src/app/models/anuncio';
 import { ServiciosAnuncioService } from 'src/app/services/servicios-anuncio.service';
 
@@ -18,20 +19,35 @@ export class CreacionNoticiaComponent implements OnInit {
 
   Anuncio: Anuncio;
   files: { base64: string,  id: number, type: string }[] = [];
-  Contenido = '';
+  accion!:string;
 
+  idArea:any;
 
-  constructor(private sanitizer: DomSanitizer, private servicios: ServiciosAnuncioService) {
-    this.Contenido = '';
+  constructor(private sanitizer: DomSanitizer, private servicios: ServiciosAnuncioService,private activatedRoute: ActivatedRoute) {
+
     this.Anuncio = new Anuncio();
+    this.files = [];
   }
 
   ngOnInit(): void {
+   this.activatedRoute.params.subscribe(
+    params=>{
+      this.idArea = params['idArea'];
+      if(params['idAnuncio']=="0"){
+        this.accion = 'new';
+      }
+      else{
+        this.accion = 'update';
+        this.cargarAnuncio(params['idArea'],params['idAnuncio']);
+      }
+    }
+
+   )
   }
 
   contenido() {
     const tempElement = document.createElement('div');
-    tempElement.innerHTML = this.Contenido;
+    tempElement.innerHTML = this.Anuncio.descripcion;
 
     const tableElement: HTMLElement = tempElement.querySelector('table')!;
 
@@ -45,8 +61,8 @@ export class CreacionNoticiaComponent implements OnInit {
     }
 
     // Get the modified HTML string
-    this.Contenido = tempElement.innerHTML;
-    console.log(this.Contenido);
+    this.Anuncio.descripcion = tempElement.innerHTML;
+    console.log(this.Anuncio.descripcion);
   }
 
   sanitizeHtml(html: string): SafeHtml {
@@ -113,15 +129,55 @@ export class CreacionNoticiaComponent implements OnInit {
     return blob;
   }
 
+
+  //Metodos Rest
+
   crearAnuncio(anuncio: Anuncio){
-    this.Anuncio.descripcion = this.Contenido;
     this.Anuncio.recursos = this.files.map(file=>{return {base64:file.base64, type:file.type}});
-    this.servicios.postAnuncio(anuncio).subscribe(
+    this.servicios.postAnuncio(anuncio, this.idArea).subscribe(
       result=>{
-        alert(result);
+        alert(result.msg);
       },
       error=>{
         console.log(error);
+      }
+    )
+
+  }
+
+  cargarAnuncio(idArea:any, idAnuncio:any){
+    this.servicios.getAnuncio(idArea,idAnuncio).subscribe(
+      result=>{
+        Object.assign(this.Anuncio, result);
+        console.log(this.Anuncio);
+      },
+      error=>{
+        console.log(error);
+      }
+    )
+
+  }
+
+  modificarAnuncio(idArea:any, idAnuncio:any, Anuncio:Anuncio){
+    this.servicios.putAnuncio(idArea,idAnuncio,Anuncio).subscribe(
+      result=>{
+        alert(result.msg);
+      },
+      error=>{
+        console.log(error);
+      }
+    )
+
+  }
+
+  eliminarAnuncio(idArea:any, idAnuncio:any){
+    this.servicios.deleteAnuncio(idArea,idAnuncio).subscribe(
+      result=>{
+        alert(result.msg);
+      },
+      error=>{
+        console.log(error);
+        
       }
     )
 
