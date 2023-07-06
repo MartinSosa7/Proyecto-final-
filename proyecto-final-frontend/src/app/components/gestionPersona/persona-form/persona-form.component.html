@@ -1,1 +1,188 @@
-<p>persona-form works!</p>
+<div class="form">
+    <form class="card" #personaForm="ngForm" style="max-width: 60rem; margin: 8px;">
+      <div class="card-header">
+        Registro de Persona
+      </div>
+      <div class="card-body">
+        <div class="row mb-3 align-items-center">
+           
+            <div class="mb-3 row">
+                <label for="apellido" class="col-sm-2 col-form-label">Apellido: </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="apellido" name="apellido"
+                  [(ngModel)]="persona.apellido" required #apellido="ngModel"/>
+                </div> 
+                
+                <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)"
+                      class="alert alert-danger">
+                        <div *ngIf="apellido.errors?.['required']">
+                            El campo Apellido es requerido
+                        </div>
+                </div> 
+            </div>
+
+            <div class="mb-3 row">
+                <label for="nombre" class="col-sm-2 col-form-label">Nombre: </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="nombre" name="nombre"
+                  [(ngModel)]="persona.nombre" required #nombre="ngModel"/>
+                </div> 
+                
+                <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)"
+                      class="alert alert-danger">
+                        <div *ngIf="nombre.errors?.['required']">
+                            El campo Nombre es requerido
+                        </div>
+                </div> 
+            </div>
+    
+            <div class="mb-3 row">
+              <label for="dni" class="col-sm-2 col-form-label">DNI: </label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" id="dni" name="dni"
+                [(ngModel)]="persona.dni" required #dni="ngModel"/>
+              </div> 
+
+              <div *ngIf="dni.invalid && (dni.dirty || dni.touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="dni.errors?.['required']">
+                        El campo DNI es requerido
+                    </div>
+              </div> 
+            </div>
+
+            <div class="mb-3 row">
+                <label for="direccion" class="col-sm-2 col-form-label">Direccion: </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="direccion" name="direccion"
+                  [(ngModel)]="persona.direccion" required #direccion="ngModel"/>
+                </div> 
+                
+                <div *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)"
+                      class="alert alert-danger">
+                        <div *ngIf="direccion.errors?.['required']">
+                            El campo direccion es requerido
+                        </div>
+                </div> 
+            </div>
+
+            <div class="mb-3 row">
+                <label for="telefono" class="col-sm-2 col-form-label">Telefono/Celular: </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="telefono" name="telefono"
+                  [(ngModel)]="persona.telefono" required #telefono="ngModel"/>
+                </div> 
+                
+                <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)"
+                      class="alert alert-danger">
+                        <div *ngIf="telefono.errors?.['required']">
+                            El campo telefono es requerido
+                        </div>
+                </div> 
+            </div>
+
+            <div class="mb-3 row">
+                <label for="email" class="col-sm-2 col-form-label">Gmail: </label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="email" name="email"
+                  [(ngModel)]="persona.email" required #email="ngModel"/>
+                </div> 
+                
+                <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                      class="alert alert-danger">
+                        <div *ngIf="email.errors?.['required']">
+                            El campo gmail es requerido
+                        </div>
+                </div> 
+            </div>
+
+
+            <div class="mb-3 row">
+              <label for="area" class="col-sm-2 col-form-label">Area: </label>
+              <div class="col-sm-10">
+                  <select class="form-select" id="area" name="area" [(ngModel)]="persona.area"
+                  required #area="ngModel">
+                      <option *ngFor="let a of areas" [ngValue]="a" >{{a.nombreArea}}</option>
+                  </select>                 
+              </div>
+            </div>
+
+            <div *ngIf="accion=='update'" class="accordion accordion-flush" id="accordionFlushExample">
+                       
+              <!-- AGREGA O ELIMINAR EL ROL -->
+              <div  class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    Roles
+                  </button>
+                </h2>
+                
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body" >
+
+                    <form #rolForm="ngForm">
+
+                        <div class="mb-3">
+                            <label for="nombre">Rol</label>
+                            <select class="form-select" id="nombre" name="nombre" [(ngModel)]="rol.nombreRol" required #nombre="ngModel">
+                            <option *ngFor="let r of roles">
+                                {{r.nombreRol}}
+                            </option>
+                            </select>
+                            <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)"
+                                class="alert alert-danger">
+                                <div *ngIf="nombre.errors?.['required']">
+                                    Debe seleccionar un rol.
+                                </div>
+                            </div> 
+                        </div> 
+
+                        <button *ngIf="accion=='update'" type="button" class="btn btn-primary botones"
+                            (click)="guardarRol()" [disabled]="!rolForm.form.valid">
+                            Guardar
+                        </button>
+
+                        <div class="table-responsive p-4 rounded">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Rol</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col" class="text-center">  </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let r of persona.roles">
+                                        <td>{{r._id}}</td>
+                                        <td>{{r.nombreRol}}</td>
+                                        <td class="text-center">
+                                            <button *ngIf="accion=='update'" type="button" class="btn btn-danger botones"
+                                            (click)="eliminarRol(r)">
+                                                Eliminar
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+        
+                    </form>
+
+                  </div>
+                </div> 
+              </div>
+          </div>
+
+      </div>
+      
+      <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        <button [disabled]="!personaForm.form.valid" *ngIf="accion=='new'"  class="btn btn-outline-primary me-md-2" type="button" (click)="guardarPersona(personaForm)"> Guardar Nuevo </button>
+        <button [disabled]="!personaForm.form.valid" *ngIf="accion=='update'"  class="btn btn-outline-primary me-md-2" type="button" (click)="actualizarPersona(personaForm)"> Actualizar </button>
+        <button class="btn btn-outline-primary" type="button" (click)="regresar()">Regresar</button>
+      </div>
+
+      
+    </div>
+  </form>
+
+</div>

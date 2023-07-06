@@ -22,7 +22,7 @@ const routes: Routes = [
   { path:"noticias", component:NoticiasComponent },
   {path:'roles', component:CreacionRolesComponent},
   {path:'areas', component:CreacionAreasComponent},
-  {path:'persona-form', component:PersonaFormComponent},
+  {path:'persona-form/:id', component:PersonaFormComponent},
   {path:'persona-list', component:PersonaListComponent},
   
   { path:"**", pathMatch:'full', redirectTo:'home'},
