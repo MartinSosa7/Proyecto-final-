@@ -117,6 +117,15 @@ personaCtrl.deletePersona = async (req, res)=>{
 
 
 personaCtrl.getPersonaByDni = async (req, res) => {
+     
+    criteria={};
+    if (req.query.dni != null){
+        criteria.dni = { $regex: req.query.dni, $options: "i" }
+    }
+    var persona =  await Persona.find(criteria).populate('roles');
+    res.json(persona);
+    
+    
     let dni = req.params.dni;
     const persona = await Persona.find({'dni':dni}).populate("roles");
     res.json(persona);
