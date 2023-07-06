@@ -124,6 +124,8 @@ personaCtrl.getPersonaByDni = async (req, res) => {
     }
     var persona =  await Persona.find(criteria).populate('roles');
     res.json(persona);
+}
+
     
     
     let dni = req.params.dni;
@@ -176,6 +178,5 @@ personaCtrl.deleteRol = async (req,res)=>{
         })
     }
 }
-
 
 module.exports = personaCtrl;
