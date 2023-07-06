@@ -124,14 +124,12 @@ personaCtrl.getPersonaByDni = async (req, res) => {
     }
     var persona =  await Persona.find(criteria).populate('roles');
     res.json(persona);
-}
 
-    
-    
     let dni = req.params.dni;
     const persona = await Persona.find({'dni':dni}).populate("roles");
     res.json(persona);
 }
+
 
 personaCtrl.addRol = async (req,res)=>{
     var rol = new Rol(req.body);
