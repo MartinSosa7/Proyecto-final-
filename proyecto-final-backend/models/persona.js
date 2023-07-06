@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
 const Area = require ('./area'); 
-const Rol = require ('./rol'); 
 
 const PersonaSchema = new Schema({
  apellido: {type: String, required: true},
