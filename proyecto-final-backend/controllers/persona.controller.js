@@ -172,7 +172,7 @@ personaCtrl.deleteRol = async (req,res)=>{
     }catch{
         res.status(400).json({
             'status':'0',
-            'msg':'Error al procesar la informacion'
+            'msg':'Error al procesar la informacion..'
         })
     }
 }
