@@ -5,7 +5,7 @@ export class Persona {
     _id!:string;
     apellido!: string;
     nombre!: string;
-    dni!: number;
+    dni!: string;
     direccion!: string;
     telefono!: string;
     email!: string;
