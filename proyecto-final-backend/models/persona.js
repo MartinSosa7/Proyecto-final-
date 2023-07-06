@@ -11,7 +11,7 @@ const PersonaSchema = new Schema({
  direccion: {type:String, required: true},
  telefono: {type:String, required:true},
  email: {type: String, required: true},
- roles:[{type: Rol.schema}],
+ roles:[{type: mongoose.Types.ObjectId, ref: 'Rol'}],
  area:{type: Schema.Types.ObjectId, ref: Area, required: false}
 })
 

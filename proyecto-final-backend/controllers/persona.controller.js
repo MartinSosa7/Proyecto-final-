@@ -117,7 +117,7 @@ personaCtrl.deletePersona = async (req, res)=>{
 
 
 personaCtrl.getPersonaByDni = async (req, res) => {
-     criteria={};
+    criteria={};
     if (req.query.dni != null){
         criteria.dni = { $regex: req.query.dni, $options: "i" }
     }
