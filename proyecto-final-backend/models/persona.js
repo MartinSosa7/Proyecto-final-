@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
- 
+const Rol = require ('./rol'); 
 
 const PersonaSchema = new Schema({
  apellido: {type: String, required: true},
@@ -10,8 +10,10 @@ const PersonaSchema = new Schema({
  direccion: {type:String, required: true},
  telefono: {type:String, required:true},
  email: {type: String, required: true},
- roles:[{type: mongoose.Types.ObjectId, ref: 'Rol'}],
+ roles:[{type: Rol.schema}],
  areas:[{type: Schema.Types.ObjectId, ref: 'Area'}]
+
+
 })
 
 module.exports = mongoose.models.Persona || mongoose.model('Persona', PersonaSchema);

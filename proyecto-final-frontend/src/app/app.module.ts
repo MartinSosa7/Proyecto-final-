@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 
@@ -20,6 +22,8 @@ import { NoticiasComponent } from './components/noticias/noticias.component';
 import { CreacionRolesComponent } from './components/gestion/creacion-roles/creacion-roles.component';
 import { CreacionAreasComponent } from './components/gestion/creacion-areas/creacion-areas.component';
 import { VistaAreasComponent } from './components/gestion/vista-areas/vista-areas.component';
+import { PersonaListComponent } from './components/gestionPersona/persona-list/persona-list.component';
+import { PersonaFormComponent } from './components/gestionPersona/persona-form/persona-form.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,10 @@ import { VistaAreasComponent } from './components/gestion/vista-areas/vista-area
     NoticiasComponent,
     CreacionRolesComponent,
     CreacionAreasComponent,
-    VistaAreasComponent
+    VistaAreasComponent,
+    PersonaListComponent,
+    PersonaFormComponent
+
 
   ],
   imports: [
@@ -45,6 +52,9 @@ import { VistaAreasComponent } from './components/gestion/vista-areas/vista-area
 
     HttpClientModule,
     EditorModule,
+
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
     
   ],
  
