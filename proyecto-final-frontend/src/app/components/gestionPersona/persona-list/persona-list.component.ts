@@ -51,7 +51,7 @@ export class PersonaListComponent implements OnInit {
             unroles.push(rol);  
           });
           unapersona.roles= unroles;
-          unapersona.area=unarea;
+        //  unapersona.area=unarea;
           Object.assign(unapersona,element);
           this.personas.push(unapersona);
       
@@ -107,7 +107,7 @@ export class PersonaListComponent implements OnInit {
               unroles.push(rol);  
             });
             unapersona.roles= unroles;
-            unapersona.area=unarea;
+           // unapersona.area=unarea;
             Object.assign(unapersona,element);
             this.personas.push(unapersona);
           });
