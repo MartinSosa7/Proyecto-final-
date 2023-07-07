@@ -1,0 +1,6 @@
+.router-component {
+    background: rgb(176, 151, 102);
+    background: linear-gradient(90deg, rgba(176, 151, 102, 1) 0%, rgba(111, 171, 234, 1) 100%); /* Replace with the desired background color */
+    min-height: 800px;
+  }
+ 

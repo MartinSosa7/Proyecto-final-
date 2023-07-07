@@ -83,7 +83,7 @@ export class PersonaFormComponent implements OnInit {
       });
       this.persona.roles = roles;
       Object.assign(this.persona, result);
-      this.persona.area = this.areas.find((item) => (item._id == this.persona.area._id))!;
+      //this.persona.area = this.areas.find((item) => (item._id == this.persona.area._id))!;
      
      
     });
