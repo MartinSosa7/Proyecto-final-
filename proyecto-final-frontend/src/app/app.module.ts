@@ -21,6 +21,7 @@ import { AlumnoComponent } from './components/Persona/alumno/alumno.component';
 import { NoticiasComponent } from './components/noticias/noticias.component';
 import { CreacionRolesComponent } from './components/gestion/creacion-roles/creacion-roles.component';
 import { CreacionAreasComponent } from './components/gestion/creacion-areas/creacion-areas.component';
+import { VistaAreasComponent } from './components/gestion/vista-areas/vista-areas.component';
 import { PersonaListComponent } from './components/gestionPersona/persona-list/persona-list.component';
 import { PersonaFormComponent } from './components/gestionPersona/persona-form/persona-form.component';
 
@@ -38,8 +39,10 @@ import { PersonaFormComponent } from './components/gestionPersona/persona-form/p
     NoticiasComponent,
     CreacionRolesComponent,
     CreacionAreasComponent,
+    VistaAreasComponent,
     PersonaListComponent,
     PersonaFormComponent
+
 
   ],
   imports: [

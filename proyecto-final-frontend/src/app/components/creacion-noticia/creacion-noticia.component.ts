@@ -18,7 +18,7 @@ export class CreacionNoticiaComponent implements OnInit {
   }
 
   Anuncio: Anuncio;
-  files: { base64: string,  id: number, type: string }[] = [];
+  files: { base64: string,  id: number, type: string, name:string }[] = [];
   accion!:string;
 
   idArea:any;
@@ -35,10 +35,13 @@ export class CreacionNoticiaComponent implements OnInit {
       this.idArea = params['idArea'];
       if(params['idAnuncio']=="0"){
         this.accion = 'new';
+        this.files = [];
       }
       else{
+        this.files = [];
         this.accion = 'update';
         this.cargarAnuncio(params['idArea'],params['idAnuncio']);
+        
       }
     }
 
@@ -66,21 +69,22 @@ export class CreacionNoticiaComponent implements OnInit {
   }
 
   sanitizeHtml(html: string): SafeHtml {
+    this.contenido();
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
-  onFileSelected(event: any) {
-    const files = event.target.files;
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      const reader = new FileReader();
-      reader.onload = () => {
-        let base64 = reader.result as string;
-        this.files.push({ 'base64': base64, 'id': this.files.length + 1, 'type': file.type });
-      };
-      reader.readAsDataURL(file);
-    }
+ onFileSelected(event: any) {
+  const files = event.target.files;
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    const reader = new FileReader();
+    reader.onload = () => {
+      let base64 = reader.result as string;
+      this.files.push({ 'base64': base64, 'id': this.files.length + 1, 'type': file.type, 'name': file.name });
+    };
+    reader.readAsDataURL(file);
   }
+}
 
   sanitizeUrl(base64: string): SafeUrl {
     const safeUrl = this.sanitizer.bypassSecurityTrustUrl(base64);
@@ -133,7 +137,7 @@ export class CreacionNoticiaComponent implements OnInit {
   //Metodos Rest
 
   crearAnuncio(anuncio: Anuncio){
-    this.Anuncio.recursos = this.files.map(file=>{return {base64:file.base64, type:file.type}});
+    anuncio.recursos = this.files.map(file=>{return {base64:file.base64, type:file.type, name:file.name}});
     this.servicios.postAnuncio(anuncio, this.idArea).subscribe(
       result=>{
         alert(result.msg);
@@ -150,6 +154,7 @@ export class CreacionNoticiaComponent implements OnInit {
       result=>{
         Object.assign(this.Anuncio, result);
         console.log(this.Anuncio);
+        this.files = result.recursos;
       },
       error=>{
         console.log(error);
@@ -159,16 +164,24 @@ export class CreacionNoticiaComponent implements OnInit {
   }
 
   modificarAnuncio(idArea:any, idAnuncio:any, Anuncio:Anuncio){
+    Anuncio.recursos = this.files.map(file => {
+      return { base64: file.base64, type: file.type, name: file.name };
+    });
     this.servicios.putAnuncio(idArea,idAnuncio,Anuncio).subscribe(
       result=>{
         alert(result.msg);
+        // Update the local Anuncio object with modified data
+        Object.assign(this.Anuncio, result);
+        Object.assign(this.files, result.recursos)
+        // Reload the data from the backend
+        this.cargarAnuncio(idArea, idAnuncio);
       },
       error=>{
         console.log(error);
       }
     )
-
   }
+  
 
   eliminarAnuncio(idArea:any, idAnuncio:any){
     this.servicios.deleteAnuncio(idArea,idAnuncio).subscribe(
@@ -182,5 +195,6 @@ export class CreacionNoticiaComponent implements OnInit {
     )
 
   }
+  
   
 }

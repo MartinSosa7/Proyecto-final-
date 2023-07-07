@@ -21,11 +21,11 @@ export class ServiciosAnuncioService {
     }
     const body = JSON.stringify(anuncio);
 
-    return this._http.post(this.baseurl+'/'+idArea+'/anuncio',body,httpOptions);
+    return this._http.post(this.baseurl+'/anuncio/'+idArea,body,httpOptions);
   }
 
   getAnuncio(idArea:any, idAnuncio:any):Observable<any>{
-    const httpOptions = {
+    const HttpOptions = {
       headers: new HttpHeaders({
 
 
@@ -33,7 +33,7 @@ export class ServiciosAnuncioService {
       params: new HttpParams()
     }
 
-    return this._http.get(this.baseurl+'/area/'+idArea+'/anuncio/'+idAnuncio,httpOptions);
+    return this._http.get(this.baseurl+'/area/'+idArea+'/anuncio/'+idAnuncio,HttpOptions);
   }
 
   putAnuncio(idArea:any, idAnuncio:any, Anuncio:Anuncio):Observable<any>{
@@ -58,7 +58,7 @@ export class ServiciosAnuncioService {
       params: new HttpParams()
     }
 
-    return this._http.delete(this.baseurl+'/area/'+idArea+'/anuncio/'+idAnuncio, HttpOptions);
+    return this._http.delete(this.baseurl+'/area/'+idArea+'/anuncio/'+idAnuncio,HttpOptions);
   }
 
 }

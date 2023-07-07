@@ -1,105 +1,4 @@
-.background-areas {
-    background: linear-gradient(
-      to right,
-      #14f7ff,
-      #0e91ce,
-      #3047af,
-      #602194,
-      #bb7b03
-    );
-    background-size: 200% auto;
-    animation: gradientAnimation 12s linear infinite;
-  }
-  
-  @keyframes gradientAnimation {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-  .btn-descarga {
-    padding: 0.8em 2em 0.8em 2.5em;
-    font-size: 15px;
-    font-weight: bold;
-    border-radius: 15px;
-    color: #f6fff6;
-    letter-spacing: 0.3em;
-    text-shadow: -2px 2px 5px #33fd30;
-    background-color: transparent;
-    border: 2px solid #bbfeb1;
-    box-shadow: 0 0 0px 1px #42f112,
-      0 0 10px 2px #33fd30,
-      inset 0 0 0px 1px #42f112,
-      inset 0 0 10px 2px #33fd30;
-    transition: 100ms;
-  }
-  
-  .btn-descarga:hover {
-    box-shadow: 0 0 0px 1px #42f112,
-      0 0 10px 2px #33fd30,
-      inset 0 0 0px 1px #42f112,
-      inset 0 0 30px 2px #33fd30;
-    text-shadow: 0 0 10px #33fd30;
-    transform: translateY(-5px);
-  }
-  
-  .btn-descarga:active {
-    box-shadow: 0 0 0px 1px #42f112,
-      0 0 25px 2px #33fd30,
-      inset 0 0 0px 1px #42f112,
-      inset 0 0 30px 2px #33fd30;
-    transform: translateY(1px);
-  }
-
-
-
-  
-
-  .btn-borrar {
-    padding: 0.8em 2em 0.8em 2.5em;
-    font-size: 15px;
-    font-weight: bold;
-    border-radius: 15px;
-    color: rgb(253, 250, 250);
-    letter-spacing: 0.3em;
-    text-shadow: -2px 2px 5px red;
-    background-color: transparent;
-    border: 2px solid #bbfeb1;
-    box-shadow: 0 0 0px 1px red,
-      0 0 10px 2px red,
-      inset 0 0 0px 1px red,
-      inset 0 0 10px 2px red;
-    transition: 100ms;
-  }
-  
-  .btn-borrar:hover {
-    box-shadow: 0 0 0px 1px red,
-      0 0 10px 2px red,
-      inset 0 0 0px 1px red,
-      inset 0 0 30px 2px red;
-    text-shadow: 0 0 10px red;
-    transform: translateY(-5px);
-  }
-  
-  .btn-borrar:active {
-    box-shadow: 0 0 0px 1px red,
-      0 0 25px 2px red,
-      inset 0 0 0px 1px red,
-      inset 0 0 30px 2px red;
-    transform: translateY(1px);
-  }
-
-
-
-
-
-  .btn-anuncio {
+.btn-anuncio {
     --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
     --border-width: .125em;
     --curve-size: .5em;
@@ -220,13 +119,137 @@
   }
 
 
-  .input-anuncio {
-    border-width: 3px;
-    border-color:magenta;
-    background-color: #080312;
-    color: white;
-    
+
+
+
+
+
+  
+  
+  
+  .card-anuncio .card__image {
+    flex: 1;
+    height: 140px;
   }
   
+  .card-anuncio-1 {
+    background: linear-gradient(
+        to right top,
+        #051937, 
+        #004d7a, 
+        #008793, 
+        #00bf72, 
+        #a8eb12
+    );
+  }
+  
+  .card-anuncio-2 {
+    background: linear-gradient(
+      to right top, 
+      #dc09a5, 
+      #ce00b4, 
+      #ba00c5, 
+      #9c00d8, 
+      #6f12eb
+    );
+  }
 
+  
+  .card-anuncio-3 {
+    background: linear-gradient(
+      to right top, 
+      #dc1009, 
+      #e55f00, 
+      #e49200, 
+      #dac000, 
+      #c7eb12
+    );
+  }
+
+  .card-anuncio-4 {
+    background: linear-gradient(
+      to right top,
+      #e68433,
+      #eeff00,
+      #c8ff00,
+      #ffc000,
+      #f5af00
+    );
+  }
+  
+  
+  
+  .card-anuncio-5 {
+    background: linear-gradient(
+      to right top,
+      #ac3939,
+      #db2e0f,
+      #fd0000,
+      #c72020,
+      #a71e1e
+    );
+  }
+
+  .card-anuncio-6 {
+    background: linear-gradient(
+      to right top,
+      #00a896,
+      #02c39a,
+      #00e8a3,
+      #3af9ad,
+      #a8eb12
+    );
+  }
+  
+  .card-anuncio-7 {
+    background: linear-gradient(
+      to right top,
+      #1287a8,
+      #1493b8,
+      #15a4c8,
+      #17b6d8,
+      #19c6e9
+    );
+  }
+
+  .card-anuncio-8 {
+    background: linear-gradient(
+        to right top,
+        #1c5008, 
+        #007a14, 
+        #009307, 
+        #00bf76, 
+        #a8eb12
+    );
+  }
+
+
+  .background-areas {
+    background: linear-gradient(
+      to right,
+      #14f7ff,
+      #0e91ce,
+      #3047af,
+      #602194,
+      #bb7b03
+    );
+    background-size: 200% auto;
+    animation: gradientAnimation 12s linear infinite;
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+
+  
+  
   
