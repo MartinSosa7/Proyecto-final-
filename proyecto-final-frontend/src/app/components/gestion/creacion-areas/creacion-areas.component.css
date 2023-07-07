@@ -117,3 +117,33 @@
   .btn-anuncio:where(:hover, :focus) {
     color: #fff;
   }
+
+
+  .background-areas {
+    background: linear-gradient(
+      to right,
+      #14f7ff,
+      #0e91ce,
+      #3047af,
+      #602194,
+      #bb7b03
+    );
+    background-size: 200% auto;
+    animation: gradientAnimation 12s linear infinite;
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+
+
+  

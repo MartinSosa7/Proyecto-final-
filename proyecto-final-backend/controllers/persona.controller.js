@@ -9,7 +9,7 @@ personaCtrl.getPersona = async (req, res) => {
     console.log(req.params.id);
     const apersona = await Persona.findById(req.params.id)
     .populate('roles')
-    .populate('area');
+    .populate('areas');
     res.json(apersona);
     console.log(apersona);
 }
@@ -17,7 +17,7 @@ personaCtrl.getPersona = async (req, res) => {
 personaCtrl.getPersonas = async (req, res) => {
     var apersonas = await Persona.find()
     .populate('roles')
-    .populate('area');
+    .populate('areas');
     res.json(apersonas);
 }
 

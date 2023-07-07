@@ -8,20 +8,23 @@ import { AlumnoComponent } from './components/Persona/alumno/alumno.component';
 import { NoticiasComponent } from './components/noticias/noticias.component';
 import { CreacionRolesComponent } from './components/gestion/creacion-roles/creacion-roles.component';
 import { CreacionAreasComponent } from './components/gestion/creacion-areas/creacion-areas.component';
+import { VistaAreasComponent } from './components/gestion/vista-areas/vista-areas.component';
 
 
 const routes: Routes = [
-  { path:"", component:HomeComponent},
-  { path:"home", component:HomeComponent},
-  { path:"creacion-noticias/:idArea/:idAnuncio", component:CreacionNoticiaComponent},
-  { path:"login", component:LoginComponent},
-  { path:"profesor", component:ProfesorComponent},
-  { path:"alumno", component:AlumnoComponent},
-  { path:"noticias", component:NoticiasComponent },
-  {path:'roles', component:CreacionRolesComponent},
-  {path:'areas', component:CreacionAreasComponent},
-  
-  { path:"**", pathMatch:'full', redirectTo:'home'},
+  { path: "", component: HomeComponent },
+  { path: "home", component: HomeComponent },
+  { path: "creacion-noticias/:idArea/:idAnuncio", component: CreacionNoticiaComponent },
+  { path: "creacion-areas/:idArea", component: CreacionAreasComponent },
+  { path: "vista-areas", component:VistaAreasComponent},
+  { path: "login", component: LoginComponent },
+  { path: "profesor", component: ProfesorComponent },
+  { path: "alumno", component: AlumnoComponent },
+  { path: "noticias", component: NoticiasComponent },
+  { path: 'roles', component: CreacionRolesComponent },
+  { path: 'areas', component: CreacionAreasComponent },
+
+  { path: "**", pathMatch: 'full', redirectTo: 'home' },
 
 ];
 

@@ -11,7 +11,7 @@ const PersonaSchema = new Schema({
  telefono: {type:String, required:true},
  email: {type: String, required: true},
  roles:[{type: mongoose.Types.ObjectId, ref: 'Rol'}],
- area:[{type: Schema.Types.ObjectId, ref: 'Area'}]
+ areas:[{type: Schema.Types.ObjectId, ref: 'Area'}]
 })
 
 module.exports = mongoose.models.Persona || mongoose.model('Persona', PersonaSchema);

@@ -8,9 +8,9 @@ const router = express.Router();
 
 //definimos las rutas para la gestion de persona
 router.get('/:id',autCtrl.verifyToken, personaCtrl.getPersona);
-router.get('/', autCtrl.verifyToken,personaCtrl.getPersonas);
+router.get('/',personaCtrl.getPersonas);
 router.post('/', personaCtrl.createPersona);
-router.put('/update/:id',autCtrl.verifyToken, personaCtrl.editPersona);
+router.put('/update/:id', personaCtrl.editPersona);
 router.delete('/eliminar/:id',autCtrl.verifyToken, personaCtrl.deletePersona);
 router.get('/filtro/:dni',autCtrl.verifyToken, personaCtrl.getPersonaByDni);
 

@@ -10,7 +10,7 @@ export class Persona {
     telefono!: string;
     email!: string;
     roles:Array<Rol> = new Array<Rol>();
-    area:Area = new Area();
+    areas:Array<Area> = new Array<Area>();
 
     constructor(){
 

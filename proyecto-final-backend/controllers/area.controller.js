@@ -3,11 +3,11 @@ const Anuncio = require('../models/anuncio');
 const areaCtrl = {}
 
 areaCtrl.getArea = async (req, res) => {
-    console.log(req.params.id);
+    //console.log(req.params.id);
     const aarea = await Area.findById(req.params.id)
     .populate('responsables')
     res.json(aarea);
-    console.log(aarea);
+    //console.log(aarea);
 }
 
 areaCtrl.getAreas = async (req, res) => {
@@ -125,26 +125,25 @@ areaCtrl.deleteAnuncio = async (req, res) =>{
 
 }
 
-areaCtrl.editAnuncio = async (req, res) =>{
+areaCtrl.editAnuncio = async (req, res) => {
     var nuevoAnuncio = new Anuncio(req.body);
     var area = await Area.findById(req.params.idArea);
-    try{
-        var anuncio = area.anuncios.id(req.params.idAnuncio);
-        Object.assign(anuncio, nuevoAnuncio);
-        await area.save();
-        res.status(200).json({
-            'status': '1',
-            'msg': 'Anuncio editado'
-        })
-
+    try {
+      var anuncio = area.anuncios.id(req.params.idAnuncio);
+      Object.assign(anuncio, nuevoAnuncio);
+      area.markModified('anuncios'); // Mark the 'anuncios' field as modified
+      await area.save();
+      res.status(200).json({
+        'status': '1',
+        'msg': 'Anuncio editado'
+      });
+    } catch (error) {
+      res.status(400).json({
+        'status': '0',
+        'msg': 'error al editar Anuncio'
+      });
     }
-    catch{
-        res.status(400).json({
-            'status':'0',
-            'msg':'error al editar Anuncio'
-        })
-    }
-}
+  };
 
 
 module.exports = areaCtrl;
