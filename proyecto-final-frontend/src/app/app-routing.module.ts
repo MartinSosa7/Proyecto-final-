@@ -17,7 +17,7 @@ const routes: Routes = [
   { path:"profesor", component:ProfesorComponent},
   { path:"alumno", component:AlumnoComponent},
   { path:"recurso", component:FormularioComponent},
-  { path:"newrecurso", component:NewFormularioComponent},
+  { path:"newrecurso/:id", component:NewFormularioComponent},
 
   { path:"**", pathMatch:'full', redirectTo:'home'},
 

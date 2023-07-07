@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Formulario } from 'src/app/models/formulario';
 import { FormularioService } from 'src/app/services/recursos/formulario.service';
 
@@ -11,7 +12,8 @@ export class FormularioComponent implements OnInit {
 
   forms = Array<Formulario>();
 
-  constructor(private formService:FormularioService) { 
+  constructor(private formService:FormularioService,
+              private router: Router) { 
     this.forms = new Array<Formulario>();
     this.cargarForms();
   }
@@ -31,8 +33,12 @@ export class FormularioComponent implements OnInit {
 
   }
 
-  verForm(f:Formulario){
-    
+  modificarForm(f:Formulario){
+    this.router.navigate(['newrecurso', f._id]);
+  }
+
+  crearNuevo(){
+    this.router.navigate(['newrecurso', '0']);
   }
 
 }

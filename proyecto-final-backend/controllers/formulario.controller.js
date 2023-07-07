@@ -6,7 +6,6 @@ formCtrl.getForm = async (req, res) => {
     console.log(req.params.id);
     const aform = await Form.findById(req.params.id)
     res.json(aform);
-    console.log(aform);
 }
 
 formCtrl.getForms = async (req, res) => {
