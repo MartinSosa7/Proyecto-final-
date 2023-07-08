@@ -27,6 +27,7 @@ import { PersonaFormComponent } from './components/gestionPersona/persona-form/p
 import { FormularioComponent } from './components/Recursos/formulario/formulario.component';
 import { NewFormularioComponent } from './components/Recursos/new-formulario/new-formulario.component';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { CalendarComponent } from './components/calendar/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { OAuthModule } from 'angular-oauth2-oidc';
     PersonaFormComponent,
     FormularioComponent,
     NewFormularioComponent,
+    CalendarComponent,
 
   ],
   imports: [

@@ -13,6 +13,7 @@ import { PersonaListComponent } from './components/gestionPersona/persona-list/p
 import { VistaAreasComponent } from './components/gestion/vista-areas/vista-areas.component';
 import { NewFormularioComponent } from './components/Recursos/new-formulario/new-formulario.component';
 import { FormularioComponent } from './components/Recursos/formulario/formulario.component';
+import { CalendarComponent } from './components/calendar/calendar/calendar.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path:'persona-list', component:PersonaListComponent},
   {path:'newrecurso/:id', component:NewFormularioComponent},
   {path:'recurso', component:FormularioComponent},
+  {path:'calendar', component: CalendarComponent}, 
   
   
   { path:"**", pathMatch:'full', redirectTo:'home'},
