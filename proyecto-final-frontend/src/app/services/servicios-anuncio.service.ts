@@ -2,14 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Anuncio } from '../models/anuncio';
+import { LoginService } from './login.service';
 @Injectable({
   providedIn: 'root'
 })
 export class ServiciosAnuncioService {
 
-  constructor(private _http: HttpClient) { }
+  baseurl:string = this.loginService.hostBase + "area";
 
-  baseurl: string = 'http://localhost:3000/api/area';
+  constructor(private _http: HttpClient,
+              private loginService:LoginService) { }
 
   postAnuncio(anuncio: Anuncio, idArea:any):Observable<any>{
     const httpOptions = {

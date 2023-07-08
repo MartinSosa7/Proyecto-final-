@@ -3,15 +3,18 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Area } from '../models/area';
 import { Persona } from '../models/persona';
+import { LoginService } from './login.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiciosAreaService {
 
-  personaURL: string = 'http://localhost:3000/api/persona';
-  areaURL: string = 'http://localhost:3000/api/area';
-  constructor(private _http: HttpClient) { }
+  personaURL: string = this.loginService.hostBase + "persona/";
+  areaURL: string = this.loginService.hostBase + "area/";
+
+  constructor(private _http: HttpClient,
+              private loginService:LoginService) { }
 
   getPersonas(): Observable<any> {
     const HttpOptions = {
@@ -33,7 +36,7 @@ export class ServiciosAreaService {
       params: new HttpParams()
     }
 
-    return this._http.get(this.areaURL + '/' + idArea, HttpOptions);
+    return this._http.get(this.areaURL + idArea, HttpOptions);
   }
 
   postArea(area: Area): Observable<any> {
@@ -45,7 +48,7 @@ export class ServiciosAreaService {
     }
     const body = JSON.stringify(area);
 
-    return this._http.post(this.areaURL,body, HttpOptions);
+    return this._http.post(this.areaURL ,body ,HttpOptions);
   }
 
   putArea(idArea: any, area: Area):Observable<any>{
@@ -56,7 +59,7 @@ export class ServiciosAreaService {
       params: new HttpParams()
     }
     const body = JSON.stringify(area);
-    return this._http.put(this.areaURL+'/update/'+idArea,body,HttpOptions);
+    return this._http.put(this.areaURL + 'update/'+idArea,body,HttpOptions);
   }
 
   deleteArea(idArea: any):Observable<any>{
@@ -66,7 +69,7 @@ export class ServiciosAreaService {
       }),
       params: new HttpParams()
     }
-    return this._http.delete(this.areaURL+'/'+idArea, HttpOptions);
+    return this._http.delete(this.areaURL + idArea ,HttpOptions);
   }
 
   getAreas():Observable<any>{
@@ -76,7 +79,7 @@ export class ServiciosAreaService {
       }),
       params: new HttpParams()
     }
-    return this._http.get(this.areaURL,HttpOptions);
+    return this._http.get(this.areaURL ,HttpOptions);
   }
 
 }

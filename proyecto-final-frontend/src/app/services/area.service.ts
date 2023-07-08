@@ -2,15 +2,18 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Area } from '../models/area';
+import { LoginService } from './login.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AreaService {
 
-  urlBase:string= "http://localhost:3000/api/area";
+  
+  urlBase:string= this.loginService.hostBase +  "area/";
 
-  constructor(private _http:HttpClient) {
+  constructor(private _http:HttpClient,
+              private loginService:LoginService) {
 
   }
 
@@ -22,7 +25,7 @@ export class AreaService {
       params : new HttpParams()
       .append("id",id)
     }
-    return this._http.get(this.urlBase+"/"+id,httpOptions);
+    return this._http.get(this.urlBase + id ,httpOptions);
   }
 
 
@@ -61,7 +64,7 @@ export class AreaService {
       })
     }
     let body = JSON.stringify(area);
-    return this._http.put(this.urlBase+"/update/"+area._id,body,httpOptions);
+    return this._http.put(this.urlBase + "update/" + area._id,body,httpOptions);
   }
 
   public deleteArea(id:string):Observable<any>{
@@ -72,7 +75,7 @@ export class AreaService {
       params : new HttpParams()
       .append("id",id)
     }
-    return this._http.delete(this.urlBase+"/eliminar/"+id,httpOptions);
+    return this._http.delete(this.urlBase + "eliminar/" + id,httpOptions);
   }
 
   public buscarAreaByName(nombreArea:string):Observable<any>{
@@ -83,7 +86,7 @@ export class AreaService {
       params : new HttpParams()
       .append("nombreArea",nombreArea)
     }
-    return this._http.get(this.urlBase+"/filtro/"+nombreArea,httpOptions);
+    return this._http.get(this.urlBase + "filtro/" + nombreArea,httpOptions);
   }
 
 }
