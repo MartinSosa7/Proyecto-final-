@@ -2,15 +2,18 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Formulario } from 'src/app/models/formulario';
+import { LoginService } from '../login.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormularioService {
 
-  urlBase:string= "http://localhost:3000/api/formulario/";
 
-  constructor(private http:HttpClient) { 
+  urlBase:string= this.loginService.hostBase + "formulario/";
+
+  constructor(private http:HttpClient,
+              private loginService :LoginService) { 
 
   }
 

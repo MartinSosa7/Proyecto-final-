@@ -23,8 +23,8 @@
     </div>
     <div [innerHTML]="sanitizeHtml(Contenido)"></div>
     <br>
-    <div class="form-group">
-        <label for="fileInput" class="mr-2">Choose file(s):</label>
+    <div class="input-group">
+        <label for="fileInput" class="user-label">Archivo:</label>
         <input type="file" id="fileInput" accept=".pdf,.doc,.docx"  [(ngModel)]="form.archivo" multiple class="form-control-file"
         (change)="onFileSelected($event)" name="archivoPdf"/>
     </div>
