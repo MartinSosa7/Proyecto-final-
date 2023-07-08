@@ -8,7 +8,7 @@ const AnuncioSchema = new Schema({
  descripcion: {type: String, required: true},
  fechaDesde: {type: String, required: true},
  fechaHasta: {type:String, required: true},
- rescursos: [{type: String}],
+ recursos: [{type: String}],
  area:{type: Schema.Types.ObjectId, ref: 'Area', required: true},
  tipo: {type:String, required:true}
 })

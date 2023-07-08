@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 
@@ -16,6 +16,8 @@ import { LoginComponent } from './components/login/login.component';
 import { LoginService } from './services/login.service';
 import { ProfesorComponent } from './components/Persona/profesor/profesor.component';
 import { AlumnoComponent } from './components/Persona/alumno/alumno.component';
+import { FormularioComponent } from './components/Recursos/formulario/formulario.component';
+import { NewFormularioComponent } from './components/Recursos/new-formulario/new-formulario.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +29,10 @@ import { AlumnoComponent } from './components/Persona/alumno/alumno.component';
     HomeComponent,
     LoginComponent,
     ProfesorComponent,
-    AlumnoComponent
-
+    AlumnoComponent,
+    FormularioComponent,
+    NewFormularioComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,7 @@ import { AlumnoComponent } from './components/Persona/alumno/alumno.component';
 
     HttpClientModule,
     EditorModule,
-    
+    ReactiveFormsModule,
   ],
  
 
