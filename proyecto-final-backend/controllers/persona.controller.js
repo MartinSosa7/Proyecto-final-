@@ -6,17 +6,15 @@ const personaCtrl = {}
 
 
 personaCtrl.getPersona = async (req, res) => {
-    console.log(req.params.id);
+    //console.log(req.params.id);
     const apersona = await Persona.findById(req.params.id)
-    .populate('roles')
     .populate('areas');
     res.json(apersona);
-    console.log(apersona);
+    //console.log(apersona);
 }
 
 personaCtrl.getPersonas = async (req, res) => {
     var apersonas = await Persona.find()
-    .populate('roles')
     .populate('areas');
     res.json(apersonas);
 }
@@ -55,11 +53,11 @@ personaCtrl.editPersona = async (req, res) => {
                                                 {_id:{$eq:req.body._id}},
                                                 {dni:{$eq:req.body.dni}}
                                             ]});
-    console.log(pSinCambioDni);
+    //console.log(pSinCambioDni);
     
     if(pSinCambioDni!=null && pSinCambioDni!="" && pSinCambioDni!=undefined){
         try {
-            console.log("no hubo cambio de dni");
+            //console.log("no hubo cambio de dni");
             await Persona.updateOne({_id: req.body._id}, persona);
             res.json({
                 'status': '1',
@@ -76,8 +74,8 @@ personaCtrl.editPersona = async (req, res) => {
             {_id:{$ne:req.body._id}},
             {dni:{$eq:req.body.dni}}
           ]});
-        console.log("persona buscada por dni ");
-        console.log(personaEncontradaPorDni);
+        //console.log("persona buscada por dni ");
+        //console.log(personaEncontradaPorDni);
         if (personaEncontradaPorDni!=null && personaEncontradaPorDni!="" && personaEncontradaPorDni!=undefined) {
             res.json({
                 'status':"2",
@@ -125,7 +123,7 @@ personaCtrl.getPersonaByDni = async (req, res) => {
     res.json(persona); */
 
     let dni = req.params.dni;
-    const persona = await Persona.find({'dni':dni}).populate("roles");
+    const persona = await Persona.find({'dni':dni});
     res.json(persona);
 }
 

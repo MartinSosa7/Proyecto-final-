@@ -9,7 +9,7 @@ export class Persona {
     direccion!: string;
     telefono!: string;
     email!: string;
-    roles:Array<Rol> = new Array<Rol>();
+    rol!:string;
     areas:Array<Area> = new Array<Area>();
 
     constructor(){
