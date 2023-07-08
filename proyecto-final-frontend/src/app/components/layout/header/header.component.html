@@ -31,10 +31,12 @@
               <li><a class="dropdown-item" href="#">Profesores</a></li>
               <li><a class="dropdown-item" href="#">Alumnos</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Rol</a></li>
-              <li><a class="dropdown-item" href="#">Areas</a></li>
-              <li><a class="dropdown-item" [routerLink]=" ['/recurso']">Recursos</a></li>
-              <li><a class="dropdown-item" href="#">Anuncios</a></li>
+              <li><a class="dropdown-item" [routerLink]="['persona-list']">Persona</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" [routerLink]="['roles']">Rol</a></li>
+              <li><a class="dropdown-item" [routerLink]="['areas']">Areas</a></li>
+              <li><a class="dropdown-item" [routerLink]="['recurso']">Recursos</a></li>
+              <li><a class="dropdown-item" [routerLink]="['noticias']">Anuncios</a></li>
             </ul>
           </li>
 
@@ -50,8 +52,9 @@
               <img src="./assets/logo.png" alt="Logo" style="width:30px;" class="rounded-pill">
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" [routerLink]="['creacion-noticias']">Crear Anuncio</a></li>
-
+              <li><a class="dropdown-item" [routerLink]="['creacion-noticias/0/0']">Crear Anuncio</a></li>
+              <li><a class="dropdown-item" [routerLink]="['creacion-areas/0']">Crear Area</a></li>
+              <li><a class="dropdown-item" [routerLink]="['vista-areas']">Areas</a></li>
               <li><a class="dropdown-item" *ngIf="!loginService.userLoggedIn()" [routerLink]="['login']">Login</a></li>
               <li>
 

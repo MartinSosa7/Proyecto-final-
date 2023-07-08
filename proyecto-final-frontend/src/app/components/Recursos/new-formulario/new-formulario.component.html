@@ -12,8 +12,7 @@
         <label class="user-label">Mostrar para:</label>
         <section>
             <div *ngFor="let r of roles">
-                <input type="checkbox" [(ngModel)]="r.checked" 
-                (change)="changeCheckbox($event)" name="mostrarPara"> {{ r.nombreRol }}
+                <input type="checkbox" [(ngModel)]="r.checked" (change)="changeCheckbox($event)" name="mostrarPara"> {{ r.nombreRol }}
             </div>
         </section>     
     </div>

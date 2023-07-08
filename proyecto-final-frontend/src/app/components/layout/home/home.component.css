@@ -47,3 +47,9 @@ main {
 img {
     filter: blur(5px); /* Ajusta el valor de desenfoque según tus preferencias */
   }
+
+
+  aside ul li a {
+    color: gray;
+    text-decoration: none;
+  }
