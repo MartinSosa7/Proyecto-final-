@@ -38,7 +38,7 @@ export class NewFormularioComponent implements OnInit {
   this.form  = new Formulario();
   this.id    = ''; 
 
-  // this.cargarRoles();
+  this.cargarRoles();
 
   }
 

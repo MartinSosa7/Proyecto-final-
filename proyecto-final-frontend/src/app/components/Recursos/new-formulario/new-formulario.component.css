@@ -46,3 +46,27 @@
    .input-group .user-label{
     width: 10em;
    }
+
+   .form{
+    margin: 40px;
+    margin-left: 20%;
+}
+
+.card-header{
+    --border-right: 6px;
+    --text-stroke-color: rgba(0, 0, 0, 0.6);
+    --fs-size: 2em;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: var(--fs-size);
+    font-family: "Arial";
+    position: relative;
+    text-transform: uppercase;
+}
+
+.card-body{
+    margin-top: 30px;
+    height: auto;
+    font-size: 15px;
+    color: rgb(1, 49, 53);
+}
