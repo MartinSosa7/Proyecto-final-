@@ -4,10 +4,10 @@ export class Anuncio {
     _id!:string;
     titulo!:string;
     descripcion!: string;
+    descripcionCard!:string;
     fechaDesde!: string;
     fechaHasta!: string;
-    recursos: Array<String>=new Array <string>();
-    area:Area=new Area();
+    recursos: {base64:string, type:string, name:string}[]=[];
     tipo!:string;
 
     constructor(){

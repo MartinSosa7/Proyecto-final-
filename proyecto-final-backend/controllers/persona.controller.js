@@ -6,18 +6,16 @@ const personaCtrl = {}
 
 
 personaCtrl.getPersona = async (req, res) => {
-    console.log(req.params.id);
+    //console.log(req.params.id);
     const apersona = await Persona.findById(req.params.id)
-    .populate('roles')
-    .populate('area');
+    .populate('areas');
     res.json(apersona);
-    console.log(apersona);
+    //console.log(apersona);
 }
 
 personaCtrl.getPersonas = async (req, res) => {
     var apersonas = await Persona.find()
-    .populate('roles')
-    .populate('area');
+    .populate('areas');
     res.json(apersonas);
 }
 
@@ -55,11 +53,11 @@ personaCtrl.editPersona = async (req, res) => {
                                                 {_id:{$eq:req.body._id}},
                                                 {dni:{$eq:req.body.dni}}
                                             ]});
-    console.log(pSinCambioDni);
+    //console.log(pSinCambioDni);
     
     if(pSinCambioDni!=null && pSinCambioDni!="" && pSinCambioDni!=undefined){
         try {
-            console.log("no hubo cambio de dni");
+            //console.log("no hubo cambio de dni");
             await Persona.updateOne({_id: req.body._id}, persona);
             res.json({
                 'status': '1',
@@ -76,8 +74,8 @@ personaCtrl.editPersona = async (req, res) => {
             {_id:{$ne:req.body._id}},
             {dni:{$eq:req.body.dni}}
           ]});
-        console.log("persona buscada por dni ");
-        console.log(personaEncontradaPorDni);
+        //console.log("persona buscada por dni ");
+        //console.log(personaEncontradaPorDni);
         if (personaEncontradaPorDni!=null && personaEncontradaPorDni!="" && personaEncontradaPorDni!=undefined) {
             res.json({
                 'status':"2",
@@ -117,12 +115,64 @@ personaCtrl.deletePersona = async (req, res)=>{
 
 
 personaCtrl.getPersonaByDni = async (req, res) => {
-    criteria={};
+   /** criteria={};
     if (req.query.dni != null){
         criteria.dni = { $regex: req.query.dni, $options: "i" }
     }
     var persona =  await Persona.find(criteria).populate('roles');
+    res.json(persona); */
+
+    let dni = req.params.dni;
+    const persona = await Persona.find({'dni':dni});
     res.json(persona);
 }
+
+
+personaCtrl.addRol = async (req,res)=>{
+    var rol = new Rol(req.body);
+    const idPersona = req.params.idPersona;             
+
+    try{
+        var persona = await Persona.findById(idPersona);
+        persona.roles.push(rol);
+
+        await Persona.updateOne({_id: persona._id}, persona);
+        rol.personas.push(idPersona);
+        await Rol.updateOne({_id: req.body._id}, rol);
+
+        //await rol.save();
+        res.status(200).json({
+            'status':'1',
+            'msg':'Rol agregado'
+        })
+    }catch{
+        res.status(400).json({
+            'status':'0',
+            'msg':'Error al procesar la informacion'
+        })
+    }
+}
+
+personaCtrl.deleteRol = async (req,res)=>{
+    const idPersona = req.params.idPersona;
+    const idRol = req.params.idRol;
+    
+    try{
+        var persona = await Persona.findById(idPersona);
+        persona.roles.pull(idRol);
+
+        await persona.save();
+        res.status(200).json({
+            'status':'1',
+            'msg':'Rol eliminado'
+        })
+    }catch{
+        res.status(400).json({
+            'status':'0',
+            'msg':'Error al procesar la informacion'
+        })
+    }
+}
+
 
 module.exports = personaCtrl;
