@@ -8,4 +8,10 @@ export class Formulario {
     archivo!:string;
     mostrarPara: Array<Rol> = new Array<Rol>();
     creadoPor!: Persona;
+
+    constructor(){
+
+    }
+
+
 }
