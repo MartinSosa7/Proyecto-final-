@@ -1,4 +1,10 @@
+.card-body{
+    margin: 40px;
+    margin-left: 20%;
+}
+
 /* button styling */
+
 .h3 {
 --border-right: 6px;
 --text-stroke-color: rgba(0, 0, 0, 0.6);
@@ -17,8 +23,8 @@ flex-direction: row;
 gap: 15px;
 }
 
-.cards .red {
-background-color: #f43f5e;
+.cards .form {
+background-color: #cca792;
 }
 
 .cards .card {
@@ -30,13 +36,13 @@ text-align: center;
 /* height: 100px;
 width: 250px; */
 border-radius: 10px;
-color: white;
+color: rgb(0, 0, 0);
 cursor: pointer;
 transition: 400ms;
 }
 
 .cards .card p.tip {
-font-size: 1em;
+font-size: 1.5em;
 font-weight: 700;
 }
 
