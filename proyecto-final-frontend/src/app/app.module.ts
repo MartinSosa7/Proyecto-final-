@@ -24,6 +24,8 @@ import { CreacionAreasComponent } from './components/gestion/creacion-areas/crea
 import { VistaAreasComponent } from './components/gestion/vista-areas/vista-areas.component';
 import { PersonaListComponent } from './components/gestionPersona/persona-list/persona-list.component';
 import { PersonaFormComponent } from './components/gestionPersona/persona-form/persona-form.component';
+import { FormularioComponent } from './components/Recursos/formulario/formulario.component';
+import { NewFormularioComponent } from './components/Recursos/new-formulario/new-formulario.component';
 
 @NgModule({
   declarations: [
@@ -41,8 +43,9 @@ import { PersonaFormComponent } from './components/gestionPersona/persona-form/p
     CreacionAreasComponent,
     VistaAreasComponent,
     PersonaListComponent,
-    PersonaFormComponent
-
+    PersonaFormComponent,
+    FormularioComponent,
+    NewFormularioComponent,
 
   ],
   imports: [
