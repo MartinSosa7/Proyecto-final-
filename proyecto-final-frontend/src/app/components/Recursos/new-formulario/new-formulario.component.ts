@@ -90,4 +90,19 @@ export class NewFormularioComponent implements OnInit {
     this.router.navigate(['recurso']);
   }
 
+  handleFileInput(event: any) {
+    const file: File = event.target.files[0];
+    const reader: FileReader = new FileReader();
+  
+    reader.onload = (e: any) => {
+      const binaryData: any = e.target.result;
+      const binaryString: string = btoa(binaryData);
+  
+      // Aquí puedes realizar cualquier operación adicional con el PDF binario
+      console.log(binaryString);
+    };
+  
+    reader.readAsBinaryString(file);
+  }
+  
 }

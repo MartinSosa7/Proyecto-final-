@@ -19,6 +19,7 @@ export class FormularioComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.cargarForms();
   }
 
   cargarForms(){

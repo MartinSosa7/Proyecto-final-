@@ -19,7 +19,7 @@
     </div>
     <div class="input-group">
         <label class="user-label">Archivo:</label>
-        <input class="input" name="archivo" type="file" [(ngModel)]="form.archivo">
+        <input class="input" name="archivo" type="file" [(ngModel)]="form.archivo" (change)="handleFileInput($event)"> 
     </div>
     <button class="btn" (click)="guardarForm(form)"> Guardar</button>
     <button class="btn" (click)="volver()"> Cancelar</button>
