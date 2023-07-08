@@ -29,6 +29,8 @@ const routes: Routes = [
   {path:'areas', component:CreacionAreasComponent},
   {path:'persona-form/:id', component:PersonaFormComponent},
   {path:'persona-list', component:PersonaListComponent},
+  // {path:'newrecurso/:id', component:NewRecursoComponent},
+  // {path:'recurso', component:RecursoComponent},
   
   
   { path:"**", pathMatch:'full', redirectTo:'home'},
