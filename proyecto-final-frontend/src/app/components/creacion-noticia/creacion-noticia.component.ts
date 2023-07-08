@@ -14,13 +14,16 @@ export class CreacionNoticiaComponent implements OnInit {
   editorConfig = {
     base_url: '/tinymce',
     suffix: '.min',
-    plugins: 'lists link image table wordcount'
+    plugins: 'lists link image table wordcount',
+    height: '950',
+    autoresize: 'ON'
   }
 
   Anuncio: Anuncio;
   files: { base64: string,  id: number, type: string, name:string }[] = [];
   accion!:string;
 
+  edicion_vista:string = 'edicion';
   idArea:any;
 
   constructor(private sanitizer: DomSanitizer, private servicios: ServiciosAnuncioService,private activatedRoute: ActivatedRoute) {
@@ -30,6 +33,7 @@ export class CreacionNoticiaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.edicion_vista = 'edicion';
    this.activatedRoute.params.subscribe(
     params=>{
       this.idArea = params['idArea'];
@@ -133,6 +137,15 @@ export class CreacionNoticiaComponent implements OnInit {
     return blob;
   }
 
+  edicionYvista(){
+  
+    if(this.edicion_vista == 'edicion'){
+      this.edicion_vista = 'vista';
+    }
+    else{
+      this.edicion_vista = 'edicion';
+    }
+  }
 
   //Metodos Rest
 

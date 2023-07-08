@@ -5,6 +5,7 @@
             <label for="titulo" class="form-label">Titulo</label>
             <input type="text" class="form-control" id="titulo" name="titulo" placeholder="INGRESE EL TITULO DEL AREA" [(ngModel)]="area.nombreArea">
         </div>
+
         <div class="col-md-6">
             <label for="persona" class="form-label">Persona a cargo</label>
             <select id="persona" name="persona" class="form-select" [(ngModel)]="personaSeleccionada" (ngModelChange)="agregarResponsable(personaSeleccionada)">
@@ -13,6 +14,7 @@
                 </option>
             </select>
         </div>
+        
         <div class="col-md-6">
             <label for="tipo" class="form-label">Tipo de Area</label>
             <select id="tipo" name="tipo" class="form-select" [(ngModel)]="area.tipo">

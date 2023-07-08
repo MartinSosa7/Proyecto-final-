@@ -1,232 +1,334 @@
-.background-areas {
-    background: linear-gradient(
-      to right,
-      #14f7ff,
-      #0e91ce,
-      #3047af,
-      #602194,
-      #bb7b03
-    );
-    background-size: 200% auto;
-    animation: gradientAnimation 12s linear infinite;
-  }
-  
-  @keyframes gradientAnimation {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
 
-  .btn-descarga {
-    padding: 0.8em 2em 0.8em 2.5em;
-    font-size: 15px;
-    font-weight: bold;
-    border-radius: 15px;
-    color: #f6fff6;
-    letter-spacing: 0.3em;
-    text-shadow: -2px 2px 5px #33fd30;
-    background-color: transparent;
-    border: 2px solid #bbfeb1;
-    box-shadow: 0 0 0px 1px #42f112,
-      0 0 10px 2px #33fd30,
-      inset 0 0 0px 1px #42f112,
-      inset 0 0 10px 2px #33fd30;
-    transition: 100ms;
-  }
-  
-  .btn-descarga:hover {
-    box-shadow: 0 0 0px 1px #42f112,
-      0 0 10px 2px #33fd30,
-      inset 0 0 0px 1px #42f112,
-      inset 0 0 30px 2px #33fd30;
-    text-shadow: 0 0 10px #33fd30;
-    transform: translateY(-5px);
-  }
-  
-  .btn-descarga:active {
-    box-shadow: 0 0 0px 1px #42f112,
-      0 0 25px 2px #33fd30,
-      inset 0 0 0px 1px #42f112,
-      inset 0 0 30px 2px #33fd30;
-    transform: translateY(1px);
-  }
+/* CLASES PARA EL ESTILO DE LOS INPUTS COMO EL DEL TITULO */
+
+.input-noticia {
+  --input-focus: #2d8cf0;
+  --font-color: #323232;
+  --font-color-sub: #666;
+  --bg-color: #fff;
+  --main-color: #323232;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--font-color);
+  padding: 5px 10px;
+  outline: none;
+}
+
+.input-noticia::placeholder {
+  color: var(--font-color-sub);
+  opacity: 0.8;
+}
+
+.input-noticia:focus {
+  border: 2px solid var(--input-focus);
+}
 
 
-
-  
-
-  .btn-borrar {
-    padding: 0.8em 2em 0.8em 2.5em;
-    font-size: 15px;
-    font-weight: bold;
-    border-radius: 15px;
-    color: rgb(253, 250, 250);
-    letter-spacing: 0.3em;
-    text-shadow: -2px 2px 5px red;
-    background-color: transparent;
-    border: 2px solid #bbfeb1;
-    box-shadow: 0 0 0px 1px red,
-      0 0 10px 2px red,
-      inset 0 0 0px 1px red,
-      inset 0 0 10px 2px red;
-    transition: 100ms;
-  }
-  
-  .btn-borrar:hover {
-    box-shadow: 0 0 0px 1px red,
-      0 0 10px 2px red,
-      inset 0 0 0px 1px red,
-      inset 0 0 30px 2px red;
-    text-shadow: 0 0 10px red;
-    transform: translateY(-5px);
-  }
-  
-  .btn-borrar:active {
-    box-shadow: 0 0 0px 1px red,
-      0 0 25px 2px red,
-      inset 0 0 0px 1px red,
-      inset 0 0 30px 2px red;
-    transform: translateY(1px);
-  }
+/* CLASE PARA EL BOTON DE DESCARGAR EN LA PARTE DE VISTA */
 
 
-
-
-
-  .btn-anuncio {
-    --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
-    --border-width: .125em;
-    --curve-size: .5em;
-    --blur: 30px;
-    --bg: #080312;
-    --color: #afffff;
-    color: var(--color);
-      /* use position: relative; so that BG is only for .btn */
+  .button-descargar {
+    --main-focus: #2d8cf0;
+    --font-color: #323232;
+    --bg-color-sub: #dedede;
+    --bg-color: #eee;
+    --main-color: #323232;
     position: relative;
-    isolation: isolate;
-    display: inline-grid;
-    place-content: center;
-    padding: .5em 1.5em;
-    font-size: 17px;
-    border: 0;
-    text-transform: uppercase;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
-    clip-path: polygon(
-              /* Top-left */
-              0% var(--curve-size),
-  
-              var(--curve-size) 0,
-              /* top-right */
-              100% 0,
-              100% calc(100% - var(--curve-size)),
-  
-              /* bottom-right 1 */
-              calc(100% - var(--curve-size)) 100%,
-              /* bottom-right 2 */
-              0 100%);
-    transition: color 250ms;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    overflow: hidden;
   }
   
-  .btn-anuncio::after,
-  .btn-anuncio::before {
-    content: '';
+  .button-descargar, .button__icon, .button__text {
+    transition: all 0.3s;
+  }
+  
+  .button-descargar .button__text {
+    transform: translateX(22px);
+    color: var(--font-color);
+    font-weight: 600;
+  }
+  
+  .button-descargar .button__icon {
     position: absolute;
-    inset: 0;
+    transform: translateX(109px);
+    height: 100%;
+    width: 39px;
+    background-color: var(--bg-color-sub);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
-  .btn-anuncio::before {
-    background: var(--border-color);
-    background-size: 300% 300%;
-    animation: move-bg7234 5s ease infinite;
-    z-index: -2;
+  .button-descargar .svg {
+    width: 20px;
+    fill: var(--main-color);
   }
   
-  @keyframes move-bg7234 {
-    0% {
-      background-position: 31% 0%
-    }
-  
-    50% {
-      background-position: 70% 100%
-    }
-  
-    100% {
-      background-position: 31% 0%
-    }
+  .button-descargar:hover {
+    background: var(--bg-color);
   }
   
-  .btn-anuncio::after {
-    background: var(--bg);
-    z-index: -1;
-    clip-path: polygon(
-              /* Top-left */
-              var(--border-width) 
-              calc(var(--curve-size) + var(--border-width) * .5),
-  
-              calc(var(--curve-size) + var(--border-width) * .5) var(--border-width),
-  
-              /* top-right */
-              calc(100% - var(--border-width)) 
-              var(--border-width),
-  
-              calc(100% - var(--border-width)) 
-              calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
-  
-              /* bottom-right 1 */
-              calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
-              /* bottom-right 2 */
-              var(--border-width) calc(100% - var(--border-width)));
-    transition: clip-path 500ms;
+  .button-descargar:hover .button__text {
+    color: transparent;
   }
   
-  .btn-anuncio:where(:hover, :focus)::after {
-    clip-path: polygon(
-                  /* Top-left */
-                  calc(100% - var(--border-width)) 
+  .button-descargar:hover .button__icon {
+    width: 148px;
+    transform: translateX(0);
+  }
   
-                  calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
-      
-                  calc(100% - var(--border-width))
+  .button-descargar:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px var(--main-color);
+  }
+
+
+
+  /* CLASE PARA EL BOTON DE BORRAR ARCHIVO DE LA LISTA DE ARCHIVOS QUE SERAN GUARDADOS */
+
+  .button-borrar {
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: red;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    background: #e62222;
+   }
+   
+   .button-borrar, .button-borrar span {
+    transition: 200ms;
+   }
+   
+   .button-borrar .text {
+    transform: translateX(35px);
+    color: white;
+    font-weight: bold;
+   }
+   
+   .button-borrar {
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: red;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+  }
   
-                  var(--border-width),
-      
-                  /* top-right */
-                  calc(100% - var(--border-width))
-  
-                   var(--border-width),
-      
-                  calc(100% - var(--border-width)) 
-  
-                  calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
-      
-                  /* bottom-right 1 */
-                  calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) 
-                  calc(100% - var(--border-width)),
-  
-                  /* bottom-right 2 */
-                  calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
-                  calc(100% - var(--border-width)));
+  .button-borrar, .button-borrar span {
     transition: 200ms;
   }
   
-  .btn-anuncio:where(:hover, :focus) {
-    color: #fff;
-  }
-
-
-  .input-anuncio {
-    border-width: 3px;
-    border-color:magenta;
-    background-color: #080312;
+  .button-borrar .text {
+    transform: translateX(35px);
     color: white;
-    
+    font-weight: bold;
   }
   
+  .button-borrar .icon {
+    position: absolute;
+    border-left: 1px solid #c41b1b;
+    transform: translateX(110px);
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button-borrar svg {
+    width: 15px;
+    fill: #eee;
+  }
+  
+  .button-borrar:hover {
+    background: #ff3636;
+  }
+  
+  .button-borrar:hover .text {
+    color: transparent;
+  }
+  
+  .button-borrar:hover .icon {
+    width: 150px;
+    border-left: none;
+    transform: translateX(0);
+  }
+  
+  .button-borrar:focus {
+    outline: none;
+  }
+  
+  .button-borrar:active .icon svg {
+    transform: scale(0.8);
+  }
+  
+
+
+
+  /* CLASES PARA CUSTOMIZAR EL BOTON QUE VIENE POR DEFECTO PARA SUBIR ARCHIVOS */
+
+  .custom-file-input {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .custom-file-input input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .button-subir {
+    position: relative;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid #34974d;
+    background-color: #3aa856;
+  }
+  
+  .button-subir,
+  .button-subir__icon,
+  .button-subir__text {
+    transition: all 0.3s;
+  }
+  
+  .button-subir .button-subir__text {
+    transform: translateX(30px);
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  .button-subir .button-subir__icon {
+    position: absolute;
+    transform: translateX(109px);
+    height: 100%;
+    width: 39px;
+    background-color: #34974d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button-subir .svg {
+    width: 30px;
+    stroke: #fff;
+  }
+  
+  .button-subir:hover {
+    background: #34974d;
+  }
+  
+  .button-subir:hover .button-subir__text {
+    color: transparent;
+  }
+  
+  .button-subir:hover .button-subir__icon {
+    width: 148px;
+    transform: translateX(0);
+  }
+  
+  .button-subir:active .button-subir__icon {
+    background-color: #2e8644;
+  }
+  
+  .button-subir:active {
+    border: 1px solid #2e8644;
+  }
+  
+
+  
+  /* CLASE PARA LA CHECKBOX DE EDICION-VISTA */
+
+  .checkbox-vista-edicion {
+    width: 223px;
+    height: 60px;
+    background-color: #d0d0d0;
+    border-radius: 30px;
+    position: relative;
+    color: black;
+    overflow: hidden;
+  }
+  
+  #checkbox_toggle {
+    display: none;
+  }
+  
+  .checkbox-vista-edicion .toggle {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    border-radius: 30px;
+    left: 5px;
+    cursor: pointer;
+    background: linear-gradient(40deg, #FF0080,#FF8C00 70%);
+    transition: 0.4s;
+    box-shadow: 0px 0px 10px rgb(255, 255, 20), 0px 0px 30px rgb(255, 255, 20);
+  }
+  
+  .checkbox-vista-edicion .slide {
+    width: 230px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+  }
+  
+  .checkbox-vista-edicion .slide .text {
+    font-size: 16px;
+    font-weight: 700;
+    z-index: 100;
+    cursor: pointer;
+  }
+  
+  .check:checked + .checkbox-vista-edicion .slide .toggle {
+    transform: translateX(113px);
+    background: linear-gradient(40deg, #8983F7, #A3DAFB 70%);
+    box-shadow: -0px -0px 10px #8983F7, -0px -0px 30px #8983F7;
+  }
+  
+  .check:checked + .checkbox-vista-edicion .slide {
+    background-color: #0a1929;
+    color: #fff;
+  }
+  
+  
+  
+  
+  
+
+
+
+
+  
+    
 
   
