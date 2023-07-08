@@ -26,6 +26,8 @@ import { PersonaListComponent } from './components/gestionPersona/persona-list/p
 import { PersonaFormComponent } from './components/gestionPersona/persona-form/persona-form.component';
 import { FormularioComponent } from './components/Recursos/formulario/formulario.component';
 import { NewFormularioComponent } from './components/Recursos/new-formulario/new-formulario.component';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { CalendarComponent } from './components/calendar/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { NewFormularioComponent } from './components/Recursos/new-formulario/new
     PersonaFormComponent,
     FormularioComponent,
     NewFormularioComponent,
+    CalendarComponent,
 
   ],
   imports: [
@@ -55,6 +58,8 @@ import { NewFormularioComponent } from './components/Recursos/new-formulario/new
 
     HttpClientModule,
     EditorModule,
+    OAuthModule.forRoot(),
+
 
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
