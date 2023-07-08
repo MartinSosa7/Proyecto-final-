@@ -11,8 +11,8 @@ import { CreacionAreasComponent } from './components/gestion/creacion-areas/crea
 import { PersonaFormComponent } from './components/gestionPersona/persona-form/persona-form.component';
 import { PersonaListComponent } from './components/gestionPersona/persona-list/persona-list.component';
 import { VistaAreasComponent } from './components/gestion/vista-areas/vista-areas.component';
-
-
+import { NewFormularioComponent } from './components/Recursos/new-formulario/new-formulario.component';
+import { FormularioComponent } from './components/Recursos/formulario/formulario.component';
 
 
 const routes: Routes = [
@@ -29,8 +29,8 @@ const routes: Routes = [
   {path:'areas', component:CreacionAreasComponent},
   {path:'persona-form/:id', component:PersonaFormComponent},
   {path:'persona-list', component:PersonaListComponent},
-  // {path:'newrecurso/:id', component:NewRecursoComponent},
-  // {path:'recurso', component:RecursoComponent},
+  {path:'newrecurso/:id', component:NewFormularioComponent},
+  {path:'recurso', component:FormularioComponent},
   
   
   { path:"**", pathMatch:'full', redirectTo:'home'},

@@ -1,0 +1,32 @@
+
+<form method="post" action="index" enctype="multipart/form-data">
+    <div class="input-group">
+        <label class="user-label">Nombre:</label>
+        <input required="" type="text" name="tipo" autocomplete="off" [(ngModel)]="form.tipo" class="input">
+    </div>
+    <div class="input-group">
+        <label class="user-label">Descripción:</label>
+        <input required="" type="text" name="descripcion" autocomplete="off" [(ngModel)]="form.descripcion" class="input">
+    </div>
+    <div class="input-group">
+        <label class="user-label">Mostrar para:</label>
+        <section>
+            <div *ngFor="let r of roles">
+                <input type="checkbox" [(ngModel)]="r.checked" (change)="changeCheckbox($event)" name="mostrarPara"> {{ r.nombreRol }}
+            </div>
+        </section>     
+    </div>
+    <div class="input-group">
+        <label class="user-label">Archivo:</label>
+        <input class="input" name="archivo" type="file"> 
+    </div>
+    <div [innerHTML]="sanitizeHtml(Contenido)"></div>
+    <br>
+    <div class="input-group">
+        <label for="fileInput" class="user-label">Archivo:</label>
+        <input type="file" id="fileInput" accept=".pdf,.doc,.docx"  [(ngModel)]="form.archivo" multiple class="form-control-file"
+        (change)="onFileSelected($event)" name="archivoPdf"/>
+    </div>
+    <button class="btn" (click)="guardarForm(form)"> Guardar</button>
+    <button class="btn" (click)="volver()"> Cancelar</button>
+</form>
