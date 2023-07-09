@@ -39,3 +39,16 @@
     transition: all 0.3s ease-out;
     transform: skewX(-45deg) scale(1, 1);
 }
+
+.form{
+    margin: 40px;
+}
+
+.card{
+    margin: 40px;
+    padding: 40px;
+}
+
+.row{
+    margin: 10px;
+}
