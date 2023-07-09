@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { GooService } from 'src/app/services/goo.service';
 
 @Component({
@@ -11,14 +13,16 @@ export class CalendarComponent implements OnInit {
   calendarioGoogle:any=null;
   idCalendario:string = "585a5fe1d81316ad6cc68880b1e88fba1b038e1167a87b830c24b38134d0b050@group.calendar.google.com"; //reemplazar por el id de un calendario compartido en ppio como publico
   
+  resultados:Array<any> = new Array <any>();
 
   fromDate: string="";
   toDate: string="";
-  event:any = 
+  event:any=
   {
+    
     kind: "calendar#event",
     status: "confirmed",
-    summary: "Reunion prueba desde Angular",
+    summary: " ",
     creator: {
         "email": "escuelageneralsavio119@gmail.com"
     },
@@ -35,7 +39,8 @@ export class CalendarComponent implements OnInit {
 }
 
 
-  constructor(private gooService: GooService) { 
+  constructor(private gooService: GooService,
+              private toastr: ToastrService) { 
   }
 
   ngOnInit(): void {
@@ -56,14 +61,14 @@ export class CalendarComponent implements OnInit {
     idCalendario:String;
     this.gooService.getEvents(this.idCalendario).subscribe(
       result=>{
-        this.calendarioGoogle = result;
+        this.calendarioGoogle = result.items;
         alert(JSON.stringify(this.calendarioGoogle))
       },
       error=>{
         console.log(error)
       }
     )
-  }
+  } 
 
 
   crearEvento(){
@@ -77,6 +82,8 @@ export class CalendarComponent implements OnInit {
     this.gooService.createEvent(this.idCalendario, this.event).subscribe(
       result=>{
         console.log(result);
+        this.toastr.success("Se ha creado exitosamente!","Creacion de Evento");
+
       },
       error=>{
         console.log(error);
@@ -107,5 +114,19 @@ export class CalendarComponent implements OnInit {
     console.log(this.gooService.getToken());
     alert(this.gooService.getToken())
   }
+
+  getEventos(){
+    this.gooService.getEvents(this.idCalendario).subscribe(
+      result=>{
+        this.resultados = result.items;
+        //alert(JSON.stringify(this.calendarioGoogle))
+      },
+      error=>{
+        console.log(error)
+      }
+    )
+  }
+  
+  
 
 }
