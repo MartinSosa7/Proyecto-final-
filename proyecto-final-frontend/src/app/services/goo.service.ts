@@ -65,8 +65,6 @@ export class GooService {
     return this._http.post("https://www.googleapis.com/calendar/v3/calendars/"+idCalendario+"/events",body , httpOptions)
   }
 
-
-
   getToken():string{
     return this.oAuthService.getAccessToken()
   }

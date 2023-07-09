@@ -241,12 +241,18 @@ button {
   .input-label {
     --timing: 200ms ease-in;
     position: absolute;
-    left: 0;
-    top: 50%;
-    transition: transform var(--timing),
-      opacity var(--timing);
-    transform: translateY(-50%);
-    opacity: 0;
-    color: var(--c-text);
-    font-weight: 500;
-  }
+    z-index: -1;
+    padding: 16px 20px;
+    display: block;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.3s ease;
+}
+
+.ov-btn-grow-skew:hover::after {
+    transition: all 0.3s ease-out;
+    transform: skewX(-45deg) scale(1, 1);
+}

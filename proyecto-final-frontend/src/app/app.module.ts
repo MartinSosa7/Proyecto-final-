@@ -28,6 +28,9 @@ import { FormularioComponent } from './components/Recursos/formulario/formulario
 import { NewFormularioComponent } from './components/Recursos/new-formulario/new-formulario.component';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { CalendarComponent } from './components/calendar/calendar/calendar.component';
+// importamos la librería HTTP_INTERCEPTOR
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -71,7 +74,13 @@ import { CalendarComponent } from './components/calendar/calendar/calendar.compo
   
   providers: [
     LoginService,
-    {provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }
+    {provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+     }
+     
 
   ],
 
