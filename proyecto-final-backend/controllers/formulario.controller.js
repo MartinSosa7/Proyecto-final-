@@ -4,12 +4,12 @@ const formCtrl = {}
 
 formCtrl.getForm = async (req, res) => {
     console.log(req.params.id);
-    const aform = await Form.findById(req.params.id)
+    const aform = await Form.findById(req.params.id);
     res.json(aform);
 }
 
 formCtrl.getForms = async (req, res) => {
-    var aforms = await Form.find()
+    var aforms = await Form.find();
     res.json(aforms);
 }
 

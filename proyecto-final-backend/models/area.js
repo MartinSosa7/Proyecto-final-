@@ -6,7 +6,7 @@ const { Schema } = mongoose;
 const AreaSchema = new Schema({
     nombreArea: { type: String, required: true },
     tipo: { type: String, required: true },
-    responsables: [{ type: mongoose.Types.ObjectId, ref: Persona, required: true }],
+    responsables: [{ type: mongoose.Types.ObjectId, ref: 'Persona' , required: true }],
     anuncios: [{type: Anuncio.schema}]
 })
 
