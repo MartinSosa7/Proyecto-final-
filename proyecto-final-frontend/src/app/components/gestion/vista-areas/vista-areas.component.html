@@ -1,0 +1,30 @@
+<div class="container bg-transparent" style="display: flex; flex-direction: column; min-height: 800px;">
+  <div class="row justify-content-between align-items-center">
+    <div class="col-auto">
+      <label for="area">Areas</label>
+      <select class="form-select" id="area" name="area" [(ngModel)]="AreaElegida" (ngModelChange)="cargarArea(AreaElegida._id)" style="width: 300px;">
+        <option selected disabled>Elegir Area</option>
+        <option *ngFor="let area of listaAreas" [ngValue]="area">{{area.nombreArea}}</option>
+      </select>
+    </div>
+    <div class="col-auto">
+      <button class="btn btn-anuncio" (click)="agregarAnuncio(infoArea._id)">Agregar Anuncio/Noticia</button>
+      
+    </div>
+  </div>
+
+  <div style="flex: 1; overflow-y: auto;" class="m-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col" *ngFor="let anuncio of AnunciosAreaElegida">
+        <div class="card rounded-5 border-3" style="background-color:black;color: white;height: 300px; ">
+          <div [ngClass]="getRandomClass()" style="height: 140px;" class="rounded-top-5"></div>
+          <div class="card-body">
+            <h5 class="card-title">{{anuncio.titulo}}</h5>
+            <p class="card-text">{{anuncio.descripcionCard}}</p>
+            <button class="btn btn-anuncio" (click)="verAnuncio(infoArea._id,anuncio._id)">Leer Mas...</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,14 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Anuncio } from '../models/anuncio';
+import { LoginService } from './login.service';
 @Injectable({
   providedIn: 'root'
 })
 export class ServiciosAnuncioService {
 
-  constructor(private _http: HttpClient) { }
+  baseurl:string = this.loginService.hostBase + "area";
 
-  baseurl: string = 'http://localhost:3000/api/area';
+  constructor(private _http: HttpClient,
+              private loginService:LoginService) { }
 
   postAnuncio(anuncio: Anuncio, idArea:any):Observable<any>{
     const httpOptions = {
@@ -21,11 +23,11 @@ export class ServiciosAnuncioService {
     }
     const body = JSON.stringify(anuncio);
 
-    return this._http.post(this.baseurl+'/'+idArea+'/anuncio',body,httpOptions);
+    return this._http.post(this.baseurl+'/anuncio/'+idArea,body,httpOptions);
   }
 
   getAnuncio(idArea:any, idAnuncio:any):Observable<any>{
-    const httpOptions = {
+    const HttpOptions = {
       headers: new HttpHeaders({
 
 
@@ -33,7 +35,7 @@ export class ServiciosAnuncioService {
       params: new HttpParams()
     }
 
-    return this._http.get(this.baseurl+'/area/'+idArea+'/anuncio/'+idAnuncio,httpOptions);
+    return this._http.get(this.baseurl+'/area/'+idArea+'/anuncio/'+idAnuncio,HttpOptions);
   }
 
   putAnuncio(idArea:any, idAnuncio:any, Anuncio:Anuncio):Observable<any>{
@@ -58,7 +60,7 @@ export class ServiciosAnuncioService {
       params: new HttpParams()
     }
 
-    return this._http.delete(this.baseurl+'/area/'+idArea+'/anuncio/'+idAnuncio, HttpOptions);
+    return this._http.delete(this.baseurl+'/area/'+idArea+'/anuncio/'+idAnuncio,HttpOptions);
   }
 
 }

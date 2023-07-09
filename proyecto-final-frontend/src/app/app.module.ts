@@ -21,8 +21,13 @@ import { AlumnoComponent } from './components/Persona/alumno/alumno.component';
 import { NoticiasComponent } from './components/noticias/noticias.component';
 import { CreacionRolesComponent } from './components/gestion/creacion-roles/creacion-roles.component';
 import { CreacionAreasComponent } from './components/gestion/creacion-areas/creacion-areas.component';
+import { VistaAreasComponent } from './components/gestion/vista-areas/vista-areas.component';
 import { PersonaListComponent } from './components/gestionPersona/persona-list/persona-list.component';
 import { PersonaFormComponent } from './components/gestionPersona/persona-form/persona-form.component';
+import { FormularioComponent } from './components/Recursos/formulario/formulario.component';
+import { NewFormularioComponent } from './components/Recursos/new-formulario/new-formulario.component';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { CalendarComponent } from './components/calendar/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -38,8 +43,12 @@ import { PersonaFormComponent } from './components/gestionPersona/persona-form/p
     NoticiasComponent,
     CreacionRolesComponent,
     CreacionAreasComponent,
+    VistaAreasComponent,
     PersonaListComponent,
-    PersonaFormComponent
+    PersonaFormComponent,
+    FormularioComponent,
+    NewFormularioComponent,
+    CalendarComponent,
 
   ],
   imports: [
@@ -49,6 +58,8 @@ import { PersonaFormComponent } from './components/gestionPersona/persona-form/p
 
     HttpClientModule,
     EditorModule,
+    OAuthModule.forRoot(),
+
 
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added

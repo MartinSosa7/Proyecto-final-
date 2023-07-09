@@ -40,21 +40,11 @@ export class PersonaListComponent implements OnInit {
     this.personaService.getPersonas().subscribe(
       (result) =>{
         console.log(result);
+        var unaPersona = new Persona();
         result.forEach((element:any) => {
-          var unroles = new Array<Rol>();
-          var unapersona = new Persona();
-          var unarea =  new Area();
-          Object.assign(unarea,element.area);
-          element.roles.forEach((irol:any) => {
-            var rol = new Rol();
-            Object.assign(rol,irol);
-            unroles.push(rol);  
-          });
-          unapersona.roles= unroles;
-          unapersona.area=unarea;
-          Object.assign(unapersona,element);
-          this.personas.push(unapersona);
-      
+          Object.assign(unaPersona,element);
+          this.personas.push(unaPersona);
+          unaPersona = new Persona();
         });
       },
       (error) => {
@@ -106,8 +96,8 @@ export class PersonaListComponent implements OnInit {
               Object.assign(rol,irol);
               unroles.push(rol);  
             });
-            unapersona.roles= unroles;
-            unapersona.area=unarea;
+            
+           // unapersona.area=unarea;
             Object.assign(unapersona,element);
             this.personas.push(unapersona);
           });

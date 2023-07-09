@@ -1,9 +1,9 @@
-<div class="container-fluid" style="background-color: rgb(255, 255, 255);">
+<div class="container-fluid">
       
   <div class="row ">
       <div class="card col-10 offset-1 tabla mt-5">
           <div class="row">
-              <div class="col-12 col-sm-12 col-md-4"  style="background-color: rgb(255, 255, 255);">
+              <div class="col-12 col-sm-12 col-md-4">
                   <div class="card m-3 ">
                           <h5 class="card-header titulo">Filtro</h5>
                           <div class="card-body">
@@ -24,26 +24,26 @@
 
                               </div>
                               <div class="col-auto">
-                                <button type="submit" class="btn btn-outline-primary mb-3" (click)="fitrarByDni()">Buscar</button>
+                                <button type="submit" class="ov-btn-grow-skew" (click)="fitrarByDni()">Buscar</button>
                               </div>
                             </form>     
                           </div>              
                     </div>
               </div>
-              <div class="col-12 col-sm-12 col-md-4"  style="background-color: rgb(255, 255, 255);">
+              <div class="col-12 col-sm-12 col-md-4">
                 <div class="card m-3 ">
                         <h5 class="card-header titulo  text-center">Lista completa</h5>
                         <div class="card-body vstack gap-2 mx-auto">
-                            <button type="submit" class="btn btn-outline-warning mb-3" (click)="cargarPersonas()">Mostrar</button>
+                            <button type="submit" class="ov-btn-grow-skew" (click)="cargarPersonas()">Mostrar</button>
                         </div>
           
                   </div>
             </div>
-              <div class=" col-12 col-sm-12 col-md-4" style="background-color: rgb(255, 255, 255);">
+              <div class=" col-12 col-sm-12 col-md-4">
                   <div class="card m-3 ">
                           <h5 class="card-header titulo text-center"> Registro </h5>
                           <div class="card-body vstack gap-2 mx-auto">
-                              <button type="button" class="btn btn-outline-success" (click)="agregarPersona()" >
+                              <button type="button" class="ov-btn-grow-skew" (click)="agregarPersona()" >
                                 Agregar nueva Persona
                               </button> 
                           </div>
@@ -58,7 +58,7 @@
           
               <div class="table-wrapper mt-5">
                   <div class=" table-title ">
-                      <div class=" card p-2 titulo2">
+                      <div class="titulo2">
                           <div class="row">
                               <div class="col-12  text-center text-md-start">
                                   <h2 class="ps-4 text-center">Personas Registradas </h2>
@@ -78,7 +78,7 @@
                                   <th scope="col" class="text-center">Direccion</th>
                                   <th scope="col" class="text-center">Telefono</th>
                                   <th scope="col" class="text-center">Email</th>
-                                  <th scope="col" class="text-center">Roles</th>
+                                  <th scope="col" class="text-center">Rol</th>
                                   <th scope="col" class="text-center">Area</th>
                                   <th scope="col" class="text-center">Modificar/Eliminar</th>
                                 </tr>
@@ -91,25 +91,9 @@
                                   <td>{{item.direccion}}</td>
                                   <td>{{item.telefono}}</td>
                                   <td>{{item.email}}</td>
-                                  <td>
-                                    <div class="accordion" >
-                                        <div class="accordion-item">
-                                          <h2 class="accordion-header" id="headingTwo">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse'+item._id"
-                                            aria-expanded="false" [attr.aria-controls]="'collapse'+item._id">
-                                            Ver Roles
-                                            </button>
-                                          </h2>
-                                          <div [id]="'collapse'+item._id" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                              <p *ngFor="let rol of item.roles">{{rol.nombreRol}}</p>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        
-                                      </div>
-                                </td>
-                                <td>{{item.area.nombreArea}}</td>
+                                  <td>{{item.rol}}</td>        
+                                             
+                                <td>--</td>
                                 <td>
                                     <div class="row">
                                         <div class=" col-5 vstack gap-2  mx-auto me-1 ">

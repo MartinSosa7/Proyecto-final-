@@ -68,8 +68,8 @@ export class PersonaFormComponent implements OnInit {
     this.router.navigate(['persona-list']);
   }
 
-  async cargarPersona(id:string){
-    await this.cargarAreas();
+ cargarPersona(id:string){
+     this.cargarAreas();
     this.persona=new Persona();
 
     this.personaService.getPersona(id).subscribe(
@@ -81,9 +81,9 @@ export class PersonaFormComponent implements OnInit {
         Object.assign(rol, arol);
         roles.push(rol);
       });
-      this.persona.roles = roles;
+      
       Object.assign(this.persona, result);
-      this.persona.area = this.areas.find((item) => (item._id == this.persona.area._id))!;
+      //this.persona.area = this.areas.find((item) => (item._id == this.persona.area._id))!;
      
      
     });
@@ -146,7 +146,7 @@ export class PersonaFormComponent implements OnInit {
   }
 
   
-  async cargarAreas() {
+   cargarAreas() {
     this.areas = new Array<Area>();
     this.areaService.getAreas().subscribe(
     (result) => {
