@@ -15,7 +15,7 @@ export class CreacionNoticiaComponent implements OnInit {
     base_url: '/tinymce',
     suffix: '.min',
     plugins: 'lists link image table wordcount',
-    height: '950',
+    height: '750',
     autoresize: 'ON'
   }
 

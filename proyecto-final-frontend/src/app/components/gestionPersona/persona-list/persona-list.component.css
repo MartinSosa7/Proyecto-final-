@@ -1,27 +1,29 @@
 .titulo{
     text-align: center;
-    background: linear-gradient(90deg, rgb(204, 226, 125) 0%, rgb(158, 245, 204) 100%);
-    font-family: cursive;
+    background: #b09766;
+    font-family: Roboto;
     
 }
 
 .titulo2{
     text-align: center;
-    font-family: cursive;
+    font-family: Roboto;
+    
 }
 
-.container-fluid{
-    background: linear-gradient(90deg, rgb(87, 174, 177) 0%, rgb(158, 245, 204) 100%);
-}
 
+main{
+    background: #b09766;
+background: linear-gradient(288deg, rgba(176,151,102,0.396796218487395) 0%, rgba(255,255,255,0.6797093837535014) 28%, rgba(255,255,255,0.26514355742296913) 45%, rgba(111,171,234,1) 100%);
+}
 
 /*** ESTILOS BOTÓN GROW SKEW ***/
 .ov-btn-grow-skew {
     background: #fff; /* color de fondo */
-    color: #4741d7; /* color de fuente */
-    border: 2px solid #4741d7; /* tamaño y color de borde */
+    color: #6fabea; /* color de fuente */
+    border: 1px solid rgba(111,171,234,1); /* tamaño y color de borde */
     padding: 10px 20px;
-    border-radius: 3px; /* redondear bordes */
+    border-radius: 10px; /* redondear bordes */
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -33,7 +35,7 @@
 
 .ov-btn-grow-skew::after {
     content: "";
-    background: #4741d7; /* color de fondo hover */
+    background: #6fabea; /* color de fondo hover */
     position: absolute;
     z-index: -1;
     padding: 16px 20px;
