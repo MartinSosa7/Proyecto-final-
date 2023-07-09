@@ -79,4 +79,12 @@ export class LoginService {
     return this._http.get(this.urlBase+"filtro/"+persona.dni,httpOptions);
   }
 
+  getToken():string{
+    if (sessionStorage.getItem("token")!= null){
+    return sessionStorage.getItem("token")!;
+    }else{
+    return "";
+    }
+  }
+
 }
