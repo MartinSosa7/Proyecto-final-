@@ -13,7 +13,6 @@ import { RolService } from 'src/app/services/rol.service';
 })
 export class NewFormularioComponent implements OnInit {
 
-  roles:Array<Rol>;
   form:Formulario;
   id:string;
   private sub: any;
@@ -28,17 +27,12 @@ export class NewFormularioComponent implements OnInit {
 
 
   constructor(private formService:FormularioService,
-              private rolService:RolService,
               private router : Router,
               private actRouter : ActivatedRoute,
               private sanitizer: DomSanitizer) {
   
-
-  this.roles = new Array<Rol>();
   this.form  = new Formulario();
   this.id    = ''; 
-
-  this.cargarRoles();
 
   }
 
@@ -61,30 +55,7 @@ export class NewFormularioComponent implements OnInit {
 
   }
 
-  cargarRoles(){
-    this.rolService.getRoles().subscribe(
-      result=>{
-        this.roles = result;
-        // if (this.roles.length <= 0) {
-        //   alert('Debe crear Roles para poder crear un nuevo formulario');
-        // }
-      },
-      error=>{
-        console.log(error);
-      }
-    )
-  }
-
-  getResultado(): Array<Rol> {
-    return this.roles.filter(item => item.checked);
-  }
-
-  changeCheckbox(event: Event) {
-    console.log(event.target);
-  }
-
   guardarForm(f:Formulario) {
-    f.mostrarPara = this.getResultado();
     this.formService.createFormulario(f).subscribe(
       result=>{
         this.form = new Formulario();
@@ -101,28 +72,28 @@ export class NewFormularioComponent implements OnInit {
     this.router.navigate(['recurso']);
   }
   
-  sanitizeHtml(html: string): SafeHtml {
-    return this.sanitizer.bypassSecurityTrustHtml(html);
-  }
+  // sanitizeHtml(html: string): SafeHtml {
+  //   return this.sanitizer.bypassSecurityTrustHtml(html);
+  // }
 
-  onFileSelected(event: any) {
-    const files = event.target.files;
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      const reader = new FileReader();
-      reader.onload = () => {
-        let base64 = reader.result as string;
-        const fileType = file.type;
-        this.files.push({ 'base64': base64, 'id': this.files.length + 1, 'type': file.type, 'safeurl': this.sanitizeUrl(base64) });
-      };
-      reader.readAsDataURL(file);
-    }
-  }
+  // onFileSelected(event: any) {
+  //   const files = event.target.files;
+  //   for (let i = 0; i < files.length; i++) {
+  //     const file = files[i];
+  //     const reader = new FileReader();
+  //     reader.onload = () => {
+  //       let base64 = reader.result as string;
+  //       const fileType = file.type;
+  //       this.files.push({ 'base64': base64, 'id': this.files.length + 1, 'type': file.type, 'safeurl': this.sanitizeUrl(base64) });
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // }
 
-  sanitizeUrl(base64: string): SafeUrl {
-    const safeUrl = this.sanitizer.bypassSecurityTrustUrl(base64);
-    return safeUrl;
-  }
+  // sanitizeUrl(base64: string): SafeUrl {
+  //   const safeUrl = this.sanitizer.bypassSecurityTrustUrl(base64);
+  //   return safeUrl;
+  // }
 
 
 }
