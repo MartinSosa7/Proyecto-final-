@@ -12,7 +12,7 @@ export class TokenInterceptorService implements HttpInterceptor {
   constructor(private loginService:LoginService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if(req.url.indexOf("localhost", 0)>=0){
+    if(req.url.indexOf("localhost", 0)>=0){ //en vez de localhost iria el dominio de la aplicacion, en este caso es el localhost porque esta en fase de prueba
       const tokenizeReq = req.clone({
           setHeaders:{
                 Authorization: `Bearer ${this.loginService.getToken()}`

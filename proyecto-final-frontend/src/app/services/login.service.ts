@@ -11,7 +11,7 @@ export class LoginService {
 
   hostBase:string= "http://localhost:3000/api/"; // reeemplazar localhost por ip publica del servidor cuando compile para produccion
   //hostBase:string= "http://52.7.172.203:3000/api/"; // reeemplazar localhost por ip publica del servidor cuando compile para produccion
-  urlBase:string= this.hostBase + "usuario/";
+  urlBase:string= this.hostBase + "persona/";
   
   constructor(private _http:HttpClient) { 
     
@@ -27,6 +27,8 @@ export class LoginService {
     console.log(body);
     return this._http.post(this.urlBase,body, httpOptions);
   }
+
+
   
  public login(username: string, password: string):Observable<any> {
     const httpOption = {
@@ -35,12 +37,16 @@ export class LoginService {
     })
     } 
     let body = JSON.stringify({ username: username, password: password });
-    console.log(body);
+    //console.log(body);
     return this._http.post(this.urlBase + 'login', body, httpOption);
  }
 
+
+
+
  public logout() {
     //borro el vble almacenado mediante el storage
+    sessionStorage.removeItem("token");
     sessionStorage.removeItem("user");
     sessionStorage.removeItem("userid");
     sessionStorage.removeItem("rol");

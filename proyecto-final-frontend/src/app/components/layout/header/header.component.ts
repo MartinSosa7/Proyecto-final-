@@ -8,9 +8,9 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class HeaderComponent implements OnInit {
 
+  sessionStorage: Storage;
   constructor(public loginService: LoginService) {
-
-  }
+    this.sessionStorage = sessionStorage;  }
 
   logout(){
     this.loginService.logout();
