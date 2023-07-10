@@ -1,3 +1,28 @@
+@media screen and (max-width: 870px) {
+  main{
+      position: relative;
+      min-height: 100vh;
+      padding: initial !important;
+      font-size: 10px !important;
+  }
+  .box-contenedor {
+      position: relative;
+      flex-direction: column-reverse;
+      height: 100vh;
+      min-width: 380px;
+      max-width: 900px;
+      width: 100vw !important;
+      padding: 0px !important;
+      box-sizing: border-box;
+
+  }
+  .accordion-button{
+    font-size: 10px;
+  }
+
+}
+
+
 .box-contenedor{
     width: 100%;
     max-width: 1300px;
