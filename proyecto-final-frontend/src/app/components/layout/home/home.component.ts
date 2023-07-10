@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
           this.anuncionsGenerales.push(unAnuncio);
           unAnuncio = new Anuncio();
         }) 
-        Object.assign(this.idArea, result._id);
+        this.idArea = result._id;
       },
       error=>{
         console.log(error);

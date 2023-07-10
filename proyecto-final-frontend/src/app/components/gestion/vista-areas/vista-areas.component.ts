@@ -17,14 +17,15 @@ export class VistaAreasComponent implements OnInit {
   infoArea: Area;
   AnunciosAreaElegida: Array<Anuncio>;
 
-
+  sessionStorage: Storage;
 
 
   constructor(private servicios_area: ServiciosAreaService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.listaAreas = new Array<Area>();
     this.AnunciosAreaElegida = new Array<Anuncio>();
     this.infoArea = new Area();
-   }
+    this.sessionStorage = sessionStorage;
+  }
 
   ngOnInit(): void {
     this.listarAreas();
