@@ -14,6 +14,7 @@ import { VistaAreasComponent } from './components/gestion/vista-areas/vista-area
 import { NewFormularioComponent } from './components/Recursos/new-formulario/new-formulario.component';
 import { FormularioComponent } from './components/Recursos/formulario/formulario.component';
 import { CalendarComponent } from './components/calendar/calendar/calendar.component';
+import { ListaAreasComponent } from './components/gestion/lista-areas/lista-areas.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
   {path:'persona-list', component:PersonaListComponent},
   {path:'newrecurso/:id', component:NewFormularioComponent},
   {path:'recurso', component:FormularioComponent},
-  {path:'calendar', component: CalendarComponent}, 
+  {path:'calendar', component: CalendarComponent},
+  {path:'lista-areas',component: ListaAreasComponent}, 
   
   
   { path:"**", pathMatch:'full', redirectTo:'home'},
