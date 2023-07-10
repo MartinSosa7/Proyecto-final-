@@ -17,7 +17,6 @@ import { CalendarComponent } from './components/calendar/calendar/calendar.compo
 
 
 const routes: Routes = [
-  { path:"", component:HomeComponent},
   { path:"home", component:HomeComponent},
   { path:"creacion-noticias/:idArea/:idAnuncio", component:CreacionNoticiaComponent},
   { path: "creacion-areas/:idArea", component: CreacionAreasComponent },
@@ -27,7 +26,6 @@ const routes: Routes = [
   { path:"alumno", component:AlumnoComponent},
   { path:"noticias", component:NoticiasComponent },
   {path:'roles', component:CreacionRolesComponent},
-  {path:'areas', component:CreacionAreasComponent},
   {path:'persona-form/:id', component:PersonaFormComponent},
   {path:'persona-list', component:PersonaListComponent},
   {path:'newrecurso/:id', component:NewFormularioComponent},
