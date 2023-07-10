@@ -11,7 +11,7 @@ router.get('/', areaCtrl.getAreas);
 router.post('/', areaCtrl.createArea);
 router.put('/update/:id', areaCtrl.editArea);
 router.delete('/:id', areaCtrl.deleteArea);
-router.get('/filtro/:name', areaCtrl.getAreaByName);
+router.get('/general/:tipo', areaCtrl.getAreaByType);
 
 //rutas para las funciones de Anuncios
 router.post('/anuncio/:idArea', areaCtrl.addAnuncio);

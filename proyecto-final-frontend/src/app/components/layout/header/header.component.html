@@ -12,6 +12,9 @@
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['home']">Inicio</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['vista-areas/0']">Areas</a>
+          </li>
 
       
 
@@ -21,15 +24,11 @@
               Gestion
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Profesores</a></li>
-              <li><a class="dropdown-item" href="#">Alumnos</a></li>
-              <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" [routerLink]="['persona-list']">Persona</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" [routerLink]="['roles']">Rol</a></li>
-              <li><a class="dropdown-item" [routerLink]="['lista-areas']">Areas</a></li>
+              <li><a class="dropdown-item" [routerLink]="['lista-areas']"> Gestion Areas</a></li>
+              <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" [routerLink]="['recurso']">Recursos</a></li>
-              <li><a class="dropdown-item" [routerLink]="['noticias']">Anuncios</a></li>
             </ul>
           </li>
 

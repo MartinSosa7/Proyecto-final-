@@ -71,29 +71,16 @@ export class NewFormularioComponent implements OnInit {
   volver(){
     this.router.navigate(['recurso']);
   }
-  
-  // sanitizeHtml(html: string): SafeHtml {
-  //   return this.sanitizer.bypassSecurityTrustHtml(html);
-  // }
 
-  // onFileSelected(event: any) {
-  //   const files = event.target.files;
-  //   for (let i = 0; i < files.length; i++) {
-  //     const file = files[i];
-  //     const reader = new FileReader();
-  //     reader.onload = () => {
-  //       let base64 = reader.result as string;
-  //       const fileType = file.type;
-  //       this.files.push({ 'base64': base64, 'id': this.files.length + 1, 'type': file.type, 'safeurl': this.sanitizeUrl(base64) });
-  //     };
-  //     reader.readAsDataURL(file);
-  //   }
-  // }
-
-  // sanitizeUrl(base64: string): SafeUrl {
-  //   const safeUrl = this.sanitizer.bypassSecurityTrustUrl(base64);
-  //   return safeUrl;
-  // }
-
+  onFileSelected(event: any) {
+   
+      const file = event.target.files;
+      const reader = new FileReader();
+      reader.onload = () => {
+        let base64 = reader.result as string;
+        // this.files.push({ 'base64': base64, 'id': this.files.length + 1, 'type': file.type, 'name': file.name });
+      };
+      reader.readAsDataURL(file);
+  }
 
 }

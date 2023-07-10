@@ -121,18 +121,7 @@ export class PersonaFormComponent implements OnInit {
     );
   }
 
-  cargarRoles() {
-    this.roles = new Array<Rol>();
-    this.rolService.getRoles().subscribe((result) => {
-      result.forEach((item: any) => {
-        var unRol = new Rol();
-        Object.assign(unRol, item);
-        this.roles.push(unRol);
-        unRol = new Rol();
-      });
-      console.log(this.roles);
-    });
-  }
+ 
 
   
    
