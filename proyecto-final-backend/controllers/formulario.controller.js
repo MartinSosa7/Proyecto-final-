@@ -4,12 +4,12 @@ const formCtrl = {}
 
 formCtrl.getForm = async (req, res) => {
     console.log(req.params.id);
-    const aform = await Form.findById(req.params.id);
+    const aform = await Form.findById(req.params.id).populate('creadoPor');
     res.json(aform);
 }
 
 formCtrl.getForms = async (req, res) => {
-    var aforms = await Form.find();
+    var aforms = await Form.find().populate('creadoPor');
     res.json(aforms);
 }
 
@@ -58,6 +58,19 @@ formCtrl.deleteForm = async (req, res)=>{
             'msg': 'Error al eliminar el formulario'  
         }) 
     }
+}
+
+formCtrl.getFormByRol = async (req, res)=>{
+    var aforms = await Form.find().populate('creadoPor');
+    var forms  = [];
+    if (req.query.name != null){
+        aforms.forEach((element)=>{
+            if (element.name == req.query.name){
+                forms.push(element);
+            }
+        });
+    }
+    res.json(forms);
 }
 
 module.exports = formCtrl;

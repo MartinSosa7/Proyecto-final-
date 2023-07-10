@@ -8,7 +8,8 @@ const FormularioSchema = new Schema({
  tipo: {type:String, required:true},
  descripcion: {type:String, required:true},
  archivo: {type:String, required:true},
- mostrarPara: [{type: mongoose.Types.ObjectId, ref: 'Rol', required:true}],
+ //mostrarPara: [{type: mongoose.Types.ObjectId, ref: 'Rol', required:true}],
+ rol:{type: String},
  creadoPor: {type: mongoose.Types.ObjectId, ref: 'Persona', required:true}
 })
 
