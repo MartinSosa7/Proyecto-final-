@@ -25,6 +25,7 @@ export class CreacionNoticiaComponent implements OnInit {
 
   edicion_vista:string = 'edicion';
   idArea:any;
+  date!:Date;
 
   constructor(private sanitizer: DomSanitizer, private servicios: ServiciosAnuncioService,private activatedRoute: ActivatedRoute) {
 
@@ -150,6 +151,8 @@ export class CreacionNoticiaComponent implements OnInit {
   //Metodos Rest
 
   crearAnuncio(anuncio: Anuncio){
+     this.date = new Date();
+     anuncio.fechaDesde = this.date.toLocaleDateString();
     anuncio.recursos = this.files.map(file=>{return {base64:file.base64, type:file.type, name:file.name}});
     this.servicios.postAnuncio(anuncio, this.idArea).subscribe(
       result=>{

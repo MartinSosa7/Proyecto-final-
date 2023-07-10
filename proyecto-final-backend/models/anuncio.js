@@ -12,7 +12,6 @@ const AnuncioSchema = new Schema({
         type:{type: String},
         name:{type: String}
     }],
-    area:{type: Schema.Types.ObjectId, ref: 'Area', required: true},
     tipo: {type:String}
 
 })
