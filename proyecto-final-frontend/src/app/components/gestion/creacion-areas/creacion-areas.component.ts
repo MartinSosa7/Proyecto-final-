@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Area } from 'src/app/models/area';
 import { Persona } from 'src/app/models/persona';
 import { ServiciosAreaService } from 'src/app/services/servicios-area.service';
@@ -23,7 +23,7 @@ export class CreacionAreasComponent implements OnInit {
 
   
 
-  constructor(private servicios: ServiciosAreaService, private activatedRoute: ActivatedRoute) {
+  constructor(private servicios: ServiciosAreaService, private activatedRoute: ActivatedRoute,private router: Router) {
     this.lista = new Array<Persona>();
     this.area = new Area();
     this.personaSeleccionada = new Persona();
@@ -90,6 +90,8 @@ export class CreacionAreasComponent implements OnInit {
     this.servicios.postArea(area).subscribe(
       result=>{
         alert(result.msg);
+        this.router.navigate(['lista-areas']);
+
       },
       error=>{
         console.log(error);
@@ -102,6 +104,8 @@ export class CreacionAreasComponent implements OnInit {
     this.servicios.putArea(idArea, area).subscribe(
       result=>{
         alert(result.msg);
+        this.router.navigate(['lista-areas']);
+
       },
       error=>{
         console.log(error);
@@ -113,6 +117,8 @@ export class CreacionAreasComponent implements OnInit {
     this.servicios.deleteArea(idArea).subscribe(
       result=>{
         alert(result.msg);
+        this.router.navigate(['lista-areas']);
+
       },
       error=>{
         console.log(error);
@@ -131,6 +137,10 @@ export class CreacionAreasComponent implements OnInit {
     if (index != -1) {
       this.responsables.splice(index, 1);
     }
+  }
+
+  volver(){
+    this.router.navigate(['lista-areas']);
   }
 
 }

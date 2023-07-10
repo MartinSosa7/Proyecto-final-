@@ -21,7 +21,7 @@ const routes: Routes = [
   { path:"home", component:HomeComponent},
   { path:"creacion-noticias/:idArea/:idAnuncio", component:CreacionNoticiaComponent},
   { path: "creacion-areas/:idArea", component: CreacionAreasComponent },
-  { path: "vista-areas", component:VistaAreasComponent},
+  { path: "vista-areas/:idArea", component:VistaAreasComponent},
   { path:"login", component:LoginComponent},
   { path:"profesor", component:ProfesorComponent},
   { path:"alumno", component:AlumnoComponent},

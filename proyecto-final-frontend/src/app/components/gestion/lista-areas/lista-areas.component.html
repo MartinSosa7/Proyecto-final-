@@ -2,6 +2,8 @@
     <div  >
         <button class="my-5" (click)="crearArea()">Crear Area</button>
     </div>
+
+    
     <div>
         <table class="table">
             <thead>
@@ -55,7 +57,9 @@
                         </div>
                     </td>
                     <td><button (click)="modificarArea(area._id)">Modificar</button>
-                        <button (click)="verArea(area._id)">Ver Area...</button> </td>
+                        <button (click)="verArea(area._id)" *ngIf="area.tipo != 'general'">Ver Area...</button> 
+                        <button (click)="agregarAnuncio(area._id)" *ngIf="area.tipo == 'general'">Agregar Anuncio/Noticia</button>
+                    </td>
                 </tr>
 
             </tbody>

@@ -1,54 +1,63 @@
 <div class="container bg-transparent" style="display: flex; flex-direction: column; min-height: 800px;">
+  
+  <div>
+    <button class="mt-5 ms-3" (click)="volver()">volver a la lista</button> 
+  </div>
   <form class="row g-3 m-3">
 
-        <div class="col-12">
-            <label for="titulo" class="form-label">Titulo</label>
-            <input type="text" class="form-control" id="titulo" name="titulo" placeholder="INGRESE EL TITULO DEL AREA" [(ngModel)]="area.nombreArea">
-        </div>
+    <div class="col-12">
+      <label for="titulo" class="form-label" style="color: white;font-size: 1.8em;">Titulo</label>
+      <input type="text" class="form-control" id="titulo" name="titulo" placeholder="INGRESE EL TITULO DEL AREA"
+        [(ngModel)]="area.nombreArea">
+    </div>
 
-        <div class="col-md-6">
-            <label for="persona" class="form-label">Persona a cargo</label>
-            <select id="persona" name="persona" class="form-select" [(ngModel)]="personaSeleccionada" (ngModelChange)="agregarResponsable(personaSeleccionada)">
-                <option value="" selected disabled>--Seleccionar--</option>
-                <option *ngFor="let persona of lista" [ngValue]="persona">{{persona.nombre}}, {{persona.apellido}}
-                </option>
-            </select>
-        </div>
-        
-        <div class="col-md-6">
-            <label for="tipo" class="form-label">Tipo de Area</label>
-            <select id="tipo" name="tipo" class="form-select" [(ngModel)]="area.tipo">
-                <option value="grado">Grado/Curso</option>
-                <option value="biblioteca">Biblioteca</option>
-                <option value="materia_artistica">Materia Artistica</option>
-            </select>
-        </div>
+    <div class="col-md-6">
+      <label for="persona" class="form-label" style="color: white;font-size: 1.8em;">Persona a cargo</label>
+      <select id="persona" name="persona" class="form-select" [(ngModel)]="personaSeleccionada"
+        (ngModelChange)="agregarResponsable(personaSeleccionada)">
+        <option value="" selected disabled>--Seleccionar--</option>
+        <option *ngFor="let persona of lista" [ngValue]="persona">{{persona.nombre}}, {{persona.apellido}}
+        </option>
+      </select>
+    </div>
 
-        <h5>lista de personas a cargo</h5>
-        <table  class="table table-bordered table-striped">
-            <thead>
-              <tr style="background-color:mediumorchid;">
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
-                <th scope="col">dni</th>
-                <th scope="col">¿Borrar Responsable?</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="table-info" *ngFor="let responsable of responsables">
-                <th>{{responsable.nombre}}</th>
-                <td>{{responsable.apellido}}</td>
-                <td>{{responsable.dni}}</td>
-                <td><button class="btn btn-danger" (click)="eliminarResponsable(responsable._id)" >Borrar</button></td>
-              </tr>
-            </tbody>
-          </table>
+    <div class="col-md-6">
+      <label for="tipo" class="form-label" style="color: white;font-size: 1.8em;">Tipo de Area</label>
+      <select id="tipo" name="tipo" class="form-select" [(ngModel)]="area.tipo">
+        <option value="general">Area General</option>
+        <option value="grado">Grado/Curso</option>
+        <option value="biblioteca">Biblioteca</option>
+        <option value="materia_artistica">Materia Artistica</option>
+      </select>
+    </div>
 
-        <div class="col-12">
-            <button *ngIf="accion=='new'" class=" btn btn-anuncio m-2" (click)="crearArea(area)">CREAR AREA</button>
-            <button *ngIf="accion=='update'" class=" btn btn-anuncio m-2" (click)="modificarArea(area, area._id)">MODIFICAR AREA</button>
-            <button *ngIf="accion=='update'" class=" btn btn-anuncio m-2" (click)="eliminarArea(area._id)">ELIMINAR AREA</button>
-        </div>
+    <h5>lista de personas a cargo</h5>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr style="background-color:mediumorchid;">
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">dni</th>
+          <th scope="col">¿Borrar Responsable?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-info" *ngFor="let responsable of responsables">
+          <th>{{responsable.nombre}}</th>
+          <td>{{responsable.apellido}}</td>
+          <td>{{responsable.dni}}</td>
+          <td><button class="btn btn-danger" (click)="eliminarResponsable(responsable._id)">Borrar</button></td>
+        </tr>
+      </tbody>
+    </table>
 
-    </form>
+    <div class="col-12">
+      <button *ngIf="accion=='new'" class=" btn btn-anuncio m-2" (click)="crearArea(area)">CREAR AREA</button>
+      <button *ngIf="accion=='update'" class=" btn btn-anuncio m-2" (click)="modificarArea(area, area._id)">MODIFICAR
+        AREA</button>
+      <button *ngIf="accion=='update'" class=" btn btn-anuncio m-2" (click)="eliminarArea(area._id)">ELIMINAR
+        AREA</button>
+    </div>
+
+  </form>
 </div>
