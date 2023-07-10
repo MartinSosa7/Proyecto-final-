@@ -1,13 +1,18 @@
 <div class="container bg-transparent" style="display: flex; flex-direction: column; min-height: 800px;">
 
-  <div class="d-flex justify-content-end m-3">
-    <input class="check" type="checkbox" id="checkbox_toggle" (click)="edicionYvista()">
-    <div class="checkbox-vista-edicion">
-      <label for="checkbox_toggle" class="slide">
-        <label for="checkbox_toggle" class="toggle"></label>
-        <label for="checkbox_toggle" class="text">Edicion</label>
-        <label for="checkbox_toggle" class="text">Vista</label>
-      </label>
+  <div class="justify-content-between">
+    <div class="d-flex justify-content-start m-3">
+      <button (click)="volver()">Volver a ver Areas</button>
+    </div>
+    <div class="d-flex justify-content-end m-3">
+      <input class="check" type="checkbox" id="checkbox_toggle" (click)="edicionYvista()">
+      <div class="checkbox-vista-edicion">
+        <label for="checkbox_toggle" class="slide">
+          <label for="checkbox_toggle" class="toggle"></label>
+          <label for="checkbox_toggle" class="text">Edicion</label>
+          <label for="checkbox_toggle" class="text">Vista</label>
+        </label>
+      </div>
     </div>
   </div>
 
@@ -74,7 +79,7 @@
               {{file.name}}
             </td>
             <td style="width: fit-content;">
-        
+
 
               <button class="button-borrar mx-3" (click)="eliminarArchivo(file.id)"><span
                   class="text">Borrar</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
