@@ -1,5 +1,4 @@
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid p-0">
       <a class="navbar-brand" style="margin-left: 10px;" href="home">
         <img src="./assets/escudo.png" style="width: 65px; height:60px" />
@@ -14,15 +13,9 @@
             <a class="nav-link" href="home">Inicio</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link">Principal</a>
-          </li>
+      
 
-          <li class="nav-item">
-            <a class="nav-link">Anuncios</a>
-          </li>
-
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" *ngIf="sessionStorage.getItem('rol') === 'administrador/a'">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
               Gestion
@@ -31,15 +24,17 @@
               <li><a class="dropdown-item" href="#">Profesores</a></li>
               <li><a class="dropdown-item" href="#">Alumnos</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Rol</a></li>
-              <li><a class="dropdown-item" href="#">Areas</a></li>
-              <li><a class="dropdown-item" [routerLink]=" ['/recurso']">Recursos</a></li>
-              <li><a class="dropdown-item" href="#">Anuncios</a></li>
+              <li><a class="dropdown-item" [routerLink]="['persona-list']">Persona</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" [routerLink]="['roles']">Rol</a></li>
+              <li><a class="dropdown-item" [routerLink]="['lista-areas']">Areas</a></li>
+              <li><a class="dropdown-item" [routerLink]="['recurso']">Recursos</a></li>
+              <li><a class="dropdown-item" [routerLink]="['noticias']">Anuncios</a></li>
             </ul>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link ">Otros</a>
+            <a class="nav-link" [routerLink]="['calendar']">Calendario</a>
           </li>
 
         </ul>
@@ -50,8 +45,9 @@
               <img src="./assets/logo.png" alt="Logo" style="width:30px;" class="rounded-pill">
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" [routerLink]="['creacion-noticias']">Crear Anuncio</a></li>
-
+              <li><a class="dropdown-item" [routerLink]="['creacion-noticias/0/0']">Crear Anuncio</a></li>
+              <li><a class="dropdown-item" [routerLink]="['creacion-areas/0']">Crear Area</a></li>
+              <li><a class="dropdown-item" [routerLink]="['vista-areas']">Areas</a></li>
               <li><a class="dropdown-item" *ngIf="!loginService.userLoggedIn()" [routerLink]="['login']">Login</a></li>
               <li>
 
@@ -74,4 +70,6 @@
         
       </div>
     </div>
-  </nav>
+</nav>
+
+

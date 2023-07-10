@@ -5,13 +5,15 @@ export class Persona {
     _id!:string;
     apellido!: string;
     nombre!: string;
-    dni!: number;
+    dni!: string;
     direccion!: string;
     telefono!: string;
     email!: string;
-    roles:Array<Rol> = new Array<Rol>();
-    area:Area = new Area();
-
+    rol!:string;
+    areas:Array<Area> = new Array<Area>();
+    username!:string;
+    password!:string;
+    
     constructor(){
 
     }

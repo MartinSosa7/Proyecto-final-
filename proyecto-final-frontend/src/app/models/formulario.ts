@@ -6,6 +6,13 @@ export class Formulario {
     tipo!:string;
     descripcion!:string;
     archivo!:string;
-    mostrarPara: Array<Rol> = new Array<Rol>();
+    //mostrarPara: Array<Rol> = new Array<Rol>();
+    rol!:string;
     creadoPor!: Persona;
+
+    constructor(){
+
+    }
+
+
 }

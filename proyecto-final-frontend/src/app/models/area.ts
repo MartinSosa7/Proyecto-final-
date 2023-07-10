@@ -1,3 +1,4 @@
+import { Anuncio } from "./anuncio";
 import { Persona } from "./persona";
 
 export class Area {
@@ -5,6 +6,7 @@ export class Area {
     nombreArea!:string;
     tipo!:string;
     responsables:Array<Persona> = new Array<Persona>();
+    anuncios:Array<Anuncio> = new Array<Anuncio>();
 
     constructor(){
 

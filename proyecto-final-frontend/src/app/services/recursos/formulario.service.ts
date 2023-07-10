@@ -46,7 +46,7 @@ export class FormularioService {
     }
     let body = JSON.stringify(form);
     console.log(body);
-    return this.http.post(this.urlBase,body, httpOptions);
+    return this.http.post(this.urlBase ,body ,httpOptions);
   }
 
 }
