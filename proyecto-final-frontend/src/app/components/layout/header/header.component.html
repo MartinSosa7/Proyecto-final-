@@ -13,15 +13,9 @@
             <a class="nav-link" href="home">Inicio</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link">Principal</a>
-          </li>
+      
 
-          <li class="nav-item">
-            <a class="nav-link">Anuncios</a>
-          </li>
-
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" *ngIf="sessionStorage.getItem('rol') === 'administrador/a'">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
               Gestion
