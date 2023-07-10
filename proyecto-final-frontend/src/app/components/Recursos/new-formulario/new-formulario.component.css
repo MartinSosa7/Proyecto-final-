@@ -87,10 +87,9 @@ button:hover:after {
     font-size: 15px;
     color: rgb(1, 49, 53);
 }
-
 .alert-danger {
     color: #e52e26;
-    margin: 5px;
+    margin: 10px;
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;

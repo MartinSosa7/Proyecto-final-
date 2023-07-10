@@ -11,7 +11,7 @@
         <input type="text" class="inputField" id="apellido" name="apellido" placeholder="Ingrese su apellido"
           [(ngModel)]="persona.apellido" required #apellido="ngModel">
 
-        <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)" class="alert alert-danger">
+        <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)" class="alert-danger">
           <div *ngIf="apellido.errors?.['required']">
             El campo Apellido es requerido
           </div>
@@ -27,7 +27,7 @@
         <input type="text" class="inputField" id="nombre" name="nombre" placeholder="Ingrese su Nombre/s"
           [(ngModel)]="persona.nombre" required #nombre="ngModel">
 
-        <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
+        <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert-danger">
           <div *ngIf="nombre.errors?.['required']">
             El campo Nombre es requerido
           </div>
@@ -43,7 +43,7 @@
         <input type="number" class="inputField" id="dni" name="dni" placeholder="Ingrese su Dni"
           [(ngModel)]="persona.dni" required #dni="ngModel">
 
-        <div *ngIf="dni.invalid && (dni.dirty || dni.touched)" class="alert alert-danger">
+        <div *ngIf="dni.invalid && (dni.dirty || dni.touched)" class="alert-danger">
           <div *ngIf="dni.errors?.['required']">
             El campo DNI es requerido
           </div>
@@ -59,7 +59,7 @@
         <input type="text" class="inputField" id="direccion" name="direccion" placeholder="Ingrese su Dirección"
           [(ngModel)]="persona.direccion" required #direccion="ngModel">
 
-        <div *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)" class="alert alert-danger">
+        <div *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)" class="alert-danger">
           <div *ngIf="direccion.errors?.['required']">
             El campo direccion es requerido
           </div>
@@ -76,7 +76,7 @@
           placeholder="Ingrese numero de Telefono o Celular" [(ngModel)]="persona.telefono" required
           #telefono="ngModel">
 
-        <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="alert alert-danger">
+        <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="alert-danger">
           <div *ngIf="telefono.errors?.['required']">
             El campo telefono es requerido
           </div>
@@ -94,7 +94,7 @@
         <input type="email" class="inputField" id="email" name="email" placeholder="Ingrese su Gmail"
           [(ngModel)]="persona.email" required #email="ngModel">
 
-        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert-danger">
           <div *ngIf="email.errors?.['required']">
             El campo gmail es requerido
           </div>
@@ -110,7 +110,7 @@
         <input type="text" class="inputField" id="username" name="username" placeholder="Ingrese Username del usuario"
           [(ngModel)]="persona.username" required #username="ngModel">
 
-        <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+        <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert-danger">
           <div *ngIf="username.errors?.['required']">
             Debe ingresar un nombre de Usuario para la persona
           </div>
@@ -126,7 +126,7 @@
         <input type="text" class="inputField" id="password" name="password" placeholder="Ingrese Password del usuario"
           [(ngModel)]="persona.password" required #password="ngModel">
 
-        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert-danger">
           <div *ngIf="password.errors?.['required']">
             Debe ingresar una contraseña para la persona
           </div>
@@ -134,8 +134,8 @@
       </div>
 
       <div class="inputContainer">
-        <div class="col-sm-9">
-          <select class="form-select" id="rol" name="rol" [(ngModel)]="persona.rol" required #rol="ngModel">
+        <div>
+          <select class="form-select" id="rol" name="rol" [(ngModel)]="persona.rol" required #rol="ngModel" style="width: 450px;">
             <option value="">Seleccione un Rol</option>
             <option value="profesor/a">Profesor/a</option>
             <option value="administrador/a">Administrador/a</option>
@@ -143,20 +143,19 @@
           </select>
         </div>
 
-        <div *ngIf="rol.invalid && (rol.dirty || rol.touched)" class="alert alert-danger">
+        <div *ngIf="rol.invalid && (rol.dirty || rol.touched)" class="alert-danger">
           <div *ngIf="rol.errors?.['required']">
-            El campo rol es requerido
+            Campo requerido
           </div>
         </div>
-
-
-        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-          <button [disabled]="!personaForm.form.valid" *ngIf="accion=='new'" class="ov-btn-grow-spin" type="button"
-            (click)="guardarPersona(personaForm)"> Guardar Nuevo </button>
-          <button [disabled]="!personaForm.form.valid" *ngIf="accion=='update'" class="ov-btn-grow-spin" type="button"
-            (click)="actualizarPersona(personaForm)"> Actualizar </button>
-          <button type="button" class="ov-btn-grow-spin" (click)="regresar()">Regresar</button>
-        </div>
+        
+      </div>
+      <div class="col-12 justify-content-md-center">
+        <button [disabled]="!personaForm.form.valid" *ngIf="accion=='new'" class="ov-btn-grow-spin" type="button"
+          (click)="guardarPersona(personaForm)"> Guardar Nuevo </button>
+        <button [disabled]="!personaForm.form.valid" *ngIf="accion=='update'" class="ov-btn-grow-spin" type="button"
+          (click)="actualizarPersona(personaForm)"> Actualizar </button>
+        <button type="button" class="ov-btn-grow-spin" (click)="regresar()">Regresar</button>
       </div>
     </form>
 
