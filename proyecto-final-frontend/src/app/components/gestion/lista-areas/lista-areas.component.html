@@ -48,14 +48,14 @@
                                 <div id="collapseOne2" class="accordion-collapse collapse show"
                                     data-bs-parent="#accordionExample2">
                                     <div class="accordion-body">
-                                        <div *ngFor="let anuncio of area.anuncios">{{anuncio.titulo}}</div>
+                                        <div *ngFor="let anuncio of area.anuncios; index as i">{{i + 1}}:  {{anuncio.titulo}}</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </td>
                     <td><button (click)="modificarArea(area._id)">Modificar</button>
-                        <button (click)="verArea()">Ver Area...</button> </td>
+                        <button (click)="verArea(area._id)">Ver Area...</button> </td>
                 </tr>
 
             </tbody>

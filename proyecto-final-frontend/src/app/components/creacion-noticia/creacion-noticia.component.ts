@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml, SafeUrl } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Anuncio } from 'src/app/models/anuncio';
 import { ServiciosAnuncioService } from 'src/app/services/servicios-anuncio.service';
 
@@ -27,7 +27,7 @@ export class CreacionNoticiaComponent implements OnInit {
   idArea:any;
   date!:Date;
 
-  constructor(private sanitizer: DomSanitizer, private servicios: ServiciosAnuncioService,private activatedRoute: ActivatedRoute) {
+  constructor(private sanitizer: DomSanitizer, private servicios: ServiciosAnuncioService,private activatedRoute: ActivatedRoute, private router: Router) {
 
     this.Anuncio = new Anuncio();
     this.files = [];
@@ -157,6 +157,7 @@ export class CreacionNoticiaComponent implements OnInit {
     this.servicios.postAnuncio(anuncio, this.idArea).subscribe(
       result=>{
         alert(result.msg);
+        this.router.navigate(['vista-areas']);
       },
       error=>{
         console.log(error);
@@ -203,6 +204,7 @@ export class CreacionNoticiaComponent implements OnInit {
     this.servicios.deleteAnuncio(idArea,idAnuncio).subscribe(
       result=>{
         alert(result.msg);
+        this.router.navigate(['vista-areas']);
       },
       error=>{
         console.log(error);
@@ -210,6 +212,10 @@ export class CreacionNoticiaComponent implements OnInit {
       }
     )
 
+  }
+
+  volver(){
+    this.router.navigate(['vista-areas']);
   }
   
   

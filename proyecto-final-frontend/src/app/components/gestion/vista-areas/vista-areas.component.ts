@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Anuncio } from 'src/app/models/anuncio';
 import { Area } from 'src/app/models/area';
 import { ServiciosAreaService } from 'src/app/services/servicios-area.service';
@@ -18,7 +18,9 @@ export class VistaAreasComponent implements OnInit {
   AnunciosAreaElegida: Array<Anuncio>;
 
 
-  constructor(private servicios_area: ServiciosAreaService, private router: Router) {
+
+
+  constructor(private servicios_area: ServiciosAreaService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.listaAreas = new Array<Area>();
     this.AnunciosAreaElegida = new Array<Anuncio>();
     this.infoArea = new Area();
@@ -26,6 +28,16 @@ export class VistaAreasComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarAreas();
+    this.activatedRoute.params.subscribe(
+      (params)=>{
+        if(params['idArea']=="0"){
+
+        }
+        else{
+          this.cargarArea(params['idArea']);
+        }
+      }
+    )
   }
 
   listarAreas(){
