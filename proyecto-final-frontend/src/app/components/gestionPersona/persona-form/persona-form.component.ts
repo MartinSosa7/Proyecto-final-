@@ -21,7 +21,6 @@ export class PersonaFormComponent implements OnInit {
   persona!: Persona;
 
   //area!:Area;
-  areas: Array<Area> = new Array<Area>();
 
   rol!:Rol;
   roles: Array<Rol> = new Array<Rol>();
@@ -50,7 +49,6 @@ export class PersonaFormComponent implements OnInit {
       if (params['id']=="0"){
         this.accion= "new";
         this.iniciarPersona();
-        this.cargarAreas();
         //this.cargarRoles();
         
       }else{
@@ -68,7 +66,6 @@ export class PersonaFormComponent implements OnInit {
   }
 
  cargarPersona(id:string){
-     this.cargarAreas();
     this.persona=new Persona();
 
     this.personaService.getPersona(id).subscribe(
@@ -138,23 +135,7 @@ export class PersonaFormComponent implements OnInit {
   }
 
   
-   cargarAreas() {
-    this.areas = new Array<Area>();
-    this.areaService.getAreas().subscribe(
-    (result) => {
-      var unArea = new Area();
-      result.forEach((element: any) => {
-        Object.assign(unArea, element);
-        this.areas.push(unArea);
-        unArea = new Area();
-      });
-      console.log(this.areas);
-    },
-    (error)=>{
-      console.log(error);
-    }
-   )
-  }
+   
     
   guardarRol() {
     this.personaService.addRol(this.rol, this.persona._id).subscribe(
