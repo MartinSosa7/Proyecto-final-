@@ -18,6 +18,8 @@ export class VistaAreasComponent implements OnInit {
   AnunciosAreaElegida: Array<Anuncio>;
 
 
+
+
   constructor(private servicios_area: ServiciosAreaService, private router: Router) {
     this.listaAreas = new Array<Area>();
     this.AnunciosAreaElegida = new Array<Anuncio>();
