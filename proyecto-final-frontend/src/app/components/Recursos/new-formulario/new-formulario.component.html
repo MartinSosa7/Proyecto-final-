@@ -37,6 +37,24 @@
                   </div>
                 </div>
             </div>
+            <div class="form-group p-2 custom-file-input" style="width: fit-content; color: white; font-size: larger;">
+                <label for="fileInput" class="mr-2" style="color: white;font-size: 1.5em;">Elegir Archivo(s) a Subir:</label>
+                <div class="custom-file-input">
+                  <input type="file" id="fileInput" accept=".pdf,.doc,.docx,image/*,video/*" multiple
+                    (change)="onFileSelected($event)" name="file" />
+                  <button type="button" class="button-subir" onclick="document.getElementById('fileInput').click()">
+                    <span class="button-subir__text">Subir</span>
+                    <span class="button-subir__icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2"
+                        stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none"
+                        class="svg">
+                        <line y2="19" y1="5" x2="12" x1="12"></line>
+                        <line y2="12" y1="12" x2="19" x1="5"></line>
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
             <!-- <div class="input-group">
                 <label for="fileInput" class="user-label">Archivo:</label>
                 <input type="file" id="fileInput" accept=".pdf,.doc,.docx"  [(ngModel)]="form.archivo" multiple class="form-control-file"
