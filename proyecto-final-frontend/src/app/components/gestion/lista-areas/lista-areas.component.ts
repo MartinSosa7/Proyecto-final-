@@ -45,10 +45,13 @@ export class ListaAreasComponent implements OnInit {
     this.router.navigate(['creacion-areas',id]);
   }
 
-  verArea(titulo: string){
-    sessionStorage.setItem("areaActual", titulo );
-    this.router.navigate(['vista-areas']);
+  verArea(idArea: string){
+    this.router.navigate(['vista-areas',idArea]);
     
+  }
+
+  agregarAnuncio(idArea:any){
+    this.router.navigate(['creacion-noticias',idArea,0])
   }
 
 }

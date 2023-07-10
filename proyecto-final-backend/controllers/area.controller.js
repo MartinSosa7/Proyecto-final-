@@ -64,12 +64,12 @@ areaCtrl.deleteArea = async (req, res)=>{
 }
 
 
-areaCtrl.getAreaByName = async (req, res) => {
-    criteria={};
-    if (req.query.name != null){
-        criteria.name = { $regex: req.query.name, $options: "i" }
+areaCtrl.getAreaByType = async (req, res) => {
+    let criteria = {};
+    if(req.query.tipo != ''){
+        criteria.tipo = req.query.tipo;
     }
-    var area =  await Area.find(criteria).populate('responsables');
+    var area = await Area.findOne(criteria).populate('responsables');
     res.json(area);
 }
 

@@ -215,7 +215,7 @@ export class CreacionNoticiaComponent implements OnInit {
   }
 
   volver(){
-    this.router.navigate(['vista-areas']);
+    this.router.navigate(['vista-areas',this.idArea]);
   }
   
   

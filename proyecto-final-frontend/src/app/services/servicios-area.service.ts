@@ -82,4 +82,15 @@ export class ServiciosAreaService {
     return this._http.get(this.areaURL ,HttpOptions);
   }
 
+  getAnuncionGenerales(tipo: any):Observable<any>{
+    const HttpOptions = {
+      headers: new HttpHeaders({
+
+      }),
+      params: new HttpParams().append('tipo',tipo)
+    }
+
+    return this._http.get("http//:localhost/api/area/general/"+tipo, HttpOptions);
+  }
+
 }
