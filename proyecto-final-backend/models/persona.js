@@ -11,7 +11,6 @@ const PersonaSchema = new Schema({
  telefono: {type:String, required:true},
  email: {type: String, required: true},
  rol:{type: String},
- areas:[{type: Schema.Types.ObjectId, ref: 'Area'}],
  username:{type: String},
  password:{type: String}
 
