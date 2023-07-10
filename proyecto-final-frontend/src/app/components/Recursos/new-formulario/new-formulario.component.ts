@@ -78,7 +78,7 @@ export class NewFormularioComponent implements OnInit {
       const reader = new FileReader();
       reader.onload = () => {
         let base64 = reader.result as string;
-        this.files.push({ 'base64': base64, 'id': this.files.length + 1, 'type': file.type, 'name': file.name });
+        // this.files.push({ 'base64': base64, 'id': this.files.length + 1, 'type': file.type, 'name': file.name });
       };
       reader.readAsDataURL(file);
   }
