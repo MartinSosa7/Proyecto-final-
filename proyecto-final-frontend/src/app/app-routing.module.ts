@@ -14,10 +14,10 @@ import { VistaAreasComponent } from './components/gestion/vista-areas/vista-area
 import { NewFormularioComponent } from './components/Recursos/new-formulario/new-formulario.component';
 import { FormularioComponent } from './components/Recursos/formulario/formulario.component';
 import { CalendarComponent } from './components/calendar/calendar/calendar.component';
+import { ListaAreasComponent } from './components/gestion/lista-areas/lista-areas.component';
 
 
 const routes: Routes = [
-  { path:"", component:HomeComponent},
   { path:"home", component:HomeComponent},
   { path:"creacion-noticias/:idArea/:idAnuncio", component:CreacionNoticiaComponent},
   { path: "creacion-areas/:idArea", component: CreacionAreasComponent },
@@ -27,12 +27,12 @@ const routes: Routes = [
   { path:"alumno", component:AlumnoComponent},
   { path:"noticias", component:NoticiasComponent },
   {path:'roles', component:CreacionRolesComponent},
-  {path:'areas', component:CreacionAreasComponent},
   {path:'persona-form/:id', component:PersonaFormComponent},
   {path:'persona-list', component:PersonaListComponent},
   {path:'newrecurso/:id', component:NewFormularioComponent},
   {path:'recurso', component:FormularioComponent},
-  {path:'calendar', component: CalendarComponent}, 
+  {path:'calendar', component: CalendarComponent},
+  {path:'lista-areas',component: ListaAreasComponent}, 
   
   
   { path:"**", pathMatch:'full', redirectTo:'home'},

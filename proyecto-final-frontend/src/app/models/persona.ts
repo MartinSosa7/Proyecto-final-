@@ -11,7 +11,9 @@ export class Persona {
     email!: string;
     rol!:string;
     areas:Array<Area> = new Array<Area>();
-
+    username!:string;
+    password!:string;
+    
     constructor(){
 
     }

@@ -1,6 +1,7 @@
 const Persona = require('../models/persona');
 const Rol = require('../models/rol'); 
 const Area =  require('../models/area');
+const jwt = require('jsonwebtoken');
 
 const personaCtrl = {}
 
@@ -122,9 +123,45 @@ personaCtrl.getPersonaByDni = async (req, res) => {
     var persona =  await Persona.find(criteria).populate('roles');
     res.json(persona); */
 
-    let dni = req.params.dni;
+    let dni = req.query.dni;
     const persona = await Persona.find({'dni':dni});
     res.json(persona);
+}
+
+personaCtrl.loginUsuario = async (req, res)=>{
+
+    const criteria = {
+            username: req.body.username,
+            password: req.body.password
+    }
+
+    try{
+        const user = await Persona.findOne(criteria);
+        if (!user) {
+            res.json({
+                'status': 0,
+                'msg': "not found" 
+            })
+        }else{
+            //preparo un token para ser enviado en caso de loguin correcto
+            const unToken = jwt.sign({id: user._id}, "secretkey");
+            res.json({
+                'status': 1,
+                'msg': "success",
+                username: user.username, 
+                userid: user._id,
+                rol: user.rol,
+                token: unToken  //retorno del tokens
+            })
+        }
+
+    }catch(error){
+        res.json({
+            'status': 0,
+            'msg': 'error'
+        })
+    }
+
 }
 
 

@@ -13,15 +13,9 @@
             <a class="nav-link" href="home">Inicio</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link">Principal</a>
-          </li>
+      
 
-          <li class="nav-item">
-            <a class="nav-link">Anuncios</a>
-          </li>
-
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" *ngIf="sessionStorage.getItem('rol') === 'administrador/a'">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
               Gestion
@@ -33,7 +27,7 @@
               <li><a class="dropdown-item" [routerLink]="['persona-list']">Persona</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" [routerLink]="['roles']">Rol</a></li>
-              <li><a class="dropdown-item" [routerLink]="['areas']">Areas</a></li>
+              <li><a class="dropdown-item" [routerLink]="['lista-areas']">Areas</a></li>
               <li><a class="dropdown-item" [routerLink]="['recurso']">Recursos</a></li>
               <li><a class="dropdown-item" [routerLink]="['noticias']">Anuncios</a></li>
             </ul>

@@ -31,6 +31,7 @@ import { CalendarComponent } from './components/calendar/calendar/calendar.compo
 // importamos la librería HTTP_INTERCEPTOR
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { ListaAreasComponent } from './components/gestion/lista-areas/lista-areas.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     FormularioComponent,
     NewFormularioComponent,
     CalendarComponent,
+    ListaAreasComponent,
 
   ],
   imports: [

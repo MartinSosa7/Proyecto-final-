@@ -56,7 +56,6 @@ export class PersonaFormComponent implements OnInit {
       }else{
         this.accion= "update";
         //this.cargarAreas();
-        this.cargarRoles();
         this.iniciarPersona();
         this.cargarPersona(params['id']);
 
@@ -75,13 +74,6 @@ export class PersonaFormComponent implements OnInit {
     this.personaService.getPersona(id).subscribe(
      (result)=>{
       console.log(result);
-      var roles = new Array<Rol>();
-      result.roles.forEach((arol: any) => {
-        var rol = new Rol();
-        Object.assign(rol, arol);
-        roles.push(rol);
-      });
-      
       Object.assign(this.persona, result);
       //this.persona.area = this.areas.find((item) => (item._id == this.persona.area._id))!;
      

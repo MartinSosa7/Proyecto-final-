@@ -85,22 +85,12 @@ export class PersonaListComponent implements OnInit {
     this.personaService.getPersonaByDni(this.personaDni.dni).subscribe(
       (result)=>{
         if (result.length!=0){
-          var unroles = new Array<Rol>();
           var unapersona = new Persona();
           var unarea =  new Area();
+          Object.assign(unapersona,result);
+          this.personas.push(unapersona);
 
-          result.forEach((element:any) => {
-            Object.assign(unarea,element.area);
-            element.roles.forEach((irol:any) => {
-              var rol = new Rol();
-              Object.assign(rol,irol);
-              unroles.push(rol);  
-            });
-            
-           // unapersona.area=unarea;
-            Object.assign(unapersona,element);
-            this.personas.push(unapersona);
-          });
+          
           console.log(this.personas);  
         }else{
           this.toastr.error("La persona con dni "+this.personaDni.dni+" no se encuentra registrado","Busqueda");
