@@ -4,7 +4,7 @@
       <label for="area">Areas</label>
       <select class="form-select" id="area" name="area" [(ngModel)]="AreaElegida" (ngModelChange)="cargarArea(AreaElegida._id)" style="width: 300px;">
         <option selected disabled>Elegir Area</option>
-        <option *ngFor="let area of listaAreas" [ngValue]="area">{{area.nombreArea}}</option>
+        <option *ngFor="let area of listaAreas" [ngValue]="area" >{{area.nombreArea}}</option>
       </select>
     </div>
     <div class="col-auto">

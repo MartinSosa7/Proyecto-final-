@@ -45,8 +45,10 @@ export class ListaAreasComponent implements OnInit {
     this.router.navigate(['creacion-areas',id]);
   }
 
-  verArea(){
+  verArea(titulo: string){
+    sessionStorage.setItem("areaActual", titulo );
     this.router.navigate(['vista-areas']);
+    
   }
 
 }
