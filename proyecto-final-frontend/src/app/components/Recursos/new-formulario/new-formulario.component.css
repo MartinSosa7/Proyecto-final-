@@ -1,3 +1,24 @@
+main {
+    padding: 40px;
+    background: rgb(176, 151, 102);
+    background: linear-gradient(0deg, rgba(176, 151, 102, 0) 0%, rgba(255, 255, 255, 1) 1%, rgba(111, 171, 234, 0.7553396358543417) 100%);
+}
+
+.box-contenedor {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    padding: 30px 30px 30px 30px;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.062);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+
 .btn {
     width: 6.5em;
     height: 2.3em;
@@ -12,15 +33,15 @@
     position: relative;
     z-index: 1;
     overflow: hidden;
-   }
-   
-   button:hover {
+}
+
+button:hover {
     color: black;
-   }
-   
-   button:after {
+}
+
+button:after {
     content: "";
-    background: white;
+    background: #6faaea;
     position: absolute;
     z-index: -1;
     left: -20%;
@@ -29,30 +50,26 @@
     bottom: 0;
     transform: skewX(-45deg) scale(0, 1);
     transition: all 0.5s;
-   }
-   
-   button:hover:after {
+}
+
+button:hover:after {
     transform: skewX(-45deg) scale(1, 1);
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
-   }
+}
 
-   .input-group{
+.input-group {
     font-weight: bold;
     margin: 0.5em;
     padding: 0 7px;
-   }
-
-   .input-group .user-label{
-    width: 10em;
-   }
-
-   .form{
-    margin: 40px;
-    margin-left: 20%;
 }
 
-.card-header{
+.input-group .user-label {
+    width: 10em;
+}
+
+
+.card-header {
     --border-right: 6px;
     --text-stroke-color: rgba(0, 0, 0, 0.6);
     --fs-size: 2em;
@@ -64,7 +81,7 @@
     text-transform: uppercase;
 }
 
-.card-body{
+.card-body {
     margin-top: 30px;
     height: auto;
     font-size: 15px;

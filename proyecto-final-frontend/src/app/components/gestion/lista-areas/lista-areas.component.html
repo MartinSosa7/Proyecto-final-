@@ -1,66 +1,68 @@
-<div class="container">
-    <div  >
-        <button class="my-5" (click)="crearArea()">Crear Area</button>
-    </div>
-    <div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Tipo</th>
-                    <th>Responsables</th>
-                    <th>Anuncios/Noticias</th>
-                    <th>Info Area</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let area of listaDeAreas">
-                    <th>{{area.nombreArea}}</th>
-                    <td>{{area.tipo}} </td>
-                    <td>
-                        <div class="accordion" id="accordionExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Responsables
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show"
-                                    data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <div *ngFor="let responsable of area.responsables">{{responsable.nombre}}, {{responsable.apellido}}</div>
+<main class="">
+    <div class="box-contenedor">
+        <div  >
+            <button class="btn-anuncio" (click)="crearArea()">Crear Area</button>
+        </div>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Responsables</th>
+                        <th>Anuncios/Noticias</th>
+                        <th>Info Area</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let area of listaDeAreas">
+                        <th>{{area.nombreArea}}</th>
+                        <td>{{area.tipo}} </td>
+                        <td>
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Responsables
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div *ngFor="let responsable of area.responsables">{{responsable.nombre}}, {{responsable.apellido}}</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                    </td>
-                    <td>
-                        <div class="accordion" id="accordionExample2">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne2" aria-expanded="true" aria-controls="collapseOne">
-                                        Anuncios/Noticias
-                                    </button>
-                                </h2>
-                                <div id="collapseOne2" class="accordion-collapse collapse show"
-                                    data-bs-parent="#accordionExample2">
-                                    <div class="accordion-body">
-                                        <div *ngFor="let anuncio of area.anuncios">{{anuncio.titulo}}</div>
+    
+                        </td>
+                        <td>
+                            <div class="accordion" id="accordionExample2">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne2" aria-expanded="true" aria-controls="collapseOne">
+                                            Anuncios/Noticias
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne2" class="accordion-collapse collapse show"
+                                        data-bs-parent="#accordionExample2">
+                                        <div class="accordion-body">
+                                            <div *ngFor="let anuncio of area.anuncios">{{anuncio.titulo}}</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </td>
-                    <td><button (click)="modificarArea(area._id)">Modificar</button>
-                        <button (click)="verArea()">Ver Area...</button> </td>
-                </tr>
-
-            </tbody>
-        </table>
+                        </td>
+                        <td><button class="btn-anuncio" (click)="modificarArea(area._id)">Modificar</button>
+                            <button class="btn-anuncio" (click)="verArea()">Ver Area...</button> </td>
+                    </tr>
+    
+                </tbody>
+            </table>
+        </div>
+    
+    
     </div>
-
-
-</div>
+</main>
