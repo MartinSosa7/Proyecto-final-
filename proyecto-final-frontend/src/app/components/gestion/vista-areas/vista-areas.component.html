@@ -9,7 +9,9 @@
       </select>
     </div>
     <div class="col-auto">
-      <button *ngIf="sessionStorage.getItem('rol') == 'profesor/a' || sessionStorage.getItem('rol') == 'administrador/a'"  class="btn btn-anuncio" (click)="agregarAnuncio(infoArea._id)">Agregar Anuncio/Noticia</button>
+      <button  *ngIf="
+      (PersonaActual && sessionStorage.getItem('userid') == PersonaActual._id) ||
+      sessionStorage.getItem('rol') == 'administrador/a'"  class="btn btn-anuncio" (click)="agregarAnuncio(infoArea._id)">Agregar Anuncio/Noticia</button>
       
     </div>
   </div>

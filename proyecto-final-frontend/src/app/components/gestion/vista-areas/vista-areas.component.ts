@@ -71,7 +71,8 @@ export class VistaAreasComponent implements OnInit {
           this.AnunciosAreaElegida.push(unAnuncio);
           unAnuncio = new Anuncio();
         }) 
-        this.PersonaActual = result.responsables.filter((persona:any) => persona._id === this.sessionStorage.getItem('userid'));
+        this.PersonaActual = result.responsables.find((persona:any) => persona._id === this.sessionStorage.getItem('userid'));
+        console.log(this.PersonaActual);
       },
       error=>{
         console.log(error);
