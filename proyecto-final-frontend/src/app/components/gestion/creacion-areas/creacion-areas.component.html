@@ -1,18 +1,19 @@
 <main>
   <div class="container box-contenedor" style="font-family: Roboto;">
-    <h1>Creación de Areas</h1>
-    <div>
-      <button class="mt-5 ms-3 btn-anuncio" (click)="volver()">volver a la lista</button> 
-    </div>
+     
+  <div>
+    <button class=" btn btn-anuncio m-2" (click)="volver()">volver a la lista</button> 
+  </div>
   <form class="row g-3 m-3">
 
-        <div class="col-12">
-            <label for="titulo" class="form-label">Titulo</label>
-            <input type="text" class="form-control" id="titulo" name="titulo" placeholder="INGRESE EL TITULO DEL AREA" [(ngModel)]="area.nombreArea">
-        </div>
+    <div class="col-12">
+      <label for="titulo" class="form-label" style="color: rgb(0, 0, 0);font-size: 1.8em;">Titulo</label>
+      <input type="text" class="form-control" id="titulo" name="titulo" placeholder="INGRESE EL TITULO DEL AREA"
+        [(ngModel)]="area.nombreArea">
+    </div>
 
     <div class="col-md-6">
-      <label for="persona" class="form-label" style="color: white;font-size: 1.8em;">Persona a cargo</label>
+      <label for="persona" class="form-label" style="color: rgb(0, 0, 0);font-size: 1.8em;">Persona a cargo</label>
       <select id="persona" name="persona" class="form-select" [(ngModel)]="personaSeleccionada"
         (ngModelChange)="agregarResponsable(personaSeleccionada)">
         <option value="" selected disabled>--Seleccionar--</option>
@@ -22,7 +23,7 @@
     </div>
 
     <div class="col-md-6">
-      <label for="tipo" class="form-label" style="color: white;font-size: 1.8em;">Tipo de Area</label>
+      <label for="tipo" class="form-label" style="color: rgb(0, 0, 0);font-size: 1.8em;">Tipo de Area</label>
       <select id="tipo" name="tipo" class="form-select" [(ngModel)]="area.tipo">
         <option value="general">Area General</option>
         <option value="grado">Grado/Curso</option>
@@ -31,10 +32,40 @@
       </select>
     </div>
 
+    <div class="col-md-4" *ngIf="area.tipo == 'grado'">
+      <label for="turno" class="form-label" style="color: rgb(0, 0, 0);font-size: 1.8em;">Turno</label>
+      <select id="turno" name="turno" class="form-select" [(ngModel)]="area.turno">
+        <option value="mañana">Mañana</option>
+        <option value="tarde">Tarde</option>
+      </select>
+    </div>
+
+    <div class="col-md-4" *ngIf="area.tipo == 'grado'">
+      <label for="grado" class="form-label" style="color: rgb(0, 0, 0);font-size: 1.8em;">Grado</label>
+      <select id="grado" name="grado" class="form-select" [(ngModel)]="area.grado">
+        <option value="1">1ro</option>
+        <option value="2">2do</option>
+        <option value="3">3ro</option>
+        <option value="4">4to</option>
+        <option value="5">5to</option>
+        <option value="6">6to</option>
+        <option value="7">7to</option>
+      </select>
+    </div>
+
+    <div class="col-md-4" *ngIf="area.tipo == 'grado'">
+      <label for="division" class="form-label" style="color: rgb(0, 0, 0);font-size: 1.8em;">Division</label>
+      <select id="division" name="division" class="form-select" [(ngModel)]="area.division">
+        <option value="a">A</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+      </select>
+    </div>
+    
     <h5>lista de personas a cargo</h5>
     <table class="table table-bordered table-striped">
       <thead>
-        <tr style="background-color:mediumorchid;">
+        <tr style="background-color:rgba(211, 167, 85, 0.473);">
           <th scope="col">Nombre</th>
           <th scope="col">Apellido</th>
           <th scope="col">dni</th>
@@ -60,7 +91,11 @@
         </button>
     </div>
 
-    
+  </form>
+</div>
+
+
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" #exampleModal>
   <div class="modal-dialog modal-dialog-centered ">
@@ -83,8 +118,5 @@
       </div>
     </div>
   </div>
-</div>
-
-    </form>
 </div>
 </main>
