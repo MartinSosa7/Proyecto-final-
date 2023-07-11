@@ -1,11 +1,11 @@
 <main>
-<div class="container">
+<div class="box-contenedor">
     <div>
-        <button (click)="volver()" class="mt-5">volver</button>
+        <button (click)="volver()" class="btn btn-warning">volver</button>
     </div>
     <div class="row">
         <div class="col-sm-6 my-5">
-            <label for="tipo" style="color: white;font-size: 2.0em;">TIPO DE RECURSO</label>
+            <label for="tipo" style="color: #414141;font-size: 2.0em;">TIPO DE RECURSO</label>
             <select class="form-select" [(ngModel)]="form.tipo" id="tipo" name="tipo">
                 <option value="resolucion">Resolucion</option>
                 <option value="acta">Acta</option>
@@ -14,17 +14,17 @@
             </select>
         </div>
         <div class="col-sm-6 my-5">
-            <label for="descripcion" style="color: white;font-size: 2.0em;">INGRESE EL NOMBRE DEL RECURSO</label>
+            <label for="descripcion" style="color: #414141;font-size: 2.0em;">INGRESE EL NOMBRE DEL RECURSO</label>
             <input type="text" id="descripcion" name="descripcion" [(ngModel)]="form.descripcion">
         </div>
     </div>
     <div class="mx-3">
 
-        <div class="form-group p-2 custom-file-input" style="width: fit-content; color: white; font-size: larger;">
-            <label for="fileInput" class="mr-2" style="color: white;font-size: 1.5em;">Elegir Archivo(s) a
+        <div class="form-group p-2 custom-file-input" style="width: fit-content; color: #414141; font-size: larger;">
+            <label for="fileInput" class="mr-2" style="color: #414141;font-size: 1.5em;">Elegir Archivo(s) a
                 Subir:</label>
             <div class="custom-file-input">
-                <input type="file" id="fileInput" accept=".pdf,.doc,.docx,image/*,video/*" multiple
+                <input class="" type="file" id="fileInput" accept=".pdf,.doc,.docx,image/*,video/*" multiple
                     (change)="onFileSelected($event)" name="file" />
                 <button type="button" class="button-subir" onclick="document.getElementById('fileInput').click()">
                     <span class="button-subir__text">Subir</span>
@@ -48,14 +48,14 @@
         <table class="table bg-transparent">
             <thead>
                 <tr>
-                    <th style="color: white;font-size: 1.5em;">Nombre del Archivo</th>
-                    <th style="color: white;font-size: 1.5em;">¿Eliminar Archivo Seleccionado?</th>
+                    <th style="color: #414141;font-size: 1.5em;">Nombre del Archivo</th>
+                    <th style="color: #414141;font-size: 1.5em;">¿Eliminar Archivo Seleccionado?</th>
                 </tr>
             </thead>
             <tbody>
 
                 <tr *ngFor="let file of files">
-                    <td style="color: white; font-size: 1.3em;">
+                    <td style="color: #414141; font-size: 1.3em;">
                         {{file.name}}
                     </td>
                     <td style="width: fit-content;">
@@ -77,7 +77,7 @@
         <button *ngIf="accion=='new'" class="m-3 btn btn-warning" (click)="guardarForm(form)">
             CREAR RECURSO
         </button>
-        <button *ngIf="accion=='update'" class="m-3 btn-anuncio text-white" (click)="modificarForm(form)">
+        <button *ngIf="accion=='update'" class="m-3 btn-anuncio text-white" class="btn btn-success" (click)="modificarForm(form)">
             MODIFICAR RECURSO
         </button>
         <button *ngIf="accion=='update'" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -110,3 +110,4 @@
       </div>
     </div>
   </div>
+</main>
