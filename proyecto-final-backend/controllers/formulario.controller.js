@@ -4,12 +4,13 @@ const formCtrl = {}
 
 formCtrl.getForm = async (req, res) => {
     console.log(req.params.id);
-    const aform = await Form.findById(req.params.id).populate('creadoPor');
+    const aform = await Form.findById(req.params.id);
     res.json(aform);
 }
 
 formCtrl.getForms = async (req, res) => {
-    var aforms = await Form.find().populate('creadoPor');
+    var aforms = await Form.find();
+    console.log(aforms);
     res.json(aforms);
 }
 
@@ -61,7 +62,7 @@ formCtrl.deleteForm = async (req, res)=>{
 }
 
 formCtrl.getFormByRol = async (req, res)=>{
-    var aforms = await Form.find().populate('creadoPor');
+    var aforms = await Form.find();
     var forms  = [];
     if (req.query.name != null){
         aforms.forEach((element)=>{

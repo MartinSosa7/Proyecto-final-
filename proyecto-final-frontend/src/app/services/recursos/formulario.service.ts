@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Formulario } from 'src/app/models/formulario';
 import { LoginService } from '../login.service';
+import { Form } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -30,23 +31,41 @@ export class FormularioService {
 
   getFormularios():Observable<any>{
     
-    const httpOption = {
+    const httpOptions = {
       headers: new HttpHeaders({
       })
     }
-    const body = new HttpParams()
-    return this.http.get(this.urlBase ,httpOption);
+    return this.http.get(this.urlBase ,httpOptions);
   }
 
   createFormulario(form:Formulario):Observable<any>{
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json'
+        'Content-type': 'application/json'
       }) 
     }
     let body = JSON.stringify(form);
     console.log(body);
     return this.http.post(this.urlBase ,body ,httpOptions);
+  }
+
+  putFormulario(form: Formulario):Observable<any>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json'
+      }) 
+    }
+    let body = JSON.stringify(form);
+    return this.http.put(this.urlBase+'update/'+form._id,body,httpOptions);
+  }
+
+  deleteForm(form:Formulario):Observable<any>{
+    const httpOption = {
+      headers: new HttpHeaders({
+      })
+    }
+    const body = new HttpParams()
+    return this.http.delete(this.urlBase+'eliminar/'+form._id ,httpOption);
   }
 
 }

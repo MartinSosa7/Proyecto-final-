@@ -163,51 +163,7 @@ personaCtrl.loginUsuario = async (req, res)=>{
 }
 
 
-personaCtrl.addRol = async (req,res)=>{
-    var rol = new Rol(req.body);
-    const idPersona = req.params.idPersona;             
 
-    try{
-        var persona = await Persona.findById(idPersona);
-        persona.roles.push(rol);
-
-        await Persona.updateOne({_id: persona._id}, persona);
-        rol.personas.push(idPersona);
-        await Rol.updateOne({_id: req.body._id}, rol);
-
-        //await rol.save();
-        res.status(200).json({
-            'status':'1',
-            'msg':'Rol agregado'
-        })
-    }catch{
-        res.status(400).json({
-            'status':'0',
-            'msg':'Error al procesar la informacion'
-        })
-    }
-}
-
-personaCtrl.deleteRol = async (req,res)=>{
-    const idPersona = req.params.idPersona;
-    const idRol = req.params.idRol;
-    
-    try{
-        var persona = await Persona.findById(idPersona);
-        persona.roles.pull(idRol);
-
-        await persona.save();
-        res.status(200).json({
-            'status':'1',
-            'msg':'Rol eliminado'
-        })
-    }catch{
-        res.status(400).json({
-            'status':'0',
-            'msg':'Error al procesar la informacion'
-        })
-    }
-}
 
 
 module.exports = personaCtrl;

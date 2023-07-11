@@ -5,10 +5,8 @@ export class Formulario {
     _id!:string;
     tipo!:string;
     descripcion!:string;
-    archivo!:string;
-    //mostrarPara: Array<Rol> = new Array<Rol>();
-    rol!:string;
-    creadoPor!: Persona;
+    archivos:{base64:string, type:string, name:string}[] = [];
+    fecha!:string;
 
     constructor(){
 
