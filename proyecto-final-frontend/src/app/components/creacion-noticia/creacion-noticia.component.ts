@@ -2,7 +2,9 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeHtml, SafeUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Anuncio } from 'src/app/models/anuncio';
+import { Area } from 'src/app/models/area';
 import { ServiciosAnuncioService } from 'src/app/services/servicios-anuncio.service';
+import { ServiciosAreaService } from 'src/app/services/servicios-area.service';
 
 @Component({
   selector: 'creacion-noticia',
@@ -28,8 +30,11 @@ export class CreacionNoticiaComponent implements OnInit {
   idArea:any;
   date!:Date;
 
+  infoArea:Area = new Area();
+  personaActual:any;
+
   sessionStorage: Storage;
-  constructor(private sanitizer: DomSanitizer, private servicios: ServiciosAnuncioService,private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private sanitizer: DomSanitizer, private servicios: ServiciosAnuncioService,private activatedRoute: ActivatedRoute, private router: Router, private serviciosArea: ServiciosAreaService) {
 
     this.Anuncio = new Anuncio();
     this.files = [];
@@ -41,6 +46,7 @@ export class CreacionNoticiaComponent implements OnInit {
    this.activatedRoute.params.subscribe(
     params=>{
       this.idArea = params['idArea'];
+      this.cargarinfoArea();
       if(params['idAnuncio']=="0"){
         this.accion = 'new';
         this.files = [];
@@ -223,6 +229,8 @@ export class CreacionNoticiaComponent implements OnInit {
     this.router.navigate(['vista-areas',this.idArea]);
   }
 
+  //MODULOS EXTRAS PARA EL FUNCIONAMIENTO DE FUNCIONES ESPECIALES
+  
   closeModal() {
     if (this.modal && this.modal.nativeElement) {
       const modalElement: HTMLElement = this.modal.nativeElement;
@@ -233,6 +241,19 @@ export class CreacionNoticiaComponent implements OnInit {
         modalBackdrop.parentNode?.removeChild(modalBackdrop);
       }
     }
+  }
+
+  cargarinfoArea(){
+    this.serviciosArea.getArea(this.idArea).subscribe(
+      result=>{
+        Object.assign(this.infoArea, result);
+        this.personaActual = result.responsables.find((persona:any) => persona._id === this.sessionStorage.getItem('userid'));
+
+      },
+      error=>{
+        console.log(error);
+      }
+    )
   }
   
   
