@@ -1,6 +1,6 @@
 <div class="container">
     <div>
-      <button class="my-5" (click)="crearArea()">Crear Area</button>
+      <button class="my-5 btn-anuncio" (click)="crearArea()">Crear Area</button>
     </div>
     
 
@@ -63,9 +63,9 @@
                   </div>
                 </td>
                 <td *ngIf="area.tipo == 'general'">
-                  <button (click)="modificarArea(area._id)">Modificar</button>
-                  <button (click)="verArea(area._id)" *ngIf="area.tipo != 'general'">Ver Area...</button>
-                  <button (click)="agregarAnuncio(area._id)" *ngIf="area.tipo == 'general'">Agregar Anuncio/Noticia</button>
+                  <button (click)="modificarArea(area._id)" class="btn-anuncio">Modificar</button>
+                  <button (click)="verArea(area._id)" *ngIf="area.tipo != 'general'" class="btn-anuncio">Ver Area...</button>
+                  <button (click)="agregarAnuncio(area._id)" *ngIf="area.tipo == 'general'" class="btn-anuncio">Agregar Anuncio/Noticia</button>
                 </td>
               </tr>
             </tbody>
@@ -138,8 +138,8 @@
               </div>
             </td>
             <td *ngIf="area.tipo == choose">
-              <button (click)="modificarArea(area._id)">Modificar</button>
-              <button (click)="verArea(area._id)" *ngIf="area.tipo == choose">Ver Area...</button>
+              <button (click)="modificarArea(area._id)" class="btn-anuncio">Modificar</button>
+              <button class="btn-anuncio" (click)="verArea(area._id)" *ngIf="area.tipo == choose">Ver Area...</button>
             </td>
           </tr>
         </tbody>

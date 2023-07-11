@@ -42,7 +42,7 @@
         <h5>Enlaces útiles</h5>
         <div>
           <label for="turno">Elegir Turno</label>
-          <select class="form-select" id="turno" name="turno" aria-label="Default select example" [(ngModel)]="turno">
+          <select class="form-select btn-anuncio" id="turno" name="turno" aria-label="Default select example" [(ngModel)]="turno">
             <option value="mañana" selected>Mañana</option>
             <option value="tarde">Tarde</option>
           </select>
@@ -157,8 +157,8 @@
     <div style="flex: 1; overflow-y: auto;" class="m-5">
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col" *ngFor="let anuncio of anuncionsGenerales">
-          <div class="card rounded-5 border-3" style="background-color:rgb(177, 149, 113);color: white;height: 300px; ">
-            <div style="height: 140px; background-color: deepskyblue;" class="rounded-top-5"></div>
+          <div class="card rounded-5 border-3" style="background-color:rgb(212, 213, 219);color: rgb(58, 56, 56);height: 300px;font-size: 1.4em; ">
+            <div style="height: 140px" class="rounded-top-5 background-areas"></div>
             <div class="card-body">
               <h5 class="card-title">{{anuncio.titulo}}</h5>
               <p class="card-text">{{anuncio.descripcionCard}}</p>

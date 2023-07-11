@@ -19,7 +19,7 @@
   <div style="flex: 1; overflow-y: auto;" class="m-5">
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <div class="col" *ngFor="let anuncio of AnunciosAreaElegida">
-        <div class="card rounded-5 border-3" style="background-color:black;color: white;height: 300px; ">
+        <div class="card rounded-5 border-3" style="background-color:rgb(178, 202, 224);height: 300px; color: rgb(100, 93, 93);">
           <div [ngClass]="getRandomClass()" style="height: 140px;" class="rounded-top-5"></div>
           <div class="card-body">
             <h5 class="card-title">{{anuncio.titulo}}</h5>
