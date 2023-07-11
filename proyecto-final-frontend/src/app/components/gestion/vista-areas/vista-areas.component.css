@@ -1,37 +1,50 @@
-.box-contenedor{
+@media screen and (max-width: 870px) {
+  main{
+      position: relative;
+      min-height: 100vh;
+      padding: initial !important;
+  }
+  .row{
+      display: block;
+  }
+}
+
+
+main{
+  padding: 80px;
+  background: rgb(176, 151, 102);
+  background: linear-gradient(90deg, rgba(176, 151, 102, 1) 0%, rgba(111, 171, 234, 1) 100%);
+}
+
+.box-contenedor {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  display: flex;
   flex-direction: column;
-  align-items: center;
-    background-color: rgb(255, 255, 255);
-    padding: 30px 30px 30px 30px;
-    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.062);
-    border-radius: 10px;
-    padding: 30px;
+  background-color: rgba(255, 255, 255, 0.247);
+  padding: 30px 30px 30px 30px;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.062);
+  border-radius: 30px;
+
 }
 
-.titulo{
+.titulo {
   text-align: center;
   font-family: Roboto;
 }
 
-main{
-  padding: 80px;
-  background: rgb(176,151,102);
-  background: linear-gradient(0deg, rgba(176,151,102,0) 0%, rgba(255,255,255,1) 1%, rgba(111,171,234,0.7553396358543417) 100%);
-}
+
 
 .btn-anuncio {
-  --border-color: linear-gradient(286deg, rgba(176,151,102,0) 0%, rgba(255,255,255,1) 1%, rgba(111,171,234,0.7553396358543417) 100%);;
+  --border-color: linear-gradient(286deg, rgba(176, 151, 102, 0) 0%, rgba(255, 255, 255, 1) 1%, rgba(111, 171, 234, 0.7553396358543417) 100%);
+  ;
   --border-width: .125em;
   --curve-size: .5em;
   --blur: 30px;
   --bg: #08031273;
   --color: #ffffff;
   color: var(--color);
-    /* use position: relative; so that BG is only for .btn */
+  /* use position: relative; so that BG is only for .btn */
   position: relative;
   isolation: isolate;
   display: inline-grid;
@@ -42,166 +55,154 @@ main{
   text-transform: uppercase;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
   clip-path: polygon(
-            /* Top-left */
-            0% var(--curve-size),
+      /* Top-left */
+      0% var(--curve-size),
 
-            var(--curve-size) 0,
-            /* top-right */
-            100% 0,
-            100% calc(100% - var(--curve-size)),
+      var(--curve-size) 0,
+      /* top-right */
+      100% 0,
+      100% calc(100% - var(--curve-size)),
 
-            /* bottom-right 1 */
-            calc(100% - var(--curve-size)) 100%,
-            /* bottom-right 2 */
-            0 100%);
+      /* bottom-right 1 */
+      calc(100% - var(--curve-size)) 100%,
+      /* bottom-right 2 */
+      0 100%);
   transition: color 250ms;
 }
-  
-  .btn-anuncio::after,
-  .btn-anuncio::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-  }
-  
-  .btn-anuncio::before {
-    background: var(--border-color);
-    background-size: 300% 300%;
-    animation: move-bg7234 5s ease infinite;
-    z-index: -2;
-  }
-  
-  @keyframes move-bg7234 {
-    0% {
-      background-position: 31% 0%
-    }
-  
-    50% {
-      background-position: 70% 100%
-    }
-  
-    100% {
-      background-position: 31% 0%
-    }
-  }
-  
-  .btn-anuncio::after {
-    background: var(--bg);
-    z-index: -1;
-    clip-path: polygon(
-              /* Top-left */
-              var(--border-width) 
-              calc(var(--curve-size) + var(--border-width) * .5),
-  
-              calc(var(--curve-size) + var(--border-width) * .5) var(--border-width),
-  
-              /* top-right */
-              calc(100% - var(--border-width)) 
-              var(--border-width),
-  
-              calc(100% - var(--border-width)) 
-              calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
-  
-              /* bottom-right 1 */
-              calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
-              /* bottom-right 2 */
-              var(--border-width) calc(100% - var(--border-width)));
-    transition: clip-path 500ms;
-  }
-  
-  .btn-anuncio:where(:hover, :focus)::after {
-    clip-path: polygon(
-                  /* Top-left */
-                  calc(100% - var(--border-width)) 
-  
-                  calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
-      
-                  calc(100% - var(--border-width))
-  
-                  var(--border-width),
-      
-                  /* top-right */
-                  calc(100% - var(--border-width))
-  
-                   var(--border-width),
-      
-                  calc(100% - var(--border-width)) 
-  
-                  calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
-      
-                  /* bottom-right 1 */
-                  calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) 
-                  calc(100% - var(--border-width)),
-  
-                  /* bottom-right 2 */
-                  calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
-                  calc(100% - var(--border-width)));
-    transition: 200ms;
-  }
-  
-  .btn-anuncio:where(:hover, :focus) {
-    color: #000000be;
+
+.btn-anuncio::after,
+.btn-anuncio::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.btn-anuncio::before {
+  background: var(--border-color);
+  background-size: 300% 300%;
+  animation: move-bg7234 5s ease infinite;
+  z-index: -2;
+}
+
+@keyframes move-bg7234 {
+  0% {
+    background-position: 31% 0%
   }
 
-  
-  
-  .card-anuncio .card__image {
-    flex: 1;
-    height: 140px;
-  }
-  
-  .card-anuncio-1 {
-    background: linear-gradient(to left, #19547b, #ffd89b);
-    
-  }
-  
-  .card-anuncio-2 {
-    background: linear-gradient( 109.6deg,  rgba(254,253,205,1) 11.2%, rgba(163,230,255,1) 91.1% );
+  50% {
+    background-position: 70% 100%
   }
 
-  
-  .card-anuncio-3 {
-    background: radial-gradient( circle farthest-corner at 10% 20%,  rgba(176,229,208,1) 42%, rgba(92,202,238,0.41) 93.6% );
+  100% {
+    background-position: 31% 0%
+  }
+}
+
+.btn-anuncio::after {
+  background: var(--bg);
+  z-index: -1;
+  clip-path: polygon(
+      /* Top-left */
+      var(--border-width) calc(var(--curve-size) + var(--border-width) * .5),
+
+      calc(var(--curve-size) + var(--border-width) * .5) var(--border-width),
+
+      /* top-right */
+      calc(100% - var(--border-width)) var(--border-width),
+
+      calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+
+      /* bottom-right 1 */
+      calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
+      /* bottom-right 2 */
+      var(--border-width) calc(100% - var(--border-width)));
+  transition: clip-path 500ms;
+}
+
+.btn-anuncio:where(:hover, :focus)::after {
+  clip-path: polygon(
+      /* Top-left */
+      calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+
+      calc(100% - var(--border-width)) var(--border-width),
+
+      /* top-right */
+      calc(100% - var(--border-width)) var(--border-width),
+
+      calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+
+      /* bottom-right 1 */
+      calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
+
+      /* bottom-right 2 */
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width)));
+  transition: 200ms;
+}
+
+.btn-anuncio:where(:hover, :focus) {
+  color: #000000be;
+}
+
+
+
+.card-anuncio .card__image {
+  flex: 1;
+  height: 140px;
+}
+
+.card-anuncio-1 {
+  background: linear-gradient(to left, #19547b, #ffd89b);
+
+}
+
+.card-anuncio-2 {
+  background: linear-gradient(109.6deg, rgba(254, 253, 205, 1) 11.2%, rgba(163, 230, 255, 1) 91.1%);
+}
+
+
+.card-anuncio-3 {
+  background: radial-gradient(circle farthest-corner at 10% 20%, rgba(176, 229, 208, 1) 42%, rgba(92, 202, 238, 0.41) 93.6%);
+}
+
+.card-anuncio-4 {
+  background: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+
+
+
+.card-anuncio-5 {
+  background: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+}
+
+.card-anuncio-6 {
+  background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+}
+
+.card-anuncio-7 {
+  background: linear-gradient(to top, #9890e3 0%, #b1f4cf 100%);
+}
+
+.card-anuncio-8 {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%), radial-gradient(at top center, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.40) 120%) #989898;
+}
+
+
+.background-areas {
+  background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+  background-size: 200% auto;
+  animation: gradientAnimation 12s linear infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
   }
 
-  .card-anuncio-4 {
-    background: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-  }
-  
-  
-  
-  .card-anuncio-5 {
-    background: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+  50% {
+    background-position: 100% 50%;
   }
 
-  .card-anuncio-6 {
-    background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+  100% {
+    background-position: 0% 50%;
   }
-  
-  .card-anuncio-7 {
-    background: linear-gradient(to top, #9890e3 0%, #b1f4cf 100%);
-  }
-
-  .card-anuncio-8 {
-    background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
-  }
-
-
-  .background-areas {
-    background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
-    background-size: 200% auto;
-    animation: gradientAnimation 12s linear infinite;
-  }
-  
-  @keyframes gradientAnimation {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-  
+}

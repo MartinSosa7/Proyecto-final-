@@ -1,3 +1,16 @@
+@media screen and (max-width: 870px) {
+  main{
+      position: relative;
+      min-height: 100vh;
+      padding: initial !important;
+      font-size: 10px !important;
+      padding-bottom: 1300px !important;
+  }
+  .row{
+      display: block;
+  }
+}
+
 
 main{
   padding: 80px;

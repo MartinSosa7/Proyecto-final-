@@ -1,3 +1,17 @@
+@media screen and (max-width: 870px) {
+  main{
+      position: relative;
+      min-height: 100vh;
+      padding: initial !important;
+      font-size: 10px !important;
+      margin-bottom: 50px; /* Ajusta el valor según sea necesario */
+      padding-bottom: 1300px !important;
+  }
+  .row{
+      display: block;
+  }
+}
+
 main {
     background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 }
