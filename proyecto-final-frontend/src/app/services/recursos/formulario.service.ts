@@ -38,15 +38,21 @@ export class FormularioService {
     return this.http.get(this.urlBase ,httpOption);
   }
 
-  createFormulario(form:Formulario):Observable<any>{
+  createFormulario(form:Formulario,file:File):Observable<any>{
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }) 
     }
-    let body = JSON.stringify(form);
+    var form2 = this.uploadFile(form,file)
+    let body = JSON.stringify(form2);
     console.log(body);
     return this.http.post(this.urlBase ,body ,httpOptions);
   }
 
+  uploadFile(form:Formulario ,file: File):Formulario {
+   
+    // form.archivo.push({'file', file ,file.name});
+    return form;
+  }
 }

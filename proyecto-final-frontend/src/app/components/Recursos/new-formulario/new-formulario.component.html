@@ -3,14 +3,30 @@
         <div class="card-header">
             Registro de Formulario
         </div>
-        <div class="card-body">            
+        <div class="card-body">   
+
             <div class="input-group">
                 <label class="user-label">Nombre:</label>
-                <input required="" type="text" name="tipo" autocomplete="off" [(ngModel)]="form.tipo" class="input">
+                <input required="" type="text" name="tipo" autocomplete="off" [(ngModel)]="form.tipo" class="input" required #tipo="ngModel">
+
+                <div *ngIf="tipo.invalid && (tipo.dirty || tipo.touched)" class="alert alert-danger">
+                  <div *ngIf="tipo.errors?.['required']">
+                    Debe ingresar el nombre del recurso
+                  </div>
+                </div>
+
             </div>
+
             <div class="input-group">
                 <label class="user-label">Descripción:</label>
-                <input required="" type="text" name="descripcion" autocomplete="off" [(ngModel)]="form.descripcion" class="input">
+                <input required="" type="text" name="descripcion" autocomplete="off" [(ngModel)]="form.descripcion" class="input" required #descripcion="ngModel">
+
+                <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)" class="alert alert-danger">
+                  <div *ngIf="descripcion.errors?.['required']">
+                    Debe ingresar la descripcion del recurso
+                  </div>
+                </div>
+
             </div>
             <!-- <div class="input-group">
                 <label class="user-label">Mostrar para:</label>
@@ -21,6 +37,7 @@
                 </section>     
             </div>   -->
             <div class="input-group">
+              <label class="user-label">Mostrar para:</label>
                 <!-- <div class="col-sm-9"> -->
                   <select class="form-select" id="rol" name="rol" [(ngModel)]="form.rol" 
                   required #rol="ngModel">
@@ -33,33 +50,23 @@
           
                 <div *ngIf="rol.invalid && (rol.dirty || rol.touched)" class="alert alert-danger">
                   <div *ngIf="rol.errors?.['required']">
-                    El campo rol es requerido
+                    Debe ingresar el rol al cual será mostrado este recurso
                   </div>
                 </div>
             </div>
-            <div class="form-group p-2 custom-file-input" style="width: fit-content; color: white; font-size: larger;">
-                <label for="fileInput" class="mr-2" style="color: white;font-size: 1.5em;">Elegir Archivo(s) a Subir:</label>
-                <div class="custom-file-input">
-                  <input type="file" id="fileInput" accept=".pdf,.doc,.docx,image/*,video/*" multiple
-                    (change)="onFileSelected($event)" name="file" />
-                  <button type="button" class="button-subir" onclick="document.getElementById('fileInput').click()">
-                    <span class="button-subir__text">Subir</span>
-                    <span class="button-subir__icon">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2"
-                        stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none"
-                        class="svg">
-                        <line y2="19" y1="5" x2="12" x1="12"></line>
-                        <line y2="12" y1="12" x2="19" x1="5"></line>
-                      </svg>
-                    </span>
-                  </button>
-                </div>
-              </div>
-            <!-- <div class="input-group">
+
+            <div class="input-group">
                 <label for="fileInput" class="user-label">Archivo:</label>
-                <input type="file" id="fileInput" accept=".pdf,.doc,.docx"  [(ngModel)]="form.archivo" multiple class="form-control-file"
-                (change)="onFileSelected($event)" name="archivoPdf"/>
-            </div> -->
+                <input type="file" id="fileInput" [(ngModel)]="form.archivo" multiple class="form-control-file"
+                (change)="onFileSelected($event)" name="archivoPdf" required #archivo="ngModel"/>
+
+                <div *ngIf="archivo.invalid && (archivo.dirty || archivo.touched)" class="alert alert-danger">
+                  <div *ngIf="archivo.errors?.['required']">
+                    Debe ingresar el archivo (.pdf,.docx)
+                  </div>
+                </div>
+
+            </div>
         </div>
         <button class="btn" (click)="guardarForm(form)"> Guardar</button>
         <button class="btn" (click)="volver()"> Cancelar</button>

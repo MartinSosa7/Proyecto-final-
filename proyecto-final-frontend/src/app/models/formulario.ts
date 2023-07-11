@@ -6,7 +6,7 @@ export class Formulario {
     tipo!:string;
     descripcion!:string;
     archivo: {base64:string, type:string, name:string}[]=[]
-    //mostrarPara: Array<Rol> = new Array<Rol>();
+    // archivo!:FormData;
     rol!:string;
     creadoPor!: Persona;
 

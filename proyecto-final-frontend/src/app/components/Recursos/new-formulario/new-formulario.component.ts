@@ -38,49 +38,49 @@ export class NewFormularioComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.sub = this.actRouter.params.subscribe(
-      params => {
-        this.id = params['id']; 
-        if (this.id.length != 0){
-          this.formService.getFormulario(this.id).subscribe(
-            result=>{
-              this.form = result;
-            },
-            error=>{
-              console.log('Error al cargar el Formulario')
-            }
-          )
-        }
-    });
+    // this.sub = this.actRouter.params.subscribe(
+    //   params => {
+    //     this.id = params['id']; 
+    //     if (this.id.length != 0){
+    //       this.formService.getFormulario(this.id).subscribe(
+    //         result=>{
+    //           this.form = result;
+    //         },
+    //         error=>{
+    //           console.log('Error al cargar el Formulario')
+    //         }
+    //       )
+    //     }
+    // });
 
-  }
-
-  guardarForm(f:Formulario) {
-    this.formService.createFormulario(f).subscribe(
-      result=>{
-        this.form = new Formulario();
-        alert('Formulario guardado');
-        this.volver();
-      },
-      error=>{
-        console.log(error);
-      }
-    )
   }
 
   volver(){
     this.router.navigate(['recurso']);
   }
 
-  onFileSelected(event: any) {
-   
-      const file = event.target.files;
-      const reader = new FileReader();
-      reader.onload = () => {
-        let base64 = reader.result as string;
-        // this.files.push({ 'base64': base64, 'id': this.files.length + 1, 'type': file.type, 'name': file.name });
-      };
-      reader.readAsDataURL(file);
+  selectedFile: File | null = null;
+
+  onFileSelected(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    if (inputElement.files && inputElement.files.length > 0) {
+      this.selectedFile = inputElement.files[0];
+    }
+  }
+
+  guardarForm(f:Formulario) {
+    if (this.selectedFile){
+      this.formService.createFormulario(f ,this.selectedFile).subscribe(
+        result=>{
+          this.form = new Formulario();
+          alert('Formulario guardado');
+          this.volver();
+        },
+        error=>{
+          console.log(error);
+        }
+      )
+    }
   }
 
 }
