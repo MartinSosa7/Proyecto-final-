@@ -12,6 +12,8 @@ export class ListaAreasComponent implements OnInit {
 
   listaDeAreas: Array<Area>;
 
+  choose!:string;
+
   constructor(private servicios_areas: ServiciosAreaService, private router: Router) {
     this.listaDeAreas = new Array<Area>();
    }

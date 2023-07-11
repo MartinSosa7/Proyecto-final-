@@ -1,10 +1,10 @@
 <div class="container-fluid">
 
-    <button type="button" class="ov-btn-grow-skew" (click)="login()">01 login</button>
-    <button type="button" class="ov-btn-grow-skew" (click)="token()">02 Token</button>
-    <button type="button" class="ov-btn-grow-skew" (click)="verEventos()">03 Eventos</button>
+    <button type="button" class="ov-btn-grow-skew" (click)="login()" *ngIf="sessionStorage.getItem('rol')=='administrador/a'">01 login</button>
+    <button type="button" class="ov-btn-grow-skew" (click)="token()" *ngIf="sessionStorage.getItem('rol')=='administrador/a'">02 Token</button>
+    <button type="button" class="ov-btn-grow-skew" (click)="verEventos()" *ngIf="sessionStorage.getItem('rol')=='administrador/a'">03 Eventos</button>
     
-    <form class="form" #calendarForm="ngForm">
+    <form class="form" #calendarForm="ngForm" *ngIf="sessionStorage.getItem('rol')=='administrador/a'">
         <div class="card">
             <div class="row" >
                 <label for="my-input" class="col-sm-2 col-form-label" >Titulo del Evento: </label>

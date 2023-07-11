@@ -7,6 +7,9 @@ export class Area {
     tipo!:string;
     responsables:Array<Persona> = new Array<Persona>();
     anuncios:Array<Anuncio> = new Array<Anuncio>();
+    turno!:string;
+    grado!:string;
+    division!:string;
 
     constructor(){
 

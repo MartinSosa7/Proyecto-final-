@@ -18,6 +18,8 @@ export class VistaAreasComponent implements OnInit {
   AnunciosAreaElegida: Array<Anuncio>;
 
   sessionStorage: Storage;
+  PersonaActual:any;
+
 
 
   constructor(private servicios_area: ServiciosAreaService, private router: Router, private activatedRoute: ActivatedRoute) {
@@ -69,6 +71,7 @@ export class VistaAreasComponent implements OnInit {
           this.AnunciosAreaElegida.push(unAnuncio);
           unAnuncio = new Anuncio();
         }) 
+        this.PersonaActual = result.responsables.filter((persona:any) => persona._id === this.sessionStorage.getItem('userid'));
       },
       error=>{
         console.log(error);

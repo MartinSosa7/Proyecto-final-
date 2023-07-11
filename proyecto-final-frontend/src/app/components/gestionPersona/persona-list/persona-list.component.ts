@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Area } from 'src/app/models/area';
@@ -12,11 +12,13 @@ import { PersonaService } from 'src/app/services/persona.service';
   styleUrls: ['./persona-list.component.css']
 })
 export class PersonaListComponent implements OnInit {
+  @ViewChild('exampleModal', { static: false }) modal: ElementRef<any> | undefined;
+
 
   personas!:Array<Persona>;
   persona:Persona = new Persona();
   personaDni:Persona= new Persona();
-
+  personaPorEliminar:Persona = new Persona();
 
   rol:Rol=new Rol();
   area:Area=new Area();
@@ -67,7 +69,7 @@ export class PersonaListComponent implements OnInit {
       (result)=>{
         if(result.status="1"){
           console.log(result.msg);
-          //alert(result.msg);
+          this.closeModal();
           this.cargarPersonas();
           this.toastr.success("Persona eliminado/a correctamente","Baja de Persona");
         }
@@ -108,6 +110,22 @@ export class PersonaListComponent implements OnInit {
 
 
   ngOnInit(): void {
+  }
+
+  closeModal() {
+    if (this.modal && this.modal.nativeElement) {
+      const modalElement: HTMLElement = this.modal.nativeElement;
+      modalElement.classList.remove('show');
+      modalElement.style.display = 'none';
+      const modalBackdrop = document.getElementsByClassName('modal-backdrop')[0];
+      if (modalBackdrop) {
+        modalBackdrop.parentNode?.removeChild(modalBackdrop);
+      }
+    }
+  }
+
+  setPersonaPorEliminar(persona: Persona){
+    this.personaPorEliminar = persona;
   }
 
 }

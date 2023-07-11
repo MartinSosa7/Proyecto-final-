@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeHtml, SafeUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Formulario } from 'src/app/models/formulario';
@@ -12,6 +12,8 @@ import { RolService } from 'src/app/services/rol.service';
   styleUrls: ['./new-formulario.component.css']
 })
 export class NewFormularioComponent implements OnInit {
+  @ViewChild('exampleModal', { static: false }) modal: ElementRef<any> | undefined;
+
 
   form:Formulario;
   id:string;
@@ -97,6 +99,8 @@ export class NewFormularioComponent implements OnInit {
     this.formService.deleteForm(form).subscribe(
       result=>{
         alert(result.msg);
+        this.closeModal();
+        this.router.navigate(['recurso'])
       },
       error=>{
         console.log(error);
@@ -170,5 +174,16 @@ export class NewFormularioComponent implements OnInit {
     return blob;
   }
 
+  closeModal() {
+    if (this.modal && this.modal.nativeElement) {
+      const modalElement: HTMLElement = this.modal.nativeElement;
+      modalElement.classList.remove('show');
+      modalElement.style.display = 'none';
+      const modalBackdrop = document.getElementsByClassName('modal-backdrop')[0];
+      if (modalBackdrop) {
+        modalBackdrop.parentNode?.removeChild(modalBackdrop);
+      }
+    }
+  }
 
 }

@@ -10,6 +10,8 @@ import { GooService } from 'src/app/services/goo.service';
 })
 export class CalendarComponent implements OnInit {
 
+  sessionStorage: Storage;
+
   calendarioGoogle:any=null;
   idCalendario:string = "585a5fe1d81316ad6cc68880b1e88fba1b038e1167a87b830c24b38134d0b050@group.calendar.google.com"; //reemplazar por el id de un calendario compartido en ppio como publico
   
@@ -41,6 +43,8 @@ export class CalendarComponent implements OnInit {
 
   constructor(private gooService: GooService,
               private toastr: ToastrService) { 
+  
+  this.sessionStorage = sessionStorage;
   }
 
   ngOnInit(): void {

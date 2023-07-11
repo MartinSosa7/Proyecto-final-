@@ -2,10 +2,15 @@
     <div>
       <button class="my-5" (click)="crearArea()">Crear Area</button>
     </div>
-  
+    
+
+
     <div style="width: 100%; overflow-x: auto;">
-       <div>
-        <table class="table table-responsive">
+       <div class="mb-5">
+        <div class="text-center" style="color: white; font-size: 2.0em;">
+              AREA GENERAL (INICIO)
+        </div>
+        <table class="table table-responsive" style="color: white;font-size: 1.2em;">
             <thead>
               <tr>
                 <th>Nombre</th>
@@ -66,11 +71,24 @@
             </tbody>
           </table>
        </div> 
-      <table class="table table-responsive">
+
+       <!--  -->
+
+       <div class="col-md-6 mt-5">
+        <label for="tipo" class="form-label" style="color: white;font-size: 1.8em;">Tipo de Area</label>
+        <select id="tipo" name="tipo" class="form-select" [(ngModel)]="choose">
+          <option value="general">Area General</option>
+          <option value="grado">Grado/Curso</option>
+          <option value="biblioteca">Biblioteca</option>
+          <option value="materia_artistica">Materia Artistica</option>
+        </select>
+      </div>
+      <table class="table table-responsive" style="color: white;font-size: 1.2em;">
         <thead>
           <tr>
             <th>Nombre</th>
             <th>Tipo</th>
+            <th *ngIf="choose == 'grado'">Turno</th>
             <th>Responsables</th>
             <th>Anuncios/Noticias</th>
             <th>Info Area</th>
@@ -78,11 +96,12 @@
         </thead>
         <tbody>
           <tr *ngFor="let area of listaDeAreas; index as i">
-            <th *ngIf="area.tipo != 'general'">{{area.nombreArea}}</th>
-            <td *ngIf="area.tipo != 'general'">
+            <th *ngIf="area.tipo == choose">{{area.nombreArea}}</th>
+            <td *ngIf="area.tipo == choose">
               {{area.tipo}}
             </td>
-            <td *ngIf="area.tipo != 'general'">
+            <td *ngIf="choose == 'grado'">{{area.turno}}</td>
+            <td *ngIf="area.tipo == choose">
               <div class="accordion" id="accordion{{i}}">
                 <div class="accordion-item">
                   <h2 class="accordion-header">
@@ -101,7 +120,7 @@
                 </div>
               </div>
             </td>
-            <td *ngIf="area.tipo != 'general'">
+            <td *ngIf="area.tipo == choose">
               <div class="accordion" id="accordionExample2">
                 <div class="accordion-item">
                   <h2 class="accordion-header">
@@ -118,9 +137,9 @@
                 </div>
               </div>
             </td>
-            <td *ngIf="area.tipo != 'general'">
+            <td *ngIf="area.tipo == choose">
               <button (click)="modificarArea(area._id)">Modificar</button>
-              <button (click)="verArea(area._id)" *ngIf="area.tipo != 'general'">Ver Area...</button>
+              <button (click)="verArea(area._id)" *ngIf="area.tipo == choose">Ver Area...</button>
             </td>
           </tr>
         </tbody>
