@@ -15,7 +15,7 @@
                     <form class="form" #calendarForm="ngForm" *ngIf="sessionStorage.getItem('rol')=='administrador/a'">
                         <div>
                             <div class="row">
-                                <label for="my-input">Titulo del Evento: </label>
+                                <label for="my-input" >Titulo del Evento: </label>
                                 <div class="col-sm-10">
                                     <input id="sumary" class="form-control" type="text" [(ngModel)]="event.summary"
                                         name="sumary" required #sumary="ngModel">

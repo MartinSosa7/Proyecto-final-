@@ -17,25 +17,25 @@
   <table class="table bg-transparent">
     <thead>
       <tr>
-        <th style="color: white;font-size: 1.5em;">Nombre del Archivo</th>
-        <th style="color: rgb(255, 255, 255);font-size: 1.5em;">Tipo</th>
-        <th style="color: white;font-size: 1.5em;">Descargar Archivos</th>
-        <th style="color: white;font-size: 1.5em;" *ngIf="sessionStorage.getItem('rol')=='administrador/a'">Modificar
+        <th style="color: rgb(0, 0, 0);font-size: 1.5em;">Nombre del Archivo</th>
+        <th style="color: rgb(0, 0, 0);font-size: 1.5em;">Tipo</th>
+        <th style="color: rgb(0, 0, 0);font-size: 1.5em;">Descargar Archivos</th>
+        <th style="color: rgb(0, 0, 0);font-size: 1.5em;" *ngIf="sessionStorage.getItem('rol')=='administrador/a'">Modificar
         </th>
       </tr>
     </thead>
     <tbody>
 
       <tr *ngFor="let recurso of Archivos">
-        <td style="color: white; font-size: 1.3em;" *ngIf="recurso.tipo == tipoRecurso">
+        <td style="color: #505050; font-size: 1.3em;" *ngIf="recurso.tipo == tipoRecurso">
           {{recurso.descripcion}}
         </td>
-        <td style="color: white; font-size: 1.3em;" *ngIf="recurso.tipo == tipoRecurso">
+        <td style="color: #505050; font-size: 1.3em;" *ngIf="recurso.tipo == tipoRecurso">
           {{recurso.tipo}}
         </td>
         <td style="width: fit-content;" *ngIf="recurso.tipo == tipoRecurso">
           <div *ngFor="let file of recurso.archivos">
-            <p style="color: white;font-size: 1.2em;">{{file.name}}</p>
+            <p style="color: #505050;font-size: 1.2em;">{{file.name}}</p>
             <button class="button-descargar" (click)="downloadFile(file.base64, file.name)">
               <span class="button__text">Descargar</span>
               <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35"

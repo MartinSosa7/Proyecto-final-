@@ -89,147 +89,147 @@ font-size: .7em;
     transform: scale(1.1, 1.1);
 } */
 
-.btn-anuncio {
-  --border-color: linear-gradient(286deg, rgba(176,151,102,0) 0%, rgba(255,255,255,1) 1%, rgba(111,171,234,0.7553396358543417) 100%);;
-  --border-width: .125em;
-  --curve-size: .5em;
-  --blur: 30px;
-  --bg: #08031273;
-  --color: #ffffff;
-  color: var(--color);
-    /* use position: relative; so that BG is only for .btn */
-  position: relative;
-  isolation: isolate;
-  display: inline-grid;
-  place-content: center;
-  padding: .5em 1.5em;
-  font-size: 17px;
-  border: 0;
-  text-transform: uppercase;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
-  clip-path: polygon(
-            /* Top-left */
-            0% var(--curve-size),
-
-            var(--curve-size) 0,
-            /* top-right */
-            100% 0,
-            100% calc(100% - var(--curve-size)),
-
-            /* bottom-right 1 */
-            calc(100% - var(--curve-size)) 100%,
-            /* bottom-right 2 */
-            0 100%);
-  transition: color 250ms;
-}
-
-.btn-anuncio::after,
-.btn-anuncio::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-}
-
-.btn-anuncio::before {
-  background: var(--border-color);
-  background-size: 300% 300%;
-  animation: move-bg7234 5s ease infinite;
-  z-index: -2;
-}
-
-@keyframes move-bg7234 {
-  0% {
-    background-position: 31% 0%
-  }
-
-  50% {
-    background-position: 70% 100%
-  }
-
-  100% {
-    background-position: 31% 0%
-  }
-}
-
-.btn-anuncio::after {
-  background: var(--bg);
-  z-index: -1;
-  clip-path: polygon(
-            /* Top-left */
-            var(--border-width) 
-            calc(var(--curve-size) + var(--border-width) * .5),
-
-            calc(var(--curve-size) + var(--border-width) * .5) var(--border-width),
-
-            /* top-right */
-            calc(100% - var(--border-width)) 
-            var(--border-width),
-
-            calc(100% - var(--border-width)) 
-            calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
-
-            /* bottom-right 1 */
-            calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
-            /* bottom-right 2 */
-            var(--border-width) calc(100% - var(--border-width)));
-  transition: clip-path 500ms;
-}
-
-.btn-anuncio:where(:hover, :focus)::after {
-  clip-path: polygon(
+ .btn-anuncio {
+      --border-color: linear-gradient(286deg, rgba(176,151,102,0) 0%, rgba(255,255,255,1) 1%, rgba(111,171,234,0.7553396358543417) 100%);;
+      --border-width: .125em;
+      --curve-size: .5em;
+      --blur: 30px;
+      --bg: #08031273;
+      --color: #ffffff;
+      color: var(--color);
+        /* use position: relative; so that BG is only for .btn */
+      position: relative;
+      isolation: isolate;
+      display: inline-grid;
+      place-content: center;
+      padding: .5em 1.5em;
+      font-size: 17px;
+      border: 0;
+      text-transform: uppercase;
+      box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
+      clip-path: polygon(
                 /* Top-left */
-                calc(100% - var(--border-width)) 
-
-                calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+                0% var(--curve-size),
     
-                calc(100% - var(--border-width))
-
-                var(--border-width),
+                var(--curve-size) 0,
+                /* top-right */
+                100% 0,
+                100% calc(100% - var(--curve-size)),
+    
+                /* bottom-right 1 */
+                calc(100% - var(--curve-size)) 100%,
+                /* bottom-right 2 */
+                0 100%);
+      transition: color 250ms;
+    }
+    
+    .btn-anuncio::after,
+    .btn-anuncio::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+    }
+    
+    .btn-anuncio::before {
+      background: var(--border-color);
+      background-size: 300% 300%;
+      animation: move-bg7234 5s ease infinite;
+      z-index: -2;
+    }
+    
+    @keyframes move-bg7234 {
+      0% {
+        background-position: 31% 0%
+      }
+    
+      50% {
+        background-position: 70% 100%
+      }
+    
+      100% {
+        background-position: 31% 0%
+      }
+    }
+    
+    .btn-anuncio::after {
+      background: var(--bg);
+      z-index: -1;
+      clip-path: polygon(
+                /* Top-left */
+                var(--border-width) 
+                calc(var(--curve-size) + var(--border-width) * .5),
+    
+                calc(var(--curve-size) + var(--border-width) * .5) var(--border-width),
     
                 /* top-right */
-                calc(100% - var(--border-width))
-
-                 var(--border-width),
+                calc(100% - var(--border-width)) 
+                var(--border-width),
     
                 calc(100% - var(--border-width)) 
-
                 calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
     
                 /* bottom-right 1 */
-                calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) 
-                calc(100% - var(--border-width)),
-
+                calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
                 /* bottom-right 2 */
-                calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
-                calc(100% - var(--border-width)));
-  transition: 200ms;
-}
-
-.btn-anuncio:where(:hover, :focus) {
-  color: #000000;
-}
-
-
-.background-areas {
-  background: linear-gradient( 109.6deg,  rgba(254,253,205,1) 11.2%, rgba(163,230,255,1) 91.1% );
-  background-size: 200% auto;
-  animation: gradientAnimation 12s linear infinite;
-}
-
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-
-
+                var(--border-width) calc(100% - var(--border-width)));
+      transition: clip-path 500ms;
+    }
+    
+    .btn-anuncio:where(:hover, :focus)::after {
+      clip-path: polygon(
+                    /* Top-left */
+                    calc(100% - var(--border-width)) 
+    
+                    calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+        
+                    calc(100% - var(--border-width))
+    
+                    var(--border-width),
+        
+                    /* top-right */
+                    calc(100% - var(--border-width))
+    
+                     var(--border-width),
+        
+                    calc(100% - var(--border-width)) 
+    
+                    calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+        
+                    /* bottom-right 1 */
+                    calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) 
+                    calc(100% - var(--border-width)),
+    
+                    /* bottom-right 2 */
+                    calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+                    calc(100% - var(--border-width)));
+      transition: 200ms;
+    }
+    
+    .btn-anuncio:where(:hover, :focus) {
+      color: #000000;
+    }
+  
+  
+    .background-areas {
+      background: linear-gradient( 109.6deg,  rgba(254,253,205,1) 11.2%, rgba(163,230,255,1) 91.1% );
+      background-size: 200% auto;
+      animation: gradientAnimation 12s linear infinite;
+    }
+    
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  
+  
+  
 
 
 .btn {
