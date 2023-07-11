@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeHtml, SafeUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Anuncio } from 'src/app/models/anuncio';
+import { Area } from 'src/app/models/area';
 import { ServiciosAnuncioService } from 'src/app/services/servicios-anuncio.service';
+import { ServiciosAreaService } from 'src/app/services/servicios-area.service';
 
 @Component({
   selector: 'creacion-noticia',
@@ -10,6 +12,7 @@ import { ServiciosAnuncioService } from 'src/app/services/servicios-anuncio.serv
   styleUrls: ['./creacion-noticia.component.css']
 })
 export class CreacionNoticiaComponent implements OnInit {
+  @ViewChild('exampleModal', { static: false }) modal: ElementRef<any> | undefined;
 
   editorConfig = {
     base_url: '/tinymce',
@@ -23,21 +26,27 @@ export class CreacionNoticiaComponent implements OnInit {
   files: { base64: string,  id: number, type: string, name:string }[] = [];
   accion!:string;
 
-  edicion_vista:string = 'edicion';
+  edicion_vista:string = 'vista';
   idArea:any;
   date!:Date;
 
-  constructor(private sanitizer: DomSanitizer, private servicios: ServiciosAnuncioService,private activatedRoute: ActivatedRoute, private router: Router) {
+  infoArea:Area = new Area();
+  personaActual:any;
+
+  sessionStorage: Storage;
+  constructor(private sanitizer: DomSanitizer, private servicios: ServiciosAnuncioService,private activatedRoute: ActivatedRoute, private router: Router, private serviciosArea: ServiciosAreaService) {
 
     this.Anuncio = new Anuncio();
     this.files = [];
+    this.sessionStorage = sessionStorage;
   }
 
   ngOnInit(): void {
-    this.edicion_vista = 'edicion';
+    this.edicion_vista = 'vista';
    this.activatedRoute.params.subscribe(
     params=>{
       this.idArea = params['idArea'];
+      this.cargarinfoArea();
       if(params['idAnuncio']=="0"){
         this.accion = 'new';
         this.files = [];
@@ -154,6 +163,7 @@ export class CreacionNoticiaComponent implements OnInit {
      this.date = new Date();
      anuncio.fechaDesde = this.date.toLocaleDateString();
     anuncio.recursos = this.files.map(file=>{return {base64:file.base64, type:file.type, name:file.name}});
+    console.log(anuncio);
     this.servicios.postAnuncio(anuncio, this.idArea).subscribe(
       result=>{
         alert(result.msg);
@@ -204,7 +214,8 @@ export class CreacionNoticiaComponent implements OnInit {
     this.servicios.deleteAnuncio(idArea,idAnuncio).subscribe(
       result=>{
         alert(result.msg);
-        this.router.navigate(['vista-areas']);
+        this.closeModal();
+        this.router.navigate(['vista-areas',this.idArea]);
       },
       error=>{
         console.log(error);
@@ -216,6 +227,33 @@ export class CreacionNoticiaComponent implements OnInit {
 
   volver(){
     this.router.navigate(['vista-areas',this.idArea]);
+  }
+
+  //MODULOS EXTRAS PARA EL FUNCIONAMIENTO DE FUNCIONES ESPECIALES
+  
+  closeModal() {
+    if (this.modal && this.modal.nativeElement) {
+      const modalElement: HTMLElement = this.modal.nativeElement;
+      modalElement.classList.remove('show');
+      modalElement.style.display = 'none';
+      const modalBackdrop = document.getElementsByClassName('modal-backdrop')[0];
+      if (modalBackdrop) {
+        modalBackdrop.parentNode?.removeChild(modalBackdrop);
+      }
+    }
+  }
+
+  cargarinfoArea(){
+    this.serviciosArea.getArea(this.idArea).subscribe(
+      result=>{
+        Object.assign(this.infoArea, result);
+        this.personaActual = result.responsables.find((persona:any) => persona._id === this.sessionStorage.getItem('userid'));
+
+      },
+      error=>{
+        console.log(error);
+      }
+    )
   }
   
   

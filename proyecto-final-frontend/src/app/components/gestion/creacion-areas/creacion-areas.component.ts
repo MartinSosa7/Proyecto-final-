@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Area } from 'src/app/models/area';
 import { Persona } from 'src/app/models/persona';
@@ -10,6 +10,8 @@ import { ServiciosAreaService } from 'src/app/services/servicios-area.service';
   styleUrls: ['./creacion-areas.component.css']
 })
 export class CreacionAreasComponent implements OnInit {
+  @ViewChild('exampleModal', { static: false }) modal: ElementRef<any> | undefined;
+
 
   lista: Array<Persona>;
 
@@ -117,6 +119,7 @@ export class CreacionAreasComponent implements OnInit {
     this.servicios.deleteArea(idArea).subscribe(
       result=>{
         alert(result.msg);
+        this.closeModal();
         this.router.navigate(['lista-areas']);
 
       },
@@ -142,5 +145,18 @@ export class CreacionAreasComponent implements OnInit {
   volver(){
     this.router.navigate(['lista-areas']);
   }
+
+  closeModal() {
+    if (this.modal && this.modal.nativeElement) {
+      const modalElement: HTMLElement = this.modal.nativeElement;
+      modalElement.classList.remove('show');
+      modalElement.style.display = 'none';
+      const modalBackdrop = document.getElementsByClassName('modal-backdrop')[0];
+      if (modalBackdrop) {
+        modalBackdrop.parentNode?.removeChild(modalBackdrop);
+      }
+    }
+  }
+  
 
 }

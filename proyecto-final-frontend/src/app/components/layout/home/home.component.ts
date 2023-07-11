@@ -14,6 +14,9 @@ export class HomeComponent implements OnInit {
   listaAreas:Array<Area>;
   anuncionsGenerales:Array<Anuncio>;
   idArea:any;
+  turno:any;
+
+  
   constructor(private servicioArea: ServiciosAreaService, private router: Router) { 
     this.anuncionsGenerales = new Array<Anuncio>();
     this.listaAreas = new Array<Area>();
@@ -68,5 +71,8 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['creacion-noticias',idArea,idAnuncio ])
   }
   
+  verArea(idArea: any){
+    this.router.navigate(['vista-areas',idArea]);
+  }
 
 }

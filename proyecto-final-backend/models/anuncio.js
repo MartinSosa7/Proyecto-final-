@@ -5,6 +5,7 @@ const {Schema} = mongoose;
 const AnuncioSchema = new Schema({
     titulo: {type: String},
     descripcionCard: {type: String},
+    descripcion: {type:String},
     fechaDesde: {type: String},
     fechaHasta: {type:String},
     recursos: [{

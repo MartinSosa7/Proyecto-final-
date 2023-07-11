@@ -4,14 +4,17 @@
     <div class="d-flex justify-content-start m-3">
       <button class="btn-anuncio" (click)="volver()">Volver a ver Areas</button>
     </div>
-  <div class="d-flex justify-content-end m-3">
-    <input class="check" type="checkbox" id="checkbox_toggle" (click)="edicionYvista()">
-    <div class="checkbox-vista-edicion">
-      <label for="checkbox_toggle" class="slide">
-        <label for="checkbox_toggle" class="toggle"></label>
-        <label for="checkbox_toggle" class="text">Edicion</label>
-        <label for="checkbox_toggle" class="text">Vista</label>
-      </label>
+    <div class="d-flex justify-content-end m-3" *ngIf="
+    (personaActual && sessionStorage.getItem('userid') == personaActual._id) ||
+    sessionStorage.getItem('rol') == 'administrador/a'">
+      <input class="check" type="checkbox" id="checkbox_toggle" (click)="edicionYvista()">
+      <div class="checkbox-vista-edicion">
+        <label for="checkbox_toggle" class="slide">
+          <label for="checkbox_toggle" class="toggle"></label>
+          <label for="checkbox_toggle" class="text">Vista</label>
+          <label for="checkbox_toggle" class="text">Edicion</label>
+        </label>
+      </div>
     </div>
   </div>
 
@@ -21,8 +24,8 @@
       <div class="col-3"></div>
       <div class="col-sm-6 text-center">
         <label for="titulo" style="color: white; font-size: 2.5em;">TITULO DEL ANUNCIO</label>
-        <input type="text" class="form-control input-noticia" id="titulo" name="titulo"
-          [(ngModel)]="Anuncio.titulo" placeholder="INGRESE EL TITULO DEL ANUNCIO/NOTICIA"
+        <input type="text" class="form-control input-noticia" id="titulo" name="titulo" [(ngModel)]="Anuncio.titulo"
+          placeholder="INGRESE EL TITULO DEL ANUNCIO/NOTICIA"
           style="color: rgb(0, 0, 0); height: 80px; border-width: 2px; font-size: 1.5em;" autocomplete="off"><br>
       </div>
       <div class="col-3"></div>
@@ -33,9 +36,8 @@
       <div class="col-sm-8 text-center">
         <label for="descripcionCard" style="color: white; font-size: 2.0em;">BREVE DESCRIPCION DE LA
           NOTICIA/ANUNCIO</label>
-        <textarea type="text" class="form-control input-noticia" id="descripcionCard"
-          name="descripcionCard" [(ngModel)]="Anuncio.descripcionCard"
-          placeholder="INGRESE BREVE DESCRIPCION PARA EL ANUNCIO/NOTICIA"
+        <textarea type="text" class="form-control input-noticia" id="descripcionCard" name="descripcionCard"
+          [(ngModel)]="Anuncio.descripcionCard" placeholder="INGRESE BREVE DESCRIPCION PARA EL ANUNCIO/NOTICIA"
           style="height: 200px; width:100%; color: rgb(0, 0, 0);border-width:2px; font-size: 2.0em;"></textarea><br>
       </div>
       <div class="col-2"></div>
@@ -78,7 +80,7 @@
               {{file.name}}
             </td>
             <td style="width: fit-content;">
-        
+
 
               <button class="button-borrar mx-3" (click)="eliminarArchivo(file.id)"><span
                   class="text">Borrar</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
@@ -102,8 +104,8 @@
         (click)="modificarAnuncio(idArea, Anuncio._id, Anuncio)">
         MODIFICAR ANUNCIO/NOTICIA
       </button>
-      <button *ngIf="accion=='update'" class="m-3 btn-anuncio text-white"
-        (click)="eliminarAnuncio(idArea, Anuncio._id)">
+      <button *ngIf="accion=='update'" type="button" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#exampleModal">
         ELIMINAR ANUNCIO/NOTICIA
       </button>
     </div>
@@ -153,5 +155,4 @@
 
   </div>
 
-</div>
-</main>
+  </main>

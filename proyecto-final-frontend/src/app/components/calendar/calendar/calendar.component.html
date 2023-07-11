@@ -4,20 +4,24 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-6">
-                    <button type="button" class="ov-btn-grow-skew" (click)="login()">01 login</button>
-                    <button type="button" class="ov-btn-grow-skew" (click)="token()">02 Token</button>
-                    <button type="button" class="ov-btn-grow-skew" (click)="verEventos()">03 Eventos</button>
-                    <form class="form" #calendarForm="ngForm">
+
+                    <button type="button" (click)="login()"
+                        *ngIf="sessionStorage.getItem('rol')=='administrador/a'">01 login</button>
+                    <button type="button" (click)="token()"
+                        *ngIf="sessionStorage.getItem('rol')=='administrador/a'">02 Token</button>
+                    <button type="button" (click)="verEventos()"
+                        *ngIf="sessionStorage.getItem('rol')=='administrador/a'">03 Eventos</button>
+
+                    <form class="form" #calendarForm="ngForm" *ngIf="sessionStorage.getItem('rol')=='administrador/a'">
                         <div>
-                            <div>
+                            <div class="row">
                                 <label for="my-input">Titulo del Evento: </label>
-                                <div>
+                                <div class="col-sm-10">
                                     <input id="sumary" class="form-control" type="text" [(ngModel)]="event.summary"
                                         name="sumary" required #sumary="ngModel">
                                 </div>
 
-                                <div *ngIf="sumary.invalid && (sumary.dirty || sumary.touched)"
-                                    class="alerta-danger">
+                                <div *ngIf="sumary.invalid && (sumary.dirty || sumary.touched)" class="alerta-danger">
                                     <div *ngIf="sumary.errors?.['required']">
                                         El campo titulo es requerido
                                     </div>
@@ -84,8 +88,8 @@
                                 <div class="tags">
                                     <iframe
                                         src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23c4f897&ctz=America%2FArgentina%2FJujuy&showTitle=1&title=Calendario%20Escuela%20General%20Savio%20N%C2%B0119&mode=MONTH&showCalendars=1&showTabs=1&showPrint=1&src=ZXNjdWVsYWdlbmVyYWxzYXZpbzExOUBnbWFpbC5jb20&src=NTg1YTVmZTFkODEzMTZhZDZjYzY4ODgwYjFlODhmYmExYjAzOGUxMTY3YTg3YjgzMGMyNGIzODEzNGQwYjA1MEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%23F6BF26"
-                                        style="border:solid 1px rgb(122, 255, 109)" class="calendario"
-                                        frameborder="0" scrolling="no"></iframe>
+                                        style="border:solid 1px rgb(122, 255, 109)" class="calendario" frameborder="0"
+                                        scrolling="no"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -143,11 +147,7 @@
 
             </div>
         </div>
-
-
-
-
-
     </div>
+
 
 </main>

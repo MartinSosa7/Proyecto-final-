@@ -12,11 +12,14 @@ import { FormularioService } from 'src/app/services/recursos/formulario.service'
 export class FormularioComponent implements OnInit {
 
   Archivos:Array<Formulario>;
+  sessionStorage: Storage;
+  tipoRecurso:any;
 
   constructor(private formService:FormularioService,
               private router: Router,
               private sanitizer: DomSanitizer) { 
     this.Archivos = new Array<Formulario>();
+    this.sessionStorage = sessionStorage;
   }
 
   ngOnInit(): void {
@@ -78,6 +81,10 @@ export class FormularioComponent implements OnInit {
 
   crearRecurso(){
     this.router.navigate(['newrecurso',0]);
+  }
+
+  modificarRecurso(idRecurso: any){
+    this.router.navigate(['newrecurso',idRecurso ]);
   }
 
 }
