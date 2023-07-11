@@ -137,8 +137,8 @@
               </div>
             </td>
             <td *ngIf="area.tipo == choose">
-              <button (click)="modificarArea(area._id)">Modificar</button>
-              <button (click)="verArea(area._id)" *ngIf="area.tipo == choose">Ver Area...</button>
+              <button class="btn-anuncio" (click)="modificarArea(area._id)">Modificar</button>
+              <button class="btn-anuncio" (click)="verArea(area._id)" *ngIf="area.tipo == choose">Ver Area...</button>
             </td>
           </tr>
         </tbody>

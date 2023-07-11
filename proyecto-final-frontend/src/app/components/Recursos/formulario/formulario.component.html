@@ -1,7 +1,7 @@
 <main>
 <div class="card-body box-contenedor overflow-auto">
   <div class="d-flex align-items-end" *ngIf="sessionStorage.getItem('rol')=='administrador/a'">
-    <button (click)="crearRecurso()" class="mt-5">Crear Recurso Nuevo</button>
+    <button class="btn-anuncio" (click)="crearRecurso()">Crear Recurso Nuevo</button>
   </div>
 
   <div class="my-5">
@@ -54,7 +54,7 @@
           </div>
         </td>
         <td *ngIf="recurso.tipo == tipoRecurso">
-          <button (click)="modificarRecurso(recurso._id)"
+          <button class="btn-anuncio" (click)="modificarRecurso(recurso._id)"
             *ngIf="sessionStorage.getItem('rol')=='administrador/a' ">Modificar</button>
         </td>
       </tr>

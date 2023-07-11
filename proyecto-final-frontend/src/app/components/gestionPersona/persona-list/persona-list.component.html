@@ -5,7 +5,8 @@
       <div class="card col-10 offset-1 tabla mt-5">
           <div class="row">
             <h1 class="titulo2">Gestion de Personas</h1>
-              <div class="col-12 col-sm-12 col-md-4">
+              <div class="col-12 col-sm-12">
+                <!--
                   <div class="card m-3 ">
                           <h5 class="card-header titulo">Filtro</h5>
                           <div class="card-body">
@@ -15,14 +16,14 @@
                                 <label for="dni" class="visually-hidden">Dni:</label>
                                 <input type="text" class="form-control" id="dni" placeholder="Ingrese el Dni" name="dni" [(ngModel)]="personaDni.dni">
 
-                                <!--
+                           
                                 <div *ngIf="dni.invalid && (dni.dirty || dni.touched)"
                                 class="alert alert-danger">
                                 <div *ngIf="dni.errors?.['required']">
                                     El campo DNI es requerido
                                 </div>
                                </div> 
-                              -->
+                           
 
                               </div>
                               <div class="col-auto">
@@ -30,9 +31,10 @@
                               </div>
                             </form>     
                           </div>              
-                    </div>
+                  </div>
+                     -->
               </div>
-              <div class="col-12 col-sm-12 col-md-4">
+              <div class="col-12 col-sm-12 col-md-6">
                 <div class="card m-3 ">
                         <h5 class="card-header titulo  text-center">Lista completa</h5>
                         <div class="card-body vstack gap-2 mx-auto">
@@ -41,7 +43,7 @@
           
                   </div>
             </div>
-              <div class=" col-12 col-sm-12 col-md-4">
+              <div class=" col-12 col-sm-12 col-md-6">
                   <div class="card m-3 ">
                           <h5 class="card-header titulo text-center"> Registro </h5>
                           <div class="card-body vstack gap-2 mx-auto">
