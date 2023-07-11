@@ -1,9 +1,44 @@
+@media screen and (max-width: 870px) {
+  main{
+      position: relative;
+      min-height: 100vh;
+      padding: initial !important;
+      font-size: 10px !important;
+      padding-bottom: 1300px !important;
+  }
+  .row{
+      display: block;
+  }
+}
+
+
+main{
+  padding: 80px;
+  background: rgb(176,151,102);
+  background: linear-gradient(0deg, rgba(176,151,102,0) 0%, rgba(255,255,255,1) 1%, rgba(111,171,234,0.7553396358543417) 100%);
+}
+
 .card-body{
     margin: 40px;
     margin-left: 20%;
 }
 
 /* button styling */
+
+.box-contenedor {
+  width: 100%;
+  max-width: 1500px;
+  height: 90vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  padding: 30px 30px 30px 30px;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.062);
+  border-radius: 10px;
+  padding: 30px;
+}
+
 
 .h3 {
 --border-right: 6px;
@@ -78,7 +113,7 @@ font-size: .7em;
    
    .btn:after {
     content: "";
-    background: white;
+    background: #6fabeac1;
     position: absolute;
     z-index: -1;
     left: -20%;
@@ -97,6 +132,7 @@ font-size: .7em;
 
    .tit {
     width: min-content;
+    text-align: center;
    }
 
    

@@ -1,18 +1,14 @@
-<div class="container">
-    <div class="row">
-        <div class="col-1 col-sm-6 my-5">
-            <label for="tipo" style="color: white;font-size: 2.0em;">TIPO DE RECURSO</label>
-            <select class="form-select" [(ngModel)]="form.tipo" id="tipo" name="tipo">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </div>
-        <div class="col-1 col-sm-6 my-5">
-            <label for="descripcion" style="color: white;font-size: 2.0em;">INGRESE EL NOMBRE DEL RECURSO</label>
-            <input type="text" id="descripcion" name="descripcion" [(ngModel)]="form.descripcion">
-        </div>
+<main>
+    <div class="form">
+        <form method="post" action="index" enctype="multipart/form-data">
+            <div class="card-header">
+                Registro de Formulario
+            </div>
+            <div class="col-1 col-sm-6 my-5">
+                <label for="descripcion" style="color: white;font-size: 2.0em;">INGRESE EL NOMBRE DEL RECURSO</label>
+                <input type="text" id="descripcion" name="descripcion" [(ngModel)]="form.descripcion">
+            </div>
+        </form>
     </div>
     <div class="mx-3">
 
@@ -34,6 +30,11 @@
                     </span>
                 </button>
             </div>
+            <!-- <div class="input-group">
+                <label for="fileInput" class="user-label">Archivo:</label>
+                <input type="file" id="fileInput" accept=".pdf,.doc,.docx"  [(ngModel)]="form.archivo" multiple class="form-control-file"
+                (change)="onFileSelected($event)" name="archivoPdf"/>
+            </div> -->
         </div>
 
         <table class="table bg-transparent">
@@ -75,6 +76,6 @@
             ELIMINAR RECURSO
         </button>
 
-
     </div>
-</div>
+
+</main>

@@ -1,3 +1,21 @@
+
+@media all and (max-width: 870px) {
+    main{
+        position: relative;
+        min-height: 100vh;
+        padding-bottom: 1000px;
+    }
+    .container-fluid {
+        position: relative;
+        flex-direction: column-reverse;
+        width: auto;
+        padding: 5px;
+        box-sizing: border-box;
+
+    }
+
+}
+
 .form{
     width: 100%;
     max-width: 900px;
@@ -7,17 +25,21 @@
     justify-content: center;
     align-items: center;
 }
+main{
+    background: rgb(176,151,102);
+background: linear-gradient(39deg, rgba(176,151,102,0) 0%, rgba(255,255,255,1) 1%, rgba(111,171,234,0.7553396358543417) 100%);
+}
 
 .container-fluid{
-    background: linear-gradient(90deg, rgb(87, 174, 177) 0%, rgb(158, 245, 204) 100%);
-    padding: 20px;
+    padding: 80px;
 }
+
 
 /*** ESTILOS BOTÓN GROW SPIN ***/
 .ov-btn-grow-spin {
     background: #fff; /* color de fondo */
-    color: #4741d7; /* color de fuente */
-    border: 2px solid #4741d7; /* tamaño y color de borde */
+    color: #6fabea; /* color de fuente */
+    border: 2px solid #6fabea; /* tamaño y color de borde */
     padding: 16px 20px;
     border-radius: 3px; /* redondear bordes */
     position: relative;
@@ -32,7 +54,7 @@
 
 .ov-btn-grow-spin::after {
     content: "";
-    background: #4741d7; /* color de fondo hover */
+    background: #6fabea; /* color de fondo hover */
     position: absolute;
     z-index: -1;
     padding: 10px 20px;
@@ -52,11 +74,11 @@
 
 .alert-danger {
     color: #e52e26;
-    margin: 5px;
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    text-shadow: 0px 0px 4px rgb(255, 255, 255);
+    font-size: 12px;
+    background-color: #e530262a;
+    border-radius: 3px;
 }
 
 .col-sm-2{
@@ -84,7 +106,7 @@
     content: "";
     width: 350px;
     height: 300px;
-    background-color: rgb(193, 255, 198);
+    background-color: #6faaea75;
     transform: rotate(45deg);
     left: -180px;
     bottom: 30px;

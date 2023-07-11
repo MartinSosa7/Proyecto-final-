@@ -21,7 +21,6 @@ export class PersonaFormComponent implements OnInit {
   persona!: Persona;
 
   //area!:Area;
-  areas: Array<Area> = new Array<Area>();
 
   rol!:Rol;
   roles: Array<Rol> = new Array<Rol>();
