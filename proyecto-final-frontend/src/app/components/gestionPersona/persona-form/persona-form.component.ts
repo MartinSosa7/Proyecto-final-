@@ -15,6 +15,7 @@ import { RolService } from 'src/app/services/rol.service';
   styleUrls: ['./persona-form.component.css']
 })
 export class PersonaFormComponent implements OnInit {
+  sessionStorage: Storage;
 
   accion: string = 'new';
 
@@ -35,7 +36,7 @@ export class PersonaFormComponent implements OnInit {
               private personaService:PersonaService,
               private rolService:RolService,
               private areaService:AreaService) { 
-              
+              this.sessionStorage = sessionStorage;
   }
 
 

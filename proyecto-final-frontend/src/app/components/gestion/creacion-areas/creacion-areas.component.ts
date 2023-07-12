@@ -61,6 +61,8 @@ export class CreacionAreasComponent implements OnInit {
           this.lista.push(unaPersona);
           unaPersona = new Persona();
         });
+        var index = this.lista.findIndex(per => per.rol === 'SuperUsuario');
+        this.lista.splice(index,1);
       },
       error => {
         console.log(error);
@@ -88,6 +90,9 @@ export class CreacionAreasComponent implements OnInit {
   }
 
   crearArea(area: Area){
+    if(area.tipo == 'grado'){
+      area.nombreArea = area.grado + this.FormulacionNombreGrado() + area.division;
+    }
     this.area.responsables = this.responsables;
     this.servicios.postArea(area).subscribe(
       result=>{
@@ -158,5 +163,18 @@ export class CreacionAreasComponent implements OnInit {
     }
   }
   
+  FormulacionNombreGrado():string{
+    var div = '';
+    if(this.area.grado == '4' || this.area.grado == '5' || this.area.grado == '6' || this.area.grado == '7'){
+      div = 'to ';
+    }
+    if(this.area.grado == '1' || this.area.grado == '3'){
+      div = 'ro ';
+    }
+    if(this.area.grado == '2'){
+      div = 'do ';
+    }
+    return div;
+  }
 
 }

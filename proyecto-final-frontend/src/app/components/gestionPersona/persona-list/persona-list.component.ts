@@ -14,6 +14,7 @@ import { PersonaService } from 'src/app/services/persona.service';
 export class PersonaListComponent implements OnInit {
   @ViewChild('exampleModal', { static: false }) modal: ElementRef<any> | undefined;
 
+  sessionStorage: Storage;
 
   personas!:Array<Persona>;
   persona:Persona = new Persona();
@@ -22,6 +23,8 @@ export class PersonaListComponent implements OnInit {
 
   rol:Rol=new Rol();
   area:Area=new Area();
+
+  filtroRol:any;
   
   constructor(private router:Router,
               private personaService:PersonaService,
@@ -29,7 +32,7 @@ export class PersonaListComponent implements OnInit {
              ) { 
     this.inicializar();
     this.cargarPersonas();
-
+    this.sessionStorage = sessionStorage;
   }
 
   inicializar(){
@@ -82,22 +85,16 @@ export class PersonaListComponent implements OnInit {
     )
   }
 
-  fitrarByDni(){
+  filtrarRol(rol:any){
     this.personas= new Array<Persona>();
-    this.personaService.getPersonaByDni(this.personaDni.dni).subscribe(
+    this.personaService.getPersonaByRol(rol).subscribe(
       (result)=>{
-        if (result.length!=0){
-          var unapersona = new Persona();
-          var unarea =  new Area();
-          Object.assign(unapersona,result);
-          this.personas.push(unapersona);
-
-          
-          console.log(this.personas);  
-        }else{
-          this.toastr.error("La persona con dni "+this.personaDni.dni+" no se encuentra registrado","Busqueda");
-          this.cargarPersonas();
-        }
+        var unaPersona = new Persona();
+        result.forEach((element:any)=>{
+          Object.assign(unaPersona, element);
+          this.personas.push(unaPersona);
+          unaPersona = new Persona();
+        })
       },
       (error)=>{
         console.log(error.msg);
@@ -126,6 +123,10 @@ export class PersonaListComponent implements OnInit {
 
   setPersonaPorEliminar(persona: Persona){
     this.personaPorEliminar = persona;
+  }
+
+  infoSuperUsuario(){
+    this.router.navigate(['persona-form', this.sessionStorage.getItem('userid')]);
   }
 
 }

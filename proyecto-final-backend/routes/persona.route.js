@@ -13,7 +13,7 @@ router.get('/',personaCtrl.getPersonas);
 router.post('/', personaCtrl.createPersona);
 router.put('/update/:id', personaCtrl.editPersona);
 router.delete('/eliminar/:id', personaCtrl.deletePersona);
-router.get('/filtro/:dni', personaCtrl.getPersonaByDni);
+router.get('/filtro/:dni', personaCtrl.getPersonaByType);
 router.post('/login', personaCtrl.loginUsuario);
 
 //sin tokens

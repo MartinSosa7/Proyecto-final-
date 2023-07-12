@@ -5,35 +5,19 @@
       <div class="card col-10 offset-1 tabla mt-5">
           <div class="row">
             <h1 class="titulo2">Gestion de Personas</h1>
-              <div class="col-12 col-sm-12">
-                <!--
-                  <div class="card m-3 ">
-                          <h5 class="card-header titulo">Filtro</h5>
-                          <div class="card-body">
-                            <form class="row g-3">
-                              <div class="col-auto">
-
-                                <label for="dni" class="visually-hidden">Dni:</label>
-                                <input type="text" class="form-control" id="dni" placeholder="Ingrese el Dni" name="dni" [(ngModel)]="personaDni.dni">
-
-                           
-                                <div *ngIf="dni.invalid && (dni.dirty || dni.touched)"
-                                class="alert alert-danger">
-                                <div *ngIf="dni.errors?.['required']">
-                                    El campo DNI es requerido
-                                </div>
-                               </div> 
-                           
-
-                              </div>
-                              <div class="col-auto">
-                                <button type="submit" class="ov-btn-grow-skew" (click)="fitrarByDni()">Buscar</button>
-                              </div>
-                            </form>     
-                          </div>              
-                  </div>
-                     -->
-              </div>
+    
+            <!-- <div class="col-12 col-sm-12 col-md-4">
+              <div class="card m-3 ">
+                      <h5 class="card-header titulo  text-center">Filtrar por ROL</h5>
+                      <div class="card-body vstack gap-2 mx-auto">
+                          <select class="form-select " id="filtroRol" name="filtroRol" [(ngModel)]="filtroRol" (change)="filtrarRol(filtroRol)" >
+                            <option value="administrador/a">administrador/a</option>
+                            <option value="profesor/a">Profesor/a</option>
+                            <option value="bibliotecario/a">Bibliotecario/a</option>
+                          </select>
+                      </div>
+                </div>
+          </div> -->
               <div class="col-12 col-sm-12 col-md-6">
                 <div class="card m-3 ">
                         <h5 class="card-header titulo  text-center">Lista completa</h5>
@@ -58,6 +42,10 @@
   </div>
 
   <div class="row">
+      
+
+
+    
       <div class="card col-10 offset-1 tabla mt-5 mb-5" style="background-color: rgba(255, 255, 255, 0.829);">
           
               <div class="table-wrapper mt-5">
@@ -69,6 +57,9 @@
                               </div>
                           </div>      
                       </div>
+                  </div>
+                  <div  style="display: flex;align-content: flex-end;" *ngIf="sessionStorage.getItem('rol')=='SuperUsuario'">
+                    <button class="ov-btn-grow-skew" (click)="infoSuperUsuario()">info del SuperUsuario</button>
                   </div>
                   <div class="row mt-3 p-5 bg-white">
                       <div class="table-responsive">
@@ -88,15 +79,15 @@
                               </thead>
                               <tbody>
                                 <tr *ngFor="let item of personas">
-                                  <td>{{item.apellido}}</td>
-                                  <td>{{item.nombre}}</td>
-                                  <td>{{item.dni}}</td>
-                                  <td>{{item.direccion}}</td>
-                                  <td>{{item.telefono}}</td>
-                                  <td>{{item.email}}</td>
-                                  <td>{{item.rol}}</td>        
+                                  <td *ngIf="item.rol != 'SuperUsuario'">{{item.apellido}}</td>
+                                  <td *ngIf="item.rol != 'SuperUsuario'">{{item.nombre}}</td>
+                                  <td *ngIf="item.rol != 'SuperUsuario'">{{item.dni}}</td>
+                                  <td *ngIf="item.rol != 'SuperUsuario'">{{item.direccion}}</td>
+                                  <td *ngIf="item.rol != 'SuperUsuario'">{{item.telefono}}</td>
+                                  <td *ngIf="item.rol != 'SuperUsuario'">{{item.email}}</td>
+                                  <td *ngIf="item.rol != 'SuperUsuario'">{{item.rol}}</td>        
                                              
-                                <td>
+                                <td *ngIf="item.rol != 'SuperUsuario'">
                                     <div class="row">
                                         <div class=" col-5 vstack gap-2  mx-auto me-1 ">
                                             <div class=" d-flex justify-content-center">

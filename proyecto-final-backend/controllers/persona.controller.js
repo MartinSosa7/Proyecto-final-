@@ -113,16 +113,11 @@ personaCtrl.deletePersona = async (req, res)=>{
 }
 
 
-personaCtrl.getPersonaByDni = async (req, res) => {
-   /** criteria={};
-    if (req.query.dni != null){
-        criteria.dni = { $regex: req.query.dni, $options: "i" }
-    }
-    var persona =  await Persona.find(criteria).populate('roles');
-    res.json(persona); */
-
-    let dni = req.query.dni;
-    const persona = await Persona.find({'dni':dni});
+personaCtrl.getPersonaByType = async (req, res) => {
+    criteria = {};
+    criteria.rol = req.query.rol;
+    const persona = await Persona.filter(criteria);
+    console.log(persona);
     res.json(persona);
 }
 

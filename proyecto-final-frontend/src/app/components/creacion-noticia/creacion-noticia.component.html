@@ -1,12 +1,12 @@
 <main>
   <div class="box-contenedor" style="font-family: Roboto;">
-    <h1 class="titulo">Creacion de Anuncio</h1>
+    <h1 class="titulo" *ngIf="edicion_vista == 'edicion'">Creacion de Anuncio</h1>
     <div class="d-flex justify-content-start m-3">
       <button class="btn-anuncio" (click)="volver()">Volver a ver Areas</button>
     </div>
     <div class="d-flex justify-content-end m-3" *ngIf="
     (personaActual && sessionStorage.getItem('userid') == personaActual._id) ||
-    sessionStorage.getItem('rol') == 'administrador/a'">
+    sessionStorage.getItem('rol') == 'administrador/a' || sessionStorage.getItem('rol') == 'SuperUsuario'">
       <input class="check" type="checkbox" id="checkbox_toggle" (click)="edicionYvista()">
       <div class="checkbox-vista-edicion">
         <label for="checkbox_toggle" class="slide">

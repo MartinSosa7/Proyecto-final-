@@ -77,6 +77,7 @@ export class NewFormularioComponent implements OnInit {
     this.formService.getFormulario(idForm).subscribe(
       result=>{
         Object.assign(this.form,result);
+        Object.assign(this.files, result.archivos);
       },
       error=>{
         console.log(error);

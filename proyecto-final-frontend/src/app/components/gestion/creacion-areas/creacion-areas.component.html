@@ -6,10 +6,15 @@
   </div>
   <form class="row g-3 m-3">
 
-    <div class="col-12">
-      <label for="titulo" class="form-label" style="color: rgb(0, 0, 0);font-size: 1.8em;">Titulo</label>
-      <input type="text" class="form-control" id="titulo" name="titulo" placeholder="INGRESE EL TITULO DEL AREA"
-        [(ngModel)]="area.nombreArea">
+
+    <div class="col-md-6">
+      <label for="tipo" class="form-label" style="color: rgb(0, 0, 0);font-size: 1.8em;">Tipo de Area</label>
+      <select id="tipo" name="tipo" class="form-select" [(ngModel)]="area.tipo">
+        <option value="grado">Grado/Curso</option>
+        <option value="biblioteca">Biblioteca</option>
+        <option value="materia_artistica">Materia Artistica</option>
+        <option value="administrativo">administrativo</option>
+      </select>
     </div>
 
     <div class="col-md-6">
@@ -22,15 +27,14 @@
       </select>
     </div>
 
-    <div class="col-md-6">
-      <label for="tipo" class="form-label" style="color: rgb(0, 0, 0);font-size: 1.8em;">Tipo de Area</label>
-      <select id="tipo" name="tipo" class="form-select" [(ngModel)]="area.tipo">
-        <option value="general">Area General</option>
-        <option value="grado">Grado/Curso</option>
-        <option value="biblioteca">Biblioteca</option>
-        <option value="materia_artistica">Materia Artistica</option>
-      </select>
+
+    <div class="col-12" *ngIf="area.tipo != 'grado'">
+      <label for="titulo" class="form-label" style="color: rgb(0, 0, 0);font-size: 1.8em;">Titulo</label>
+      <input type="text" class="form-control" id="titulo" name="titulo" placeholder="INGRESE EL TITULO DEL AREA"
+        [(ngModel)]="area.nombreArea">
     </div>
+
+
 
     <div class="col-md-4" *ngIf="area.tipo == 'grado'">
       <label for="turno" class="form-label" style="color: rgb(0, 0, 0);font-size: 1.8em;">Turno</label>
@@ -56,9 +60,11 @@
     <div class="col-md-4" *ngIf="area.tipo == 'grado'">
       <label for="division" class="form-label" style="color: rgb(0, 0, 0);font-size: 1.8em;">Division</label>
       <select id="division" name="division" class="form-select" [(ngModel)]="area.division">
-        <option value="a">A</option>
-        <option value="b">B</option>
-        <option value="c">C</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option>
       </select>
     </div>
     
@@ -86,7 +92,7 @@
       <button *ngIf="accion=='new'" class=" btn btn-anuncio m-2" (click)="crearArea(area)">CREAR AREA</button>
       <button *ngIf="accion=='update'" class=" btn btn-anuncio m-2" (click)="modificarArea(area, area._id)">MODIFICAR
         AREA</button>
-        <button *ngIf="accion=='update'" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button *ngIf="accion=='update' && area.tipo != 'general'" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
           ELIMINAR AREA
         </button>
     </div>
