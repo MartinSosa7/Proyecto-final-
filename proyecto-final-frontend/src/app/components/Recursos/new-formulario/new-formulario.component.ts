@@ -55,7 +55,6 @@ export class NewFormularioComponent implements OnInit {
 
   }
 
-  //MODULOS DE ACCIONES DE BOTONES
   guardarForm(f:Formulario) {
     
     this.date = new Date();
@@ -119,72 +118,72 @@ export class NewFormularioComponent implements OnInit {
 
 //MODULOS DE LA ENTRADA DE ARCHIVOS
 
-  onFileSelected(event: any) {
-    const files = event.target.files;
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      const reader = new FileReader();
-      reader.onload = () => {
-        let base64 = reader.result as string;
-        this.files.push({ 'base64': base64, 'id': this.files.length + 1, 'type': file.type, 'name': file.name });
-      };
-      reader.readAsDataURL(file);
-    }
+onFileSelected(event: any) {
+  const files = event.target.files;
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    const reader = new FileReader();
+    reader.onload = () => {
+      let base64 = reader.result as string;
+      this.files.push({ 'base64': base64, 'id': this.files.length + 1, 'type': file.type, 'name': file.name });
+    };
+    reader.readAsDataURL(file);
   }
+}
 
 
-  eliminarArchivo(id: number) {
-    const index = this.files.findIndex(t => t.id === id);
-    if (index != -1) {
-      this.files.splice(index, 1);
-      this.files.forEach((file, index) => file.id = index + 1);
-    }
+eliminarArchivo(id: number) {
+  const index = this.files.findIndex(t => t.id === id);
+  if (index != -1) {
+    this.files.splice(index, 1);
+    this.files.forEach((file, index) => file.id = index + 1);
   }
+}
 
-  downloadFile(base64: string, filename: string) {
-    const blob = this.base64ToBlob(base64);
-    const url = URL.createObjectURL(blob);
-    
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = filename;
-    
-    link.click();
-    
-    // Clean up the URL object after the download is initiated
-    URL.revokeObjectURL(url);
-  }
+downloadFile(base64: string, filename: string) {
+  const blob = this.base64ToBlob(base64);
+  const url = URL.createObjectURL(blob);
   
-  base64ToBlob(base64: string): Blob {
-    const byteCharacters = atob(base64.split(',')[1]);
-    const byteArrays = [];
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  
+  link.click();
+  
+  // Clean up the URL object after the download is initiated
+  URL.revokeObjectURL(url);
+}
+  
+base64ToBlob(base64: string): Blob {
+  const byteCharacters = atob(base64.split(',')[1]);
+  const byteArrays = [];
+  
+  for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+    const slice = byteCharacters.slice(offset, offset + 512);
     
-    for (let offset = 0; offset < byteCharacters.length; offset += 512) {
-      const slice = byteCharacters.slice(offset, offset + 512);
-      
-      const byteNumbers = new Array(slice.length);
-      for (let i = 0; i < slice.length; i++) {
-        byteNumbers[i] = slice.charCodeAt(i);
-      }
-      
-      const byteArray = new Uint8Array(byteNumbers);
-      byteArrays.push(byteArray);
+    const byteNumbers = new Array(slice.length);
+    for (let i = 0; i < slice.length; i++) {
+      byteNumbers[i] = slice.charCodeAt(i);
     }
     
-    const blob = new Blob(byteArrays, { type: 'application/octet-stream' });
-    return blob;
+    const byteArray = new Uint8Array(byteNumbers);
+    byteArrays.push(byteArray);
   }
+  const blob = new Blob(byteArrays, { type: 'application/octet-stream' });
+  return blob;
+}
 
-  closeModal() {
-    if (this.modal && this.modal.nativeElement) {
-      const modalElement: HTMLElement = this.modal.nativeElement;
-      modalElement.classList.remove('show');
-      modalElement.style.display = 'none';
-      const modalBackdrop = document.getElementsByClassName('modal-backdrop')[0];
-      if (modalBackdrop) {
-        modalBackdrop.parentNode?.removeChild(modalBackdrop);
-      }
+
+closeModal() {
+  if (this.modal && this.modal.nativeElement) {
+    const modalElement: HTMLElement = this.modal.nativeElement;
+    modalElement.classList.remove('show');
+    modalElement.style.display = 'none';
+    const modalBackdrop = document.getElementsByClassName('modal-backdrop')[0];
+    if (modalBackdrop) {
+      modalBackdrop.parentNode?.removeChild(modalBackdrop);
     }
   }
+}
 
 }

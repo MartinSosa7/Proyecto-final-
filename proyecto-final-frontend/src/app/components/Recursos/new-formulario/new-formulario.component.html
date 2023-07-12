@@ -1,113 +1,113 @@
 <main>
-<div class="box-contenedor">
-    <div>
-        <button (click)="volver()" class="btn btn-warning">volver</button>
-    </div>
-    <div class="row">
-        <div class="col-sm-6 my-5">
-            <label for="tipo" style="color: #414141;font-size: 2.0em;">TIPO DE RECURSO</label>
-            <select class="form-select" [(ngModel)]="form.tipo" id="tipo" name="tipo">
-                <option value="resolucion">Resolucion</option>
-                <option value="acta">Acta</option>
-                <option value="instructivo">Instructivo</option>
-                <option value="acuerdos">Acuerdo de convivencia escolar</option>
-            </select>
-        </div>
-        <div class="col-sm-6 my-5">
-            <label for="descripcion" style="color: #414141;font-size: 2.0em;">INGRESE EL NOMBRE DEL RECURSO</label>
-            <input type="text" id="descripcion" name="descripcion" [(ngModel)]="form.descripcion">
-        </div>
-    </div>
-    <div class="mx-3">
-
-        <div class="form-group p-2 custom-file-input" style="width: fit-content; color: #414141; font-size: larger;">
-            <label for="fileInput" class="mr-2" style="color: #414141;font-size: 1.5em;">Elegir Archivo(s) a
-                Subir:</label>
-            <div class="custom-file-input">
-                <input class="" type="file" id="fileInput" accept=".pdf,.doc,.docx,image/*,video/*" multiple
-                    (change)="onFileSelected($event)" name="file" />
-                <button type="button" class="button-subir" onclick="document.getElementById('fileInput').click()">
-                    <span class="button-subir__text">Subir</span>
-                    <span class="button-subir__icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2"
-                            stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none"
-                            class="svg">
-                            <line y2="19" y1="5" x2="12" x1="12"></line>
-                            <line y2="12" y1="12" x2="19" x1="5"></line>
-                        </svg>
-                    </span>
-                </button>
-            </div>
-            <!-- <div class="input-group">
-                <label for="fileInput" class="user-label">Archivo:</label>
-                <input type="file" id="fileInput" accept=".pdf,.doc,.docx"  [(ngModel)]="form.archivo" multiple class="form-control-file"
-                (change)="onFileSelected($event)" name="archivoPdf"/>
-            </div> -->
-        </div>
-
-        <table class="table bg-transparent">
-            <thead>
-                <tr>
-                    <th style="color: #414141;font-size: 1.5em;">Nombre del Archivo</th>
-                    <th style="color: #414141;font-size: 1.5em;">¿Eliminar Archivo Seleccionado?</th>
-                </tr>
-            </thead>
-            <tbody>
-
-                <tr *ngFor="let file of files">
-                    <td style="color: #414141; font-size: 1.3em;">
-                        {{file.name}}
-                    </td>
-                    <td style="width: fit-content;">
-
-
-                        <button class="button-borrar mx-3" (click)="eliminarArchivo(file.id)"><span
-                                class="text">Borrar</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg"
-                                    width="24" height="24" viewBox="0 0 24 24">
-                                    <path
-                                        d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z">
-                                    </path>
-                                </svg></span></button>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-
-        <button *ngIf="accion=='new'" class="m-3 btn btn-warning" (click)="guardarForm(form)">
-            CREAR RECURSO
-        </button>
-        <button *ngIf="accion=='update'" class="m-3 btn-anuncio text-white" class="btn btn-success" (click)="modificarForm(form)">
-            MODIFICAR RECURSO
-        </button>
-        <button *ngIf="accion=='update'" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            ELIMINAR RECURSO
+  <div class="box-contenedor">
+      <div>
+          <button (click)="volver()" class="btn btn-warning">volver</button>
+      </div>
+      <div class="row">
+          <div class="col-sm-6 my-5">
+              <label for="tipo" style="color: #414141;font-size: 2.0em;">TIPO DE RECURSO</label>
+              <select class="form-select" [(ngModel)]="form.tipo" id="tipo" name="tipo">
+                  <option value="resolucion">Resolucion</option>
+                  <option value="acta">Acta</option>
+                  <option value="instructivo">Instructivo</option>
+                  <option value="acuerdos">Acuerdo de convivencia escolar</option>
+              </select>
+          </div>
+          <div class="col-sm-6 my-5">
+              <label for="descripcion" style="color: #414141;font-size: 2.0em;">INGRESE EL NOMBRE DEL RECURSO</label>
+              <input type="text" id="descripcion" name="descripcion" [(ngModel)]="form.descripcion">
+          </div>
+      </div>
+      <div class="mx-3">
+  
+          <div class="form-group p-2 custom-file-input" style="width: fit-content; color: #414141; font-size: larger;">
+              <label for="fileInput" class="mr-2" style="color: #414141;font-size: 1.5em;">Elegir Archivo(s) a
+                  Subir:</label>
+              <div class="custom-file-input">
+                  <input class="" type="file" id="fileInput" accept=".pdf,.doc,.docx,image/*,video/*" multiple
+                      (change)="onFileSelected($event)" name="file" />
+                  <button type="button" class="button-subir" onclick="document.getElementById('fileInput').click()">
+                      <span class="button-subir__text">Subir</span>
+                      <span class="button-subir__icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2"
+                              stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none"
+                              class="svg">
+                              <line y2="19" y1="5" x2="12" x1="12"></line>
+                              <line y2="12" y1="12" x2="19" x1="5"></line>
+                          </svg>
+                      </span>
+                  </button>
+              </div>
+              <!-- <div class="input-group">
+                  <label for="fileInput" class="user-label">Archivo:</label>
+                  <input type="file" id="fileInput" accept=".pdf,.doc,.docx"  [(ngModel)]="form.archivo" multiple class="form-control-file"
+                  (change)="onFileSelected($event)" name="archivoPdf"/>
+              </div> -->
+          </div>
+  
+          <table class="table bg-transparent">
+              <thead>
+                  <tr>
+                      <th style="color: #414141;font-size: 1.5em;">Nombre del Archivo</th>
+                      <th style="color: #414141;font-size: 1.5em;">¿Eliminar Archivo Seleccionado?</th>
+                  </tr>
+              </thead>
+              <tbody>
+  
+                  <tr *ngFor="let file of files">
+                      <td style="color: #414141; font-size: 1.3em;">
+                          {{file.name}}
+                      </td>
+                      <td style="width: fit-content;">
+  
+  
+                          <button class="button-borrar mx-3" (click)="eliminarArchivo(file.id)"><span
+                                  class="text">Borrar</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg"
+                                      width="24" height="24" viewBox="0 0 24 24">
+                                      <path
+                                          d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z">
+                                      </path>
+                                  </svg></span></button>
+                      </td>
+                  </tr>
+  
+              </tbody>
+          </table>
+  
+          <button *ngIf="accion=='new'" class="m-3 btn btn-warning" (click)="guardarForm(form)">
+              CREAR RECURSO
           </button>
-
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" #exampleModal>
-    <div class="modal-dialog modal-dialog-centered ">
-      <div class="modal-content bg-warning">
-        <div class="modal-header  ">
-          <h1 class="modal-title fs-5" id="exampleModalLabel" >¡PELIGRO!</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
-            <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-            <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
-          </svg>
-          <div>Esta a punto de borrar <strong>Definitivamente</strong> este Recurso </div>
-          <div>Se perdera <strong>toda</strong> la informacion</div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-danger" (click)="EliminarForm(form)">Eliminar Definitivamente</button>
+          <button *ngIf="accion=='update'" class="m-3 btn-anuncio text-white" class="btn btn-success" (click)="modificarForm(form)">
+              MODIFICAR RECURSO
+          </button>
+          <button *ngIf="accion=='update'" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              ELIMINAR RECURSO
+            </button>
+  
+      </div>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" #exampleModal>
+      <div class="modal-dialog modal-dialog-centered ">
+        <div class="modal-content bg-warning">
+          <div class="modal-header  ">
+            <h1 class="modal-title fs-5" id="exampleModalLabel" >¡PELIGRO!</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
+              <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+              <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
+            </svg>
+            <div>Esta a punto de borrar <strong>Definitivamente</strong> este Recurso </div>
+            <div>Se perdera <strong>toda</strong> la informacion</div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-danger" (click)="EliminarForm(form)">Eliminar Definitivamente</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</main>
+  </main> 
