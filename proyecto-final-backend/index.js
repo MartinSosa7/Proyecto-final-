@@ -6,7 +6,8 @@ var app = express();
 
 //middlewares
 app.use(express.json({ limit: '100mb' }));
-app.use(cors({ origin: 'http://localhost:4200' }));
+app.use(cors());
+//app.use(cors({ origin: 'http://localhost:4200' }));
 
 //Cargamos el modulo de direccionamiento de rutas
 app.use('/api/usuario', require('./routes/usuario.route.js'));
