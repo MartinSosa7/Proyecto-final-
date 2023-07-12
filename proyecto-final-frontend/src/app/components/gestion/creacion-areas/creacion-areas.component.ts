@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Area } from 'src/app/models/area';
 import { Persona } from 'src/app/models/persona';
 import { ServiciosAreaService } from 'src/app/services/servicios-area.service';
+import { Toast, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'creacion-areas',
@@ -23,9 +24,9 @@ export class CreacionAreasComponent implements OnInit {
 
   personaSeleccionada: Persona;
 
-  
 
-  constructor(private servicios: ServiciosAreaService, private activatedRoute: ActivatedRoute,private router: Router) {
+
+  constructor(private servicios: ServiciosAreaService, private activatedRoute: ActivatedRoute, private router: Router, private toast: ToastrService) {
     this.lista = new Array<Persona>();
     this.area = new Area();
     this.personaSeleccionada = new Persona();
@@ -62,10 +63,10 @@ export class CreacionAreasComponent implements OnInit {
           unaPersona = new Persona();
         });
         var index = this.lista.findIndex(per => per.rol === 'SuperUsuario');
-        if(index !== -1){
-          this.lista.splice(index,1);
+        if (index !== -1) {
+          this.lista.splice(index, 1);
         }
-        
+
       },
       error => {
         console.log(error);
@@ -92,46 +93,46 @@ export class CreacionAreasComponent implements OnInit {
 
   }
 
-  crearArea(area: Area){
-    if(area.tipo == 'grado'){
+  crearArea(area: Area) {
+    if (area.tipo == 'grado') {
       area.nombreArea = area.grado + this.FormulacionNombreGrado() + area.division;
     }
     this.area.responsables = this.responsables;
     this.servicios.postArea(area).subscribe(
-      result=>{
+      result => {
         alert(result.msg);
         this.router.navigate(['lista-areas']);
 
       },
-      error=>{
+      error => {
         console.log(error);
       }
     )
   }
 
-  modificarArea(area:Area, idArea:any){
+  modificarArea(area: Area, idArea: any) {
     this.area.responsables = this.responsables;
     this.servicios.putArea(idArea, area).subscribe(
-      result=>{
+      result => {
         alert(result.msg);
         this.router.navigate(['lista-areas']);
 
       },
-      error=>{
+      error => {
         console.log(error);
       }
     )
   }
 
-  eliminarArea(idArea:any){
+  eliminarArea(idArea: any) {
     this.servicios.deleteArea(idArea).subscribe(
-      result=>{
+      result => {
         alert(result.msg);
         this.closeModal();
         this.router.navigate(['lista-areas']);
 
       },
-      error=>{
+      error => {
         console.log(error);
       }
     )
@@ -139,9 +140,14 @@ export class CreacionAreasComponent implements OnInit {
 
 
 
-  agregarResponsable(responsable: Persona){
-    this.responsables.push(responsable);
+  agregarResponsable(responsable: Persona) {
+    if (this.responsables.includes(responsable)) {
+      this.toast.error('El usuario ya está listado', 'Error');
+    } else {
+      this.responsables.push(responsable);
+    }
   }
+
 
   eliminarResponsable(id: any) {
     const index = this.responsables.findIndex(t => t._id === id);
@@ -150,7 +156,7 @@ export class CreacionAreasComponent implements OnInit {
     }
   }
 
-  volver(){
+  volver() {
     this.router.navigate(['lista-areas']);
   }
 
@@ -165,16 +171,16 @@ export class CreacionAreasComponent implements OnInit {
       }
     }
   }
-  
-  FormulacionNombreGrado():string{
+
+  FormulacionNombreGrado(): string {
     var div = '';
-    if(this.area.grado == '4' || this.area.grado == '5' || this.area.grado == '6' || this.area.grado == '7'){
+    if (this.area.grado == '4' || this.area.grado == '5' || this.area.grado == '6' || this.area.grado == '7') {
       div = 'to ';
     }
-    if(this.area.grado == '1' || this.area.grado == '3'){
+    if (this.area.grado == '1' || this.area.grado == '3') {
       div = 'ro ';
     }
-    if(this.area.grado == '2'){
+    if (this.area.grado == '2') {
       div = 'do ';
     }
     return div;
