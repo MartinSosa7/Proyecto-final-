@@ -62,7 +62,7 @@ export class CreacionAreasComponent implements OnInit {
           unaPersona = new Persona();
         });
         var index = this.lista.findIndex(per => per.rol === 'SuperUsuario');
-        this.lista.splice(index,1);
+        this.lista.splice(index,0);
       },
       error => {
         console.log(error);
