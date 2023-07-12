@@ -1,7 +1,6 @@
 @media screen and (max-width: 870px) {
   main{
       position: relative;
-      min-height: 100vh;
       padding: initial !important;
   }
   .row{
@@ -12,6 +11,7 @@
 
 main{
   padding: 80px;
+  height: auto;
   background: rgb(176, 151, 102);
   background: linear-gradient(90deg, rgba(176, 151, 102, 1) 0%, rgba(111, 171, 234, 1) 100%);
 }

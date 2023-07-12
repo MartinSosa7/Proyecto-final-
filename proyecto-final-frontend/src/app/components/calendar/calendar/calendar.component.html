@@ -5,14 +5,16 @@
             <div class="row">
                 <div class="col-xl-6">
 
-                    <button type="button" (click)="login()" *ngIf="sessionStorage.getItem('rol')=='administrador/a' || sessionStorage.getItem('rol')=='SuperUsuario'">01
+                    <button type="button" (click)="login()"
+                        *ngIf="sessionStorage.getItem('rol')=='administrador/a' || sessionStorage.getItem('rol')=='SuperUsuario'">01
                         login</button>
                     <!-- <button type="button" (click)="token()" *ngIf="sessionStorage.getItem('rol')=='administrador/a ' || sessionStorage.getItem('rol')=='SuperUsuario'">02
                         Token</button>
                     <button type="button" (click)="verEventos()"
                         *ngIf="sessionStorage.getItem('rol')=='administrador/a' || sessionStorage.getItem('rol')=='SuperUsuario'">03 Eventos</button> -->
 
-                    <form class="form" #calendarForm="ngForm" *ngIf="sessionStorage.getItem('rol')=='administrador/a' || sessionStorage.getItem('rol')=='SuperUsuario'">
+                    <form class="form" #calendarForm="ngForm"
+                        *ngIf="sessionStorage.getItem('rol')=='administrador/a' || sessionStorage.getItem('rol')=='SuperUsuario'">
                         <div>
                             <div class="row">
                                 <label for="my-input">Titulo del Evento: </label>
@@ -79,7 +81,8 @@
                             (click)="crearEvento()">04 Crear Evento</button>
                         <button type="button" class="ov-btn-grow-skew" (click)="logout()">05 logout</button>
                     </form>
-                    <div *ngIf="sessionStorage.getItem('rol')!='administrador/a' || sessionStorage.getItem('rol')!='SuperUsuario'">
+                    <div
+                        *ngIf="sessionStorage.getItem('rol')!='administrador/a' && sessionStorage.getItem('rol')!='SuperUsuario'">
                         <img src="./assets/fondo1.png" class="d-block w-100 box1">
                         <div class="justify-content-center"
                             style="color: #d0b080;   text-shadow: 2px 2px 4px rgb(0, 0, 0); text-align: center;">
@@ -92,7 +95,7 @@
 
                 <div class="col-xl-6">
                     <div class="row" style="margin: 10px;">
-                        <div class="col-12" >
+                        <div class="col-12">
                             <div class="task" draggable="true">
                                 <div class="tags">
                                     <iframe

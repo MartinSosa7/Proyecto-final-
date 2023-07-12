@@ -144,10 +144,14 @@ export class CreacionAreasComponent implements OnInit {
     if (this.responsables.includes(responsable)) {
       this.toast.error('El usuario ya está listado', 'Error');
     } else {
-      this.responsables.push(responsable);
+      const responsableExistente = this.area.responsables.find(res => res._id === responsable._id);
+      if (responsableExistente) {
+        this.toast.error('El usuario ya está listado', 'Error');
+      } else {
+        this.responsables.push(responsable);
+      }
     }
   }
-
 
   eliminarResponsable(id: any) {
     const index = this.responsables.findIndex(t => t._id === id);
