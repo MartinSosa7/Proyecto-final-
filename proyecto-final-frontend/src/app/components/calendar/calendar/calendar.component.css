@@ -7,10 +7,9 @@
   .box-calendar {
     margin-top: 10px;
     position: relative;
-    height: 100vh;
+    height: auto;
     display: block;
     flex-direction: column;
-    min-height: calc(100% - (100vh + 215.98px)) !;
     justify-content: initial !important;
   }
 
