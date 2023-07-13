@@ -9,8 +9,8 @@ import { Usuario } from '../models/usuario';
 })
 export class LoginService {
 
-  //hostBase:string= "http://localhost:3000/api/"; // reeemplazar localhost por ip publica del servidor cuando compile para produccion
-  hostBase:string= "http://52.7.172.203:3000/api/"; // reeemplazar localhost por ip publica del servidor cuando compile para produccion
+  hostBase:string= "http://localhost:3000/api/"; // reeemplazar localhost por ip publica del servidor cuando compile para produccion
+  //hostBase:string= "http://52.7.172.203:3000/api/"; // reeemplazar localhost por ip publica del servidor cuando compile para produccion
   urlBase:string= this.hostBase + "persona/";
   
   constructor(private _http:HttpClient) { 
