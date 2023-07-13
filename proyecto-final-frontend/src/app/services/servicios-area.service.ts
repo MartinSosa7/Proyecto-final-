@@ -90,7 +90,7 @@ export class ServiciosAreaService {
       params: new HttpParams().append('tipo',tipo)
     }
 
-    return this._http.get("http//:localhost/api/area/general/"+tipo, HttpOptions);
+    return this._http.get(this.areaURL + "general/"+tipo, HttpOptions);
   }
 
 }
