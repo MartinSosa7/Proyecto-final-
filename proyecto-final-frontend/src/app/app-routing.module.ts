@@ -15,6 +15,7 @@ import { NewFormularioComponent } from './components/Recursos/new-formulario/new
 import { FormularioComponent } from './components/Recursos/formulario/formulario.component';
 import { CalendarComponent } from './components/calendar/calendar/calendar.component';
 import { ListaAreasComponent } from './components/gestion/lista-areas/lista-areas.component';
+import { MapaComponent } from './components/mapa/mapa.component';
 
 
 const routes: Routes = [
@@ -33,7 +34,7 @@ const routes: Routes = [
   {path:'recurso', component:FormularioComponent},
   {path:'calendar', component: CalendarComponent},
   {path:'lista-areas',component: ListaAreasComponent}, 
-  
+  {path:'mapa',component: MapaComponent}, 
   
   { path:"**", pathMatch:'full', redirectTo:'home'},
 
