@@ -38,8 +38,8 @@
 
 
 
-    <div class="col-md-4 ">
-      <aside class="bg-white p-4" style="min-height: 550px;">
+    <div class="col-md-4">
+      <aside class="p-4 aside-cont">
         <h5>Enlaces útiles</h5>
         <div>
           <label for="turno">Elegir Turno</label>
@@ -57,9 +57,9 @@
                 1er Grado
               </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-              <div class="accordion-body" *ngFor="let area of listaAreas">
-                <button class="button-link"
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample" style="margin-left: 20px;">
+              <div *ngFor="let area of listaAreas" style="margin-top: 10px; margin-bottom: 5px;">
+                <button class="btn-anuncio"
                   *ngIf="area.grado == '1' && area.turno == turno"  (click)="verArea(area._id)">{{area.nombreArea}} {{area.turno}} </button>
               </div>
             </div>
@@ -72,9 +72,9 @@
                 2do Grado
               </button>
             </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-              <div class="accordion-body" *ngFor="let area of listaAreas">
-                <button class="button-link" *ngIf="area.grado == '2' && area.turno == turno"  (click)="verArea(area._id)">{{area.nombreArea}} {{area.turno}} </button>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample" style="margin-left: 20px;">
+              <div *ngFor="let area of listaAreas" style="margin-top: 10px; margin-bottom: 5px;">
+                <button class="btn-anuncio" *ngIf="area.grado == '2' && area.turno == turno"  (click)="verArea(area._id)">{{area.nombreArea}} {{area.turno}} </button>
               </div>
             </div>
           </div>
@@ -86,9 +86,9 @@
                 3er Grado
               </button>
             </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-              <div class="accordion-body" *ngFor="let area of listaAreas">
-                <button class="button-link" *ngIf="area.grado == '3' && area.turno == turno" (click)="verArea(area._id)">{{area.nombreArea}} {{area.turno}} </button>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample" style="margin-left: 20px;">
+              <div *ngFor="let area of listaAreas" style="margin-top: 10px; margin-bottom: 5px;">
+                <button class="btn-anuncio" *ngIf="area.grado == '3' && area.turno == turno" (click)="verArea(area._id)">{{area.nombreArea}} {{area.turno}} </button>
               </div>
             </div>
           </div>
@@ -100,9 +100,9 @@
                 4to Grado
               </button>
             </h2>
-            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-              <div class="accordion-body" *ngFor="let area of listaAreas">
-                <button class="button-link" *ngIf="area.grado == '4' && area.turno == turno" (click)="verArea(area._id)">{{area.nombreArea}} {{area.turno}} </button>
+            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample" style="margin-left: 20px;">
+              <div *ngFor="let area of listaAreas" style="margin-top: 10px; margin-bottom: 5px;">
+                <button class="btn-anuncio" *ngIf="area.grado == '4' && area.turno == turno" (click)="verArea(area._id)">{{area.nombreArea}} {{area.turno}} </button>
               </div>
             </div>
           </div>
@@ -114,9 +114,9 @@
                 5to Grado
               </button>
             </h2>
-            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-              <div class="accordion-body" *ngFor="let area of listaAreas">
-                <button class="button-link" *ngIf="area.grado == '5' && area.turno == turno" (click)="verArea(area._id)">{{area.nombreArea}} {{area.turno}} </button>
+            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample" style="margin-left: 20px;">
+              <div *ngFor="let area of listaAreas" style="margin-top: 10px; margin-bottom: 5px;">
+                <button class="btn-anuncio" *ngIf="area.grado == '5' && area.turno == turno" (click)="verArea(area._id)">{{area.nombreArea}} {{area.turno}} </button>
               </div>
             </div>
           </div>
@@ -128,9 +128,9 @@
                 6to Grado
               </button>
             </h2>
-            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-              <div class="accordion-body" *ngFor="let area of listaAreas">
-                <button class="button-link" *ngIf="area.grado == '6' && area.turno == turno" (click)="verArea(area._id)">{{area.nombreArea}} {{area.turno}} </button>
+            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample" style="margin-left: 20px;">
+              <div *ngFor="let area of listaAreas" style="margin-top: 10px; margin-bottom: 5px;">
+                <button class="btn-anuncio" *ngIf="area.grado == '6' && area.turno == turno" (click)="verArea(area._id)">{{area.nombreArea}} {{area.turno}} </button>
               </div>
             </div>
           </div>
@@ -142,9 +142,9 @@
                 7mo Grado
               </button>
             </h2>
-            <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-              <div class="accordion-body" *ngFor="let area of listaAreas">
-                <button class="button-link" *ngIf="area.grado == '7'&& area.turno == turno" (click)="verArea(area._id)">{{area.nombreArea}} {{area.turno}} </button>
+            <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionExample" style="margin-left: 20px;">
+              <div *ngFor="let area of listaAreas" style="margin-top: 10px; margin-bottom: 5px;">
+                <button class="btn-anuncio" *ngIf="area.grado == '7'&& area.turno == turno" (click)="verArea(area._id)">{{area.nombreArea}} {{area.turno}} </button>
               </div>
             </div>
           </div>
