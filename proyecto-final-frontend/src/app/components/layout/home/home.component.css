@@ -203,3 +203,6 @@ img {
     border-radius: 10px;
     justify-content: center;
   }
+.form-select{
+  margin-bottom: 10px;
+}
