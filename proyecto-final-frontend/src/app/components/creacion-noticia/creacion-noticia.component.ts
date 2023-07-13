@@ -5,6 +5,7 @@ import { Anuncio } from 'src/app/models/anuncio';
 import { Area } from 'src/app/models/area';
 import { ServiciosAnuncioService } from 'src/app/services/servicios-anuncio.service';
 import { ServiciosAreaService } from 'src/app/services/servicios-area.service';
+import { Toast, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'creacion-noticia',
@@ -34,7 +35,12 @@ export class CreacionNoticiaComponent implements OnInit {
   personaActual:any;
 
   sessionStorage: Storage;
-  constructor(private sanitizer: DomSanitizer, private servicios: ServiciosAnuncioService,private activatedRoute: ActivatedRoute, private router: Router, private serviciosArea: ServiciosAreaService) {
+  constructor(private sanitizer: DomSanitizer, 
+              private servicios: ServiciosAnuncioService,
+              private activatedRoute: ActivatedRoute, 
+              private router: Router, 
+              private serviciosArea: ServiciosAreaService,
+              private toast: ToastrService) {
 
     this.Anuncio = new Anuncio();
     this.files = [];
@@ -166,7 +172,8 @@ export class CreacionNoticiaComponent implements OnInit {
     console.log(anuncio);
     this.servicios.postAnuncio(anuncio, this.idArea).subscribe(
       result=>{
-        alert(result.msg);
+        //alert(result.msg);
+        this.toast.success('El Anuncio se creo Correctamente', 'Nuevo Anuncio')
         this.router.navigate(['vista-areas']);
       },
       error=>{
@@ -196,7 +203,8 @@ export class CreacionNoticiaComponent implements OnInit {
     });
     this.servicios.putAnuncio(idArea,idAnuncio,Anuncio).subscribe(
       result=>{
-        alert(result.msg);
+        //alert(result.msg);
+        this.toast.success('El Anuncio se Modifico Correctamente', 'Se Modifico el Anuncio')
         // Update the local Anuncio object with modified data
         Object.assign(this.Anuncio, result);
         Object.assign(this.files, result.recursos)
@@ -213,7 +221,8 @@ export class CreacionNoticiaComponent implements OnInit {
   eliminarAnuncio(idArea:any, idAnuncio:any){
     this.servicios.deleteAnuncio(idArea,idAnuncio).subscribe(
       result=>{
-        alert(result.msg);
+        //alert(result.msg);
+        this.toast.error('El Anuncio se Elimino Correctamente', 'Elimidado')
         this.closeModal();
         this.router.navigate(['vista-areas',this.idArea]);
       },

@@ -5,6 +5,7 @@ import { Formulario } from 'src/app/models/formulario';
 import { Rol } from 'src/app/models/rol';
 import { FormularioService } from 'src/app/services/recursos/formulario.service';
 import { RolService } from 'src/app/services/rol.service';
+import { Toast, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-new-formulario',
@@ -33,7 +34,8 @@ export class NewFormularioComponent implements OnInit {
 
   constructor(private formService:FormularioService,
               private router : Router,
-              private actRouter : ActivatedRoute) {
+              private actRouter : ActivatedRoute, 
+              private toast: ToastrService) {
   
   this.form  = new Formulario();
   this.id    = ''; 
@@ -63,7 +65,8 @@ export class NewFormularioComponent implements OnInit {
     this.formService.createFormulario(f).subscribe(
       result=>{
         this.form = new Formulario();
-        alert('Formulario guardado');
+        //alert('Formulario guardado');
+        this.toast.success('El Resurso se Cargo Correctamente', 'Cargado')
         this.volver();
       },
       error=>{
@@ -87,7 +90,8 @@ export class NewFormularioComponent implements OnInit {
   modificarForm(form:Formulario){
     this.formService.putFormulario(form).subscribe(
       result=>{
-        alert(result.msg);
+        //alert(result.msg);
+        this.toast.info('El Resurso se Modifico', 'Modificado')
       },
       error=>{
         console.log(error);
@@ -98,8 +102,9 @@ export class NewFormularioComponent implements OnInit {
   EliminarForm(form:Formulario){
     this.formService.deleteForm(form).subscribe(
       result=>{
-        alert(result.msg);
+        //alert(result.msg);
         this.closeModal();
+        this.toast.error('El Resurso se Elimino', 'Eliminado')
         this.router.navigate(['recurso'])
       },
       error=>{
