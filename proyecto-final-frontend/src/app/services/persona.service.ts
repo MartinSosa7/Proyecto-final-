@@ -79,15 +79,11 @@ export class PersonaService {
     return this._http.delete(this.urlBase + "eliminar/" + id,httpOptions);
   }
 
-  public getPersonaByRol(rol:any):Observable<any>{
-    const httpOptions={
-      headers: new HttpHeaders({
-        
-      }),
-      params : new HttpParams()
-      .append("rol",rol)
-    }
-    return this._http.get(this.urlBase + "filtro/" + rol ,httpOptions);
+  public getPersonaByRol(rol: string): Observable<any> {
+    const httpOptions = {
+      params: new HttpParams().append("rol", rol)
+    };
+    return this._http.get<any>(this.urlBase + "filtro/" + encodeURIComponent(rol), httpOptions);
   }
 
   public addRol(rol:Rol,idPersona:string):Observable<any>{

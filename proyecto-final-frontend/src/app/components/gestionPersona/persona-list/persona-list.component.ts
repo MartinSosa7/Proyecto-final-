@@ -24,7 +24,7 @@ export class PersonaListComponent implements OnInit {
   rol:Rol=new Rol();
   area:Area=new Area();
 
-  filtroRol:any;
+  filtroRol!:string;
   
   constructor(private router:Router,
               private personaService:PersonaService,
@@ -89,6 +89,7 @@ export class PersonaListComponent implements OnInit {
     this.personas= new Array<Persona>();
     this.personaService.getPersonaByRol(rol).subscribe(
       (result)=>{
+        console.log(result);
         var unaPersona = new Persona();
         result.forEach((element:any)=>{
           Object.assign(unaPersona, element);

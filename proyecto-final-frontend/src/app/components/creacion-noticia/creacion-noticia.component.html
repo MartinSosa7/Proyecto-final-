@@ -144,6 +144,7 @@
 
   <div *ngIf="edicion_vista == 'vista'">
     <h1 style="text-align: center; color: white; font-size: 2.5em;" class="mt-5">{{Anuncio.titulo}}</h1>
+    <h2 style="color: white; text-align: center;">{{Anuncio.descripcionCard}}</h2>
     <div [innerHTML]="sanitizeHtml(Anuncio.descripcion)" style="background-color: white;min-height: 700px;"
       class=" p-4 my-5 rounded-4">
     </div>
