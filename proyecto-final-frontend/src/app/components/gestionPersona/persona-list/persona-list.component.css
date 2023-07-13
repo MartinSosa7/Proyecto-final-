@@ -13,14 +13,15 @@
 }
 .titulo{
     text-align: center;
-    background: #b09766;
+    background: #b097669f;
     font-family: Roboto;
     
 }
 
 .titulo2{
     text-align: center;
-    font-family: Roboto;
+    font-family: 'Times New Roman', Times, serif;
+    padding-top:10px
     
 }
 

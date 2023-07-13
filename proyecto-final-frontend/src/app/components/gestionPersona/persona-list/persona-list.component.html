@@ -8,7 +8,7 @@
     
             <div class="col-12 col-sm-12 col-md-4">
               <div class="card m-3 ">
-                      <h5 class="card-header titulo  text-center">Filtrar por ROL</h5>
+                      <h5 class="card-header titulo  text-center">Filtrar por Rol</h5>
                       <div class="card-body vstack gap-2 mx-auto">
                           <select class="form-select " id="filtroRol" name="filtroRol" [(ngModel)]="filtroRol" (change)="filtrarRol(filtroRol)">
                             <option value="administrador/a">administrador/a</option>
@@ -60,7 +60,7 @@
                       </div>
                   </div>
                   <div  style="display: flex;align-content: flex-end;" *ngIf="sessionStorage.getItem('rol')=='SuperUsuario'">
-                    <button class="ov-btn-grow-skew" (click)="infoSuperUsuario()">info del SuperUsuario</button>
+                    <button class="ov-btn-grow-skew" (click)="infoSuperUsuario()">Info del SuperUsuario</button>
                   </div>
                   <div class="row mt-3 p-5 bg-white">
                       <div class="table-responsive">
