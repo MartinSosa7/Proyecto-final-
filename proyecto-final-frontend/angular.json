@@ -23,6 +23,7 @@
               "src/favicon.ico",
               "src/assets",
               {"glob": "**/*", "input": "node_modules/tinymce", "output": "/tinymce/"}
+              
 
             ],
             "styles": [
@@ -45,7 +46,8 @@
               "node_modules/tinymce/plugins/link/plugin.min.js",
               "node_modules/tinymce/plugins/image/plugin.min.js",
               "node_modules/tinymce/plugins/wordcount/plugin.min.js",
-              "node_modules/tinymce/plugins/table/plugin.min.js"
+              "node_modules/tinymce/plugins/table/plugin.min.js",
+              "node_modules/tinymce/models/dom/model.min.js"
 
 
 
