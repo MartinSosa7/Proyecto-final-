@@ -114,11 +114,9 @@ personaCtrl.deletePersona = async (req, res)=>{
 
 
 personaCtrl.getPersonaByType = async (req, res) => {
-    criteria = {};
-    criteria.rol = req.query.rol;
-    const persona = await Persona.filter(criteria);
-    console.log(persona);
-    res.json(persona);
+    
+    var personas = await Persona.find({rol:req.query.rol});
+    res.json(personas);
 }
 
 personaCtrl.loginUsuario = async (req, res)=>{

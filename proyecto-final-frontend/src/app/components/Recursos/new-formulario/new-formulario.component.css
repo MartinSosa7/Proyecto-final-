@@ -96,3 +96,160 @@ button:hover:after {
     text-shadow: 0px 0px 4px rgb(255, 255, 255);
 }
 
+.button-borrar {
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: red;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    background: #e62222;
+   }
+   
+   .button-borrar, .button-borrar span {
+    transition: 200ms;
+   }
+   
+   .button-borrar .text {
+    transform: translateX(35px);
+    color: white;
+    font-weight: bold;
+   }
+   
+   .button-borrar {
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: red;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+  }
+  
+  .button-borrar, .button-borrar span {
+    transition: 200ms;
+  }
+  
+  .button-borrar .text {
+    transform: translateX(35px);
+    color: white;
+    font-weight: bold;
+  }
+  
+  .button-borrar .icon {
+    position: absolute;
+    border-left: 1px solid #c41b1b;
+    transform: translateX(110px);
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button-borrar svg {
+    width: 15px;
+    fill: #eee;
+  }
+  
+  .button-borrar:hover {
+    background: #ff3636;
+  }
+  
+  .button-borrar:hover .text {
+    color: transparent;
+  }
+  
+  .button-borrar:hover .icon {
+    width: 150px;
+    border-left: none;
+    transform: translateX(0);
+  }
+  
+  .button-borrar:focus {
+    outline: none;
+  }
+  
+  .button-borrar:active .icon svg {
+    transform: scale(0.8);
+  }
+
+  .custom-file-input {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .custom-file-input input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .button-subir {
+    position: relative;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid #34974d;
+    background-color: #3aa856;
+  }
+  
+  .button-subir,
+  .button-subir__icon,
+  .button-subir__text {
+    transition: all 0.3s;
+  }
+  
+  .button-subir .button-subir__text {
+    transform: translateX(30px);
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  .button-subir .button-subir__icon {
+    position: absolute;
+    transform: translateX(109px);
+    height: 100%;
+    width: 39px;
+    background-color: #34974d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button-subir .svg {
+    width: 30px;
+    stroke: #fff;
+  }
+  
+  .button-subir:hover {
+    background: #34974d;
+  }
+  
+  .button-subir:hover .button-subir__text {
+    color: transparent;
+  }
+  
+  .button-subir:hover .button-subir__icon {
+    width: 148px;
+    transform: translateX(0);
+  }
+  
+  .button-subir:active .button-subir__icon {
+    background-color: #2e8644;
+  }
+  
+  .button-subir:active {
+    border: 1px solid #2e8644;
+  }
