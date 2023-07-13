@@ -100,7 +100,8 @@ export class CreacionAreasComponent implements OnInit {
     this.area.responsables = this.responsables;
     this.servicios.postArea(area).subscribe(
       result => {
-        alert(result.msg);
+        //alert(result.msg);
+        this.toast.success('El Area se a Creado', 'Nueva Area');
         this.router.navigate(['lista-areas']);
 
       },
@@ -114,7 +115,8 @@ export class CreacionAreasComponent implements OnInit {
     this.area.responsables = this.responsables;
     this.servicios.putArea(idArea, area).subscribe(
       result => {
-        alert(result.msg);
+        //alert(result.msg);
+        this.toast.info('El Area se a modificado', 'Modificado');
         this.router.navigate(['lista-areas']);
 
       },
@@ -127,7 +129,8 @@ export class CreacionAreasComponent implements OnInit {
   eliminarArea(idArea: any) {
     this.servicios.deleteArea(idArea).subscribe(
       result => {
-        alert(result.msg);
+        //alert(result.msg);
+        this.toast.error('El Area se a eliminado', 'Eliminado');
         this.closeModal();
         this.router.navigate(['lista-areas']);
 
