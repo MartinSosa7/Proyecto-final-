@@ -152,12 +152,12 @@
         
       </div>
       <div class="col-12 justify-content-md-center">
-        <button [disabled]="!personaForm.form.valid" *ngIf="accion=='new'" class="ov-btn-grow-spin" type="button"
+          <button [disabled]="!personaForm.form.valid" *ngIf="accion=='new'" class="ov-btn-grow-spin" type="button"
           (click)="guardarPersona(personaForm)"> Guardar Nuevo </button>
         <button [disabled]="!personaForm.form.valid" *ngIf="accion=='update'" class="ov-btn-grow-spin" type="button"
           (click)="actualizarPersona(personaForm)"> Actualizar </button>
         <button type="button" class="ov-btn-grow-spin" (click)="regresar()">Regresar</button>
-      </div>
+        </div>
     </form>
 
   </div>

@@ -23,6 +23,7 @@
               "src/favicon.ico",
               "src/assets",
               {"glob": "**/*", "input": "node_modules/tinymce", "output": "/tinymce/"}
+              
 
             ],
             "styles": [
@@ -32,10 +33,24 @@
               "./node_modules/quill/dist/quill.bubble.css",
               "./node_modules/quill/dist/quill.snow.css",
               "node_modules/ngx-toastr/toastr.css"
+              
+              
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "node_modules/tinymce/tinymce.min.js"
+              "node_modules/tinymce/tinymce.min.js",
+              "node_modules/tinymce/plugins/autoresize/plugin.js",
+              "node_modules/tinymce/themes/silver/theme.min.js",
+              "node_modules/tinymce/icons/default/icons.min.js",
+              "node_modules/tinymce/plugins/lists/plugin.min.js",
+              "node_modules/tinymce/plugins/link/plugin.min.js",
+              "node_modules/tinymce/plugins/image/plugin.min.js",
+              "node_modules/tinymce/plugins/wordcount/plugin.min.js",
+              "node_modules/tinymce/plugins/table/plugin.min.js",
+              "node_modules/tinymce/models/dom/model.min.js"
+
+
+
 
             ]
           },
