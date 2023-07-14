@@ -4,9 +4,14 @@ const { mongoose } = require('./database');
 
 var app = express();
 
+const corsOptions = {
+    origin: ['http://52.7.172.203', 'http://localhost:4200'] // En casos de prueba
+    //origin: 'http://52.7.172.203'                            // Para entregar completamente la aplicación
+  };
+
 //middlewares
 app.use(express.json({ limit: '1000mb' }));
-app.use(cors());
+app.use(cors(corsOptions));
 //app.use(cors({ origin: 'http://localhost:4200' }));
 
 //Cargamos el modulo de direccionamiento de rutas
