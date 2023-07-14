@@ -42,8 +42,14 @@
       </div>
       <div class="col-2"></div>
     </div>
-
+<!-- 
     <editor [init]="editorConfig" [(ngModel)]="Anuncio.descripcion"></editor>
+-->
+    <!-- Quill  -->
+        <quill-editor class="form-control ql-editor" [(ngModel)]="Anuncio.descripcion" name="descripcion" style="height: 800px;"></quill-editor>
+
+
+    <!-- Quill  -->
 
     <div class="mx-3">
 

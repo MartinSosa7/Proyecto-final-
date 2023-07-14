@@ -32,6 +32,7 @@ import { CalendarComponent } from './components/calendar/calendar/calendar.compo
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { ListaAreasComponent } from './components/gestion/lista-areas/lista-areas.component';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { ListaAreasComponent } from './components/gestion/lista-areas/lista-area
     EditorModule,
     OAuthModule.forRoot(),
 
+    QuillModule,
 
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added

@@ -6,6 +6,7 @@ import { Area } from 'src/app/models/area';
 import { ServiciosAnuncioService } from 'src/app/services/servicios-anuncio.service';
 import { ServiciosAreaService } from 'src/app/services/servicios-area.service';
 import { Toast, ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'creacion-noticia',
@@ -22,6 +23,7 @@ export class CreacionNoticiaComponent implements OnInit {
     height: '950',
     autoresize: 'ON'
   }
+
 
   Anuncio: Anuncio;
   files: { base64: string,  id: number, type: string, name:string }[] = [];
@@ -216,6 +218,8 @@ export class CreacionNoticiaComponent implements OnInit {
       }
     )
   }
+
+
   
 
   eliminarAnuncio(idArea:any, idAnuncio:any){
