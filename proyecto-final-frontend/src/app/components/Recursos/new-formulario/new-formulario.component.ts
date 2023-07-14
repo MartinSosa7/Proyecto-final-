@@ -91,7 +91,7 @@ export class NewFormularioComponent implements OnInit {
     this.formService.putFormulario(form).subscribe(
       result=>{
         //alert(result.msg);
-        this.toast.info('El Resurso se Modifico', 'Modificado')
+        this.toast.info('El Recurso se Modifico', 'Modificado')
       },
       error=>{
         console.log(error);
