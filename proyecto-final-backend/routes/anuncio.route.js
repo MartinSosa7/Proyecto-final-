@@ -11,7 +11,7 @@ router.get('/', anuncioCtrl.getAnuncios);
 router.post('/', anuncioCtrl.createAnuncio);
 router.put('/update/:id', anuncioCtrl.editAnuncio);
 router.delete('/eliminar/:id', anuncioCtrl.deleteAnuncio);
-router.get('/filtro/:name', anuncioCtrl.getAnuncioByName);
+router.get('/general/:tipo', anuncioCtrl.getAnunciosGenerales);
 
 //exportamos el modulo de rutas
 module.exports = router;

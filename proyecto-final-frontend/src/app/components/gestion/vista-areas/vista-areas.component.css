@@ -1,0 +1,255 @@
+.btn-anuncio {
+    --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
+    --border-width: .125em;
+    --curve-size: .5em;
+    --blur: 30px;
+    --bg: #080312;
+    --color: #afffff;
+    color: var(--color);
+      /* use position: relative; so that BG is only for .btn */
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    place-content: center;
+    padding: .5em 1.5em;
+    font-size: 17px;
+    border: 0;
+    text-transform: uppercase;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
+    clip-path: polygon(
+              /* Top-left */
+              0% var(--curve-size),
+  
+              var(--curve-size) 0,
+              /* top-right */
+              100% 0,
+              100% calc(100% - var(--curve-size)),
+  
+              /* bottom-right 1 */
+              calc(100% - var(--curve-size)) 100%,
+              /* bottom-right 2 */
+              0 100%);
+    transition: color 250ms;
+  }
+  
+  .btn-anuncio::after,
+  .btn-anuncio::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+  
+  .btn-anuncio::before {
+    background: var(--border-color);
+    background-size: 300% 300%;
+    animation: move-bg7234 5s ease infinite;
+    z-index: -2;
+  }
+  
+  @keyframes move-bg7234 {
+    0% {
+      background-position: 31% 0%
+    }
+  
+    50% {
+      background-position: 70% 100%
+    }
+  
+    100% {
+      background-position: 31% 0%
+    }
+  }
+  
+  .btn-anuncio::after {
+    background: var(--bg);
+    z-index: -1;
+    clip-path: polygon(
+              /* Top-left */
+              var(--border-width) 
+              calc(var(--curve-size) + var(--border-width) * .5),
+  
+              calc(var(--curve-size) + var(--border-width) * .5) var(--border-width),
+  
+              /* top-right */
+              calc(100% - var(--border-width)) 
+              var(--border-width),
+  
+              calc(100% - var(--border-width)) 
+              calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+  
+              /* bottom-right 1 */
+              calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
+              /* bottom-right 2 */
+              var(--border-width) calc(100% - var(--border-width)));
+    transition: clip-path 500ms;
+  }
+  
+  .btn-anuncio:where(:hover, :focus)::after {
+    clip-path: polygon(
+                  /* Top-left */
+                  calc(100% - var(--border-width)) 
+  
+                  calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      
+                  calc(100% - var(--border-width))
+  
+                  var(--border-width),
+      
+                  /* top-right */
+                  calc(100% - var(--border-width))
+  
+                   var(--border-width),
+      
+                  calc(100% - var(--border-width)) 
+  
+                  calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+      
+                  /* bottom-right 1 */
+                  calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) 
+                  calc(100% - var(--border-width)),
+  
+                  /* bottom-right 2 */
+                  calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+                  calc(100% - var(--border-width)));
+    transition: 200ms;
+  }
+  
+  .btn-anuncio:where(:hover, :focus) {
+    color: #fff;
+  }
+
+
+
+
+
+
+
+  
+  
+  
+  .card-anuncio .card__image {
+    flex: 1;
+    height: 140px;
+  }
+  
+  .card-anuncio-1 {
+    background: linear-gradient(
+        to right top,
+        #051937, 
+        #004d7a, 
+        #008793, 
+        #00bf72, 
+        #a8eb12
+    );
+  }
+  
+  .card-anuncio-2 {
+    background: linear-gradient(
+      to right top, 
+      #dc09a5, 
+      #ce00b4, 
+      #ba00c5, 
+      #9c00d8, 
+      #6f12eb
+    );
+  }
+
+  
+  .card-anuncio-3 {
+    background: linear-gradient(
+      to right top, 
+      #dc1009, 
+      #e55f00, 
+      #e49200, 
+      #dac000, 
+      #c7eb12
+    );
+  }
+
+  .card-anuncio-4 {
+    background: linear-gradient(
+      to right top,
+      #e68433,
+      #eeff00,
+      #c8ff00,
+      #ffc000,
+      #f5af00
+    );
+  }
+  
+  
+  
+  .card-anuncio-5 {
+    background: linear-gradient(
+      to right top,
+      #ac3939,
+      #db2e0f,
+      #fd0000,
+      #c72020,
+      #a71e1e
+    );
+  }
+
+  .card-anuncio-6 {
+    background: linear-gradient(
+      to right top,
+      #00a896,
+      #02c39a,
+      #00e8a3,
+      #3af9ad,
+      #a8eb12
+    );
+  }
+  
+  .card-anuncio-7 {
+    background: linear-gradient(
+      to right top,
+      #1287a8,
+      #1493b8,
+      #15a4c8,
+      #17b6d8,
+      #19c6e9
+    );
+  }
+
+  .card-anuncio-8 {
+    background: linear-gradient(
+        to right top,
+        #1c5008, 
+        #007a14, 
+        #009307, 
+        #00bf76, 
+        #a8eb12
+    );
+  }
+
+
+  .background-areas {
+    background: linear-gradient(
+      to right,
+      #14f7ff,
+      #0e91ce,
+      #3047af,
+      #602194,
+      #bb7b03
+    );
+    background-size: 200% auto;
+    animation: gradientAnimation 12s linear infinite;
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+
+  
+  
+  

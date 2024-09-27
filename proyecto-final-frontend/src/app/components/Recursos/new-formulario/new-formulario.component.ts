@@ -13,7 +13,6 @@ import { RolService } from 'src/app/services/rol.service';
 })
 export class NewFormularioComponent implements OnInit {
 
-  roles:Array<Rol>;
   form:Formulario;
   id:string;
   private sub: any;
@@ -28,101 +27,60 @@ export class NewFormularioComponent implements OnInit {
 
 
   constructor(private formService:FormularioService,
-              private rolService:RolService,
               private router : Router,
               private actRouter : ActivatedRoute,
               private sanitizer: DomSanitizer) {
   
-
-  this.roles = new Array<Rol>();
   this.form  = new Formulario();
   this.id    = ''; 
-
-  // this.cargarRoles();
 
   }
 
   ngOnInit(): void {
 
-    this.sub = this.actRouter.params.subscribe(
-      params => {
-        this.id = params['id']; 
-        if (this.id.length != 0){
-          this.formService.getFormulario(this.id).subscribe(
-            result=>{
-              this.form = result;
-            },
-            error=>{
-              console.log('Error al cargar el Formulario')
-            }
-          )
-        }
-    });
+    // this.sub = this.actRouter.params.subscribe(
+    //   params => {
+    //     this.id = params['id']; 
+    //     if (this.id.length != 0){
+    //       this.formService.getFormulario(this.id).subscribe(
+    //         result=>{
+    //           this.form = result;
+    //         },
+    //         error=>{
+    //           console.log('Error al cargar el Formulario')
+    //         }
+    //       )
+    //     }
+    // });
 
-  }
-
-  cargarRoles(){
-    this.rolService.getRoles().subscribe(
-      result=>{
-        this.roles = result;
-        // if (this.roles.length <= 0) {
-        //   alert('Debe crear Roles para poder crear un nuevo formulario');
-        // }
-      },
-      error=>{
-        console.log(error);
-      }
-    )
-  }
-
-  getResultado(): Array<Rol> {
-    return this.roles.filter(item => item.checked);
-  }
-
-  changeCheckbox(event: Event) {
-    console.log(event.target);
-  }
-
-  guardarForm(f:Formulario) {
-    f.mostrarPara = this.getResultado();
-    this.formService.createFormulario(f).subscribe(
-      result=>{
-        this.form = new Formulario();
-        alert('Formulario guardado');
-        this.volver();
-      },
-      error=>{
-        console.log(error);
-      }
-    )
   }
 
   volver(){
     this.router.navigate(['recurso']);
   }
-  
-  sanitizeHtml(html: string): SafeHtml {
-    return this.sanitizer.bypassSecurityTrustHtml(html);
-  }
 
-  onFileSelected(event: any) {
-    const files = event.target.files;
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      const reader = new FileReader();
-      reader.onload = () => {
-        let base64 = reader.result as string;
-        const fileType = file.type;
-        this.files.push({ 'base64': base64, 'id': this.files.length + 1, 'type': file.type, 'safeurl': this.sanitizeUrl(base64) });
-      };
-      reader.readAsDataURL(file);
+  selectedFile: File | null = null;
+
+  onFileSelected(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    if (inputElement.files && inputElement.files.length > 0) {
+      this.selectedFile = inputElement.files[0];
     }
   }
 
-  sanitizeUrl(base64: string): SafeUrl {
-    const safeUrl = this.sanitizer.bypassSecurityTrustUrl(base64);
-    return safeUrl;
+  guardarForm(f:Formulario) {
+    if (this.selectedFile){
+      this.formService.createFormulario(f ,this.selectedFile).subscribe(
+        result=>{
+          this.form = new Formulario();
+          alert('Formulario guardado');
+          this.volver();
+        },
+        error=>{
+          console.log(error);
+        }
+      )
+    }
   }
-
 
 }
