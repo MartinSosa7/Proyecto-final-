@@ -1,0 +1,149 @@
+<div class="container">
+    <div>
+      <button class="my-5 btn-anuncio" (click)="crearArea()">Crear Area</button>
+    </div>
+    
+
+
+    <div style="width: 100%; overflow-x: auto;">
+       <div class="mb-5">
+        <div class="text-center" style="color: white; font-size: 2.0em;">
+              AREA GENERAL (INICIO)
+        </div>
+        <table class="table table-responsive" style="color: white;font-size: 1.2em;">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Responsables</th>
+                <th>Anuncios/Noticias</th>
+                <th>Info Area</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let area of listaDeAreas; index as i">
+                <th *ngIf="area.tipo == 'general'">{{area.nombreArea}}</th>
+                <td *ngIf="area.tipo == 'general'">
+                  {{area.tipo}}
+                </td>
+                <td *ngIf="area.tipo == 'general'">
+                  <div class="accordion" id="accordion{{i}}">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                          [attr.data-bs-target]="'#collapse' + i" aria-expanded="false">
+                          Responsables
+                        </button>
+                      </h2>
+                      <div [id]="'collapse' + i" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                          <div *ngFor="let responsable of area.responsables">
+                            {{responsable.nombre}}, {{responsable.apellido}}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td *ngIf="area.tipo == 'general'">
+                  <div class="accordion" id="accordionExample2">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                          [attr.data-bs-target]="'#collapseOne' + i" aria-expanded="false">
+                          Anuncios/Noticias
+                        </button>
+                      </h2>
+                      <div [id]="'collapseOne' + i" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                          <div *ngFor="let anuncio of area.anuncios; index as j">{{j + 1}}: {{anuncio.titulo}}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td *ngIf="area.tipo == 'general'">
+                  <button (click)="modificarArea(area._id)" class="btn-anuncio">Modificar</button>
+                  <button (click)="verArea(area._id)" *ngIf="area.tipo != 'general'" class="btn-anuncio">Ver Area...</button>
+                  <button (click)="agregarAnuncio(area._id)" *ngIf="area.tipo == 'general'" class="btn-anuncio">Agregar Anuncio/Noticia</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+       </div> 
+
+       <!--  -->
+
+       <div class="col-md-6 mt-5">
+        <label for="tipo" class="form-label" style="color: white;font-size: 1.8em;">Tipo de Area</label>
+        <select id="tipo" name="tipo" class="form-select" [(ngModel)]="choose">
+          <option value="general">Area General</option>
+          <option value="grado">Grado/Curso</option>
+          <option value="biblioteca">Biblioteca</option>
+          <option value="materia_artistica">Materia Artistica</option>
+        </select>
+      </div>
+      <table class="table table-responsive" style="color: white;font-size: 1.2em;">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th *ngIf="choose == 'grado'">Turno</th>
+            <th>Responsables</th>
+            <th>Anuncios/Noticias</th>
+            <th>Info Area</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let area of listaDeAreas; index as i">
+            <th *ngIf="area.tipo == choose">{{area.nombreArea}}</th>
+            <td *ngIf="area.tipo == choose">
+              {{area.tipo}}
+            </td>
+            <td *ngIf="choose == 'grado'">{{area.turno}}</td>
+            <td *ngIf="area.tipo == choose">
+              <div class="accordion" id="accordion{{i}}">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                      [attr.data-bs-target]="'#collapse' + i" aria-expanded="false">
+                      Responsables
+                    </button>
+                  </h2>
+                  <div [id]="'collapse' + i" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                      <div *ngFor="let responsable of area.responsables">
+                        {{responsable.nombre}}, {{responsable.apellido}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td *ngIf="area.tipo == choose">
+              <div class="accordion" id="accordionExample2">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                      [attr.data-bs-target]="'#collapseOne' + i" aria-expanded="false">
+                      Anuncios/Noticias
+                    </button>
+                  </h2>
+                  <div [id]="'collapseOne' + i" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                      <div *ngFor="let anuncio of area.anuncios; index as j">{{j + 1}}: {{anuncio.titulo}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td *ngIf="area.tipo == choose">
+              <button (click)="modificarArea(area._id)" class="btn-anuncio">Modificar</button>
+              <button class="btn-anuncio" (click)="verArea(area._id)" *ngIf="area.tipo == choose">Ver Area...</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

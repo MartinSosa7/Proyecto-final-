@@ -5,14 +5,12 @@ const anuncioCtrl = {}
 anuncioCtrl.getAnuncio = async (req, res) => {
     console.log(req.params.id);
     const aanuncio = await Anuncio.findById(req.params.id)
-    .populate('area')
     res.json(aanuncio);
     console.log(aanuncio);
 }
 
 anuncioCtrl.getAnuncios = async (req, res) => {
     var aanuncios = await Anuncio.find()
-    .populate('area')
     res.json(aanuncios);
 }
 
@@ -64,12 +62,12 @@ anuncioCtrl.deleteAnuncio = async (req, res)=>{
 }
 
 
-anuncioCtrl.getAnuncioByName = async (req, res) => {
+anuncioCtrl.getAnunciosGenerales = async (req, res) => {
     criteria={};
-    if (req.query.name != null){
-        criteria.name = { $regex: req.query.name, $options: "i" }
+    if (req.query.tipo != null){
+        criteria.tipo = req.query.tipo 
     }
-    var anuncio =  await Anuncio.find(criteria).populate('area');
+    var anuncio =  await Anuncio.find(criteria);
     res.json(anuncio);
 }
 
